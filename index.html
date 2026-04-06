@@ -898,58 +898,104 @@ nav.scrolled {
 }
 
 /* ══════════════════════════════════════
-   TESTIMONIAL
+   TESTIMONIAL CAROUSEL
 ══════════════════════════════════════ */
-.testimonial {
-  position: relative;
-  min-height: 65vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+.reviews {
+  background: var(--bg);
+  padding: 80px 0;
   overflow: hidden;
 }
-.testimonial-bg {
-  position: absolute;
-  inset: 0;
+.reviews-heading {
+  text-align: center;
+  margin-bottom: 48px;
+  padding: 0 24px;
 }
-.testimonial-bg img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform 8s ease;
-}
-.testimonial.in-view .testimonial-bg img {
-  transform: scale(1.06);
-}
-.testimonial-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.2);
-}
-.testimonial-content {
-  position: relative;
-  z-index: 2;
-  max-width: 680px;
-  padding: 80px 24px;
-}
-.testimonial blockquote {
+.reviews-heading h2 {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-weight: 400;
-  font-style: italic;
-  line-height: 1.55;
-  color: var(--white);
+  margin-bottom: 8px;
+}
+.reviews-heading p {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white-50);
 }
 
-/* Quote word reveal */
-.testimonial .word {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+.reviews-track {
+  display: flex;
+  gap: 20px;
+  padding: 0 40px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
 }
-.testimonial .word.visible {
-  opacity: 1;
-  transform: translateY(0);
+.reviews-track:active { cursor: grabbing; }
+.reviews-track::-webkit-scrollbar { display: none; }
+
+.review-card {
+  flex: 0 0 420px;
+  max-width: 85vw;
+  min-height: 320px;
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  scroll-snap-align: center;
+  display: flex;
+  align-items: flex-end;
+}
+.review-card-bg {
+  position: absolute;
+  inset: 0;
+}
+.review-card-bg img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.review-card:hover .review-card-bg img {
+  transform: scale(1.05);
+}
+.review-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+}
+.review-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 32px;
+}
+.review-card blockquote {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.review-card cite {
+  font-family: var(--font-ui);
+  font-style: normal;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--white-50);
+}
+.review-stars {
+  color: #c9a84c;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 600px) {
+  .review-card { flex: 0 0 85vw; min-height: 280px; }
+  .reviews-track { padding: 0 20px; gap: 14px; }
 }
 
 /* ══════════════════════════════════════
@@ -1267,14 +1313,53 @@ footer {
   </div>
 </section>
 
-<!-- ════ TESTIMONIAL ════ -->
-<section class="testimonial" id="testimonialSection">
-  <div class="testimonial-bg">
-    <img src="assets/passionfruit.jpg" alt="Passion fruit cocktails">
-    <div class="testimonial-overlay"></div>
+<!-- ════ REVIEWS CAROUSEL ════ -->
+<section class="reviews reveal-up" id="testimonialSection">
+  <div class="reviews-heading">
+    <h2>What People Say</h2>
+    <p>Swipe to see more</p>
   </div>
-  <div class="testimonial-content">
-    <blockquote id="quoteText">&ldquo;Best night out, best cocktails and the best staff ever, love it! Definitely will be back soon. Thank you Thirst&rdquo;</blockquote>
+  <div class="reviews-track" id="reviewsTrack">
+    <div class="review-card">
+      <div class="review-card-bg"><img src="assets/passionfruit.jpg" alt="Cocktails"><div class="review-card-overlay"></div></div>
+      <div class="review-card-content">
+        <div class="review-stars">★★★★★</div>
+        <blockquote>&ldquo;Best night out, best cocktails and the best staff ever, love it! Definitely will be back soon.&rdquo;</blockquote>
+        <cite>— Google Review</cite>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-card-bg"><img src="assets/raspberry-martini.jpg" alt="Cocktails"><div class="review-card-overlay"></div></div>
+      <div class="review-card-content">
+        <div class="review-stars">★★★★★</div>
+        <blockquote>&ldquo;One of the best bars in Soho. Great cocktails, amazing vibes, and the staff really make you feel welcome.&rdquo;</blockquote>
+        <cite>— TripAdvisor</cite>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-card-bg"><img src="assets/dj.jpg" alt="DJ at Thirst"><div class="review-card-overlay"></div></div>
+      <div class="review-card-content">
+        <div class="review-stars">★★★★★</div>
+        <blockquote>&ldquo;The Stupid Hour is genuinely stupid cheap. We stayed until 3am and had the best night. Already planning our next visit.&rdquo;</blockquote>
+        <cite>— Google Review</cite>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-card-bg"><img src="assets/orange-cocktail.jpg" alt="Cocktails"><div class="review-card-overlay"></div></div>
+      <div class="review-card-content">
+        <div class="review-stars">★★★★★</div>
+        <blockquote>&ldquo;Had my birthday here and they absolutely smashed it. The team went above and beyond. 10/10 would recommend.&rdquo;</blockquote>
+        <cite>— Google Review</cite>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-card-bg"><img src="assets/champagne-flute.jpg" alt="Cocktails"><div class="review-card-overlay"></div></div>
+      <div class="review-card-content">
+        <div class="review-stars">★★★★★</div>
+        <blockquote>&ldquo;A proper Soho institution. Been coming here for years and it never disappoints. The cocktails are unreal.&rdquo;</blockquote>
+        <cite>— TripAdvisor</cite>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1510,29 +1595,22 @@ const stupidObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 stupidObserver.observe(stupidTitle);
 
-// ── Testimonial: word-by-word quote reveal + parallax zoom ──
-const quoteText = document.getElementById('quoteText');
-const quoteWords = quoteText.textContent.split(' ');
-quoteText.innerHTML = quoteWords.map(word => 
-  `<span class="word">${word}</span>`
-).join(' ');
-
-const testimonialSection = document.getElementById('testimonialSection');
-const quoteObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      testimonialSection.classList.add('in-view');
-      const words = quoteText.querySelectorAll('.word');
-      words.forEach((word, i) => {
-        setTimeout(() => {
-          word.classList.add('visible');
-        }, 200 + i * 60); // Slightly slower for dramatic effect
-      });
-      quoteObserver.unobserve(entry.target);
-    }
+// ── Reviews carousel drag-to-scroll ──
+const reviewsTrack = document.getElementById('reviewsTrack');
+if (reviewsTrack) {
+  let isDown = false, startX, scrollLeft;
+  reviewsTrack.addEventListener('mousedown', e => {
+    isDown = true; startX = e.pageX - reviewsTrack.offsetLeft; scrollLeft = reviewsTrack.scrollLeft;
   });
-}, { threshold: 0.3 });
-quoteObserver.observe(testimonialSection);
+  reviewsTrack.addEventListener('mouseleave', () => { isDown = false; });
+  reviewsTrack.addEventListener('mouseup', () => { isDown = false; });
+  reviewsTrack.addEventListener('mousemove', e => {
+    if (!isDown) return; e.preventDefault();
+    const x = e.pageX - reviewsTrack.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    reviewsTrack.scrollLeft = scrollLeft - walk;
+  });
+}
 
 // ── Divider draw animations ──
 const dividerObserver = new IntersectionObserver((entries) => {
@@ -1600,9 +1678,7 @@ setTimeout(() => {
   });
   const st = document.getElementById('stupidTitle');
   if (st) st.classList.add('visible');
-  const ts = document.getElementById('testimonialSection');
-  if (ts) ts.classList.add('in-view');
-  // Note: intro words and testimonial words are NOT forced here
+  // Note: intro words are NOT forced here
   // so they animate naturally when scrolled into view
 }, 3000);
 
