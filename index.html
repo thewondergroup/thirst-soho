@@ -791,7 +791,7 @@ nav.scrolled {
 .stupid-marquee-wrap {
   position: relative;
   overflow: hidden;
-  padding: 40px 0 60px;
+  padding: 60px 0 80px;
 }
 
 /* Gradient overlay so text is readable */
@@ -836,8 +836,8 @@ nav.scrolled {
 }
 
 .stupid-marquee-row img {
-  width: 280px;
-  height: 210px;
+  width: 320px;
+  height: 240px;
   object-fit: cover;
   border-radius: 4px;
   flex-shrink: 0;
@@ -872,20 +872,24 @@ nav.scrolled {
   line-height: 1.8;
   margin-bottom: 32px;
 }
+.stupid-content .btn {
+  background: rgba(11, 17, 43, 0.6);
+  backdrop-filter: blur(4px);
+}
 
 /* Marquee scrolls continuously */
 
 @media (max-width: 600px) {
   .stupid-marquee-row img {
-    width: 180px;
-    height: 220px;
+    width: 200px;
+    height: 260px;
   }
   .stupid-marquee-row {
     gap: 10px;
     margin-bottom: 10px;
   }
   .stupid-marquee-wrap {
-    padding: 30px 0 50px;
+    padding: 40px 0 60px;
   }
   .stupid-content {
     padding: 24px 16px;
@@ -900,7 +904,7 @@ nav.scrolled {
   }
   .stupid-content .btn {
     padding: 14px 36px;
-    background: rgba(11, 17, 43, 0.6);
+    background: rgba(11, 17, 43, 0.75);
     border: 1px solid var(--white);
     color: var(--white);
   }
@@ -1161,7 +1165,7 @@ footer {
   .about { grid-template-columns: 1fr; }
   .about-video { min-height: 400px; }
   .about-text { padding: 60px 28px; }
-  .stupid-marquee-row img { width: 160px; height: 120px; }
+  .stupid-marquee-row img { width: 240px; height: 180px; }
   .footer-grid { grid-template-columns: 1fr; gap: 36px; }
   nav { padding: 16px 16px; }
   .nav-logo img { height: 32px; }
