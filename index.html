@@ -29,60 +29,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ── Page Load Curtain ── */
-.curtain {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: var(--bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-.curtain-logo {
-  height: 50px;
-  width: auto;
-  opacity: 1;
-  transition: opacity 0.4s ease;
-}
-.curtain.open .curtain-logo {
-  opacity: 0;
-}
-.curtain-left,
-.curtain-right {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 50%;
-  background: var(--bg);
-  transition: transform 1s cubic-bezier(0.76, 0, 0.24, 1);
-}
-.curtain-left { left: 0; }
-.curtain-right { right: 0; }
-.curtain.open .curtain-left {
-  transform: translateX(-100%);
-}
-.curtain.open .curtain-right {
-  transform: translateX(100%);
-}
-
-/* ── Split Letter Hero ── */
-.hero h1 .letter {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(40px) rotateX(-40deg);
-  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16,1,0.3,1);
-}
-.hero h1 .letter.visible {
-  opacity: 1;
-  transform: translateY(0) rotateX(0);
-}
-.hero h1 .letter-space {
-  display: inline-block;
-  width: 0.3em;
-}
-
 img { display: block; width: 100%; height: 100%; object-fit: cover; }
 a { color: inherit; text-decoration: none; }
 
@@ -289,7 +235,8 @@ nav.scrolled {
   line-height: 1.25;
   margin-bottom: 20px;
   letter-spacing: 0.01em;
-  perspective: 600px;
+  opacity: 0;
+  animation: heroFadeUp 1s 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
 }
 
 .hero-times {
@@ -300,12 +247,12 @@ nav.scrolled {
   color: var(--white-70);
   margin-bottom: 40px;
   opacity: 0;
-  animation: heroFadeUp 1s 2.2s cubic-bezier(0.16,1,0.3,1) forwards;
+  animation: heroFadeUp 1s 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
 }
 
 .hero .btn {
   opacity: 0;
-  animation: heroFadeUp 1s 2.5s cubic-bezier(0.16,1,0.3,1) forwards;
+  animation: heroFadeUp 1s 1.2s cubic-bezier(0.16,1,0.3,1) forwards;
 }
 
 .btn {
@@ -800,9 +747,8 @@ footer {
 <!-- Fallback for browsers where JS is blocked -->
 <noscript>
 <style>
-  .curtain { display: none !important; }
   .reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale,
-  .hero h1, .hero h1 .letter, .hero-times, .hero .btn, .hero-scroll,
+  .hero h1, .hero-times, .hero .btn, .hero-scroll,
   .nav-hamburger, .nav-logo, .nav-book,
   .stupid-hour h2, .intro .word, .testimonial .word {
     opacity: 1 !important;
@@ -813,13 +759,6 @@ footer {
 </noscript>
 </head>
 <body>
-
-<!-- ════ PAGE LOAD CURTAIN ════ -->
-<div class="curtain" id="curtain">
-  <img src="assets/logo.png" alt="Thirst" class="curtain-logo">
-  <div class="curtain-left"></div>
-  <div class="curtain-right"></div>
-</div>
 
 <!-- ════ NAV ════ -->
 <nav id="nav">
@@ -841,7 +780,7 @@ footer {
     <div class="hero-overlay"></div>
   </div>
   <div class="hero-content">
-    <h1 id="heroTitle">The late-night Soho institution</h1>
+    <h1>The late-night Soho institution</h1>
     <div class="hero-times">Mon–Sun:<br>4pm til 3am</div>
     <a href="#" class="btn">Book Now</a>
   </div>
@@ -1139,7 +1078,6 @@ document.querySelectorAll('.cocktail-gallery-item').forEach(item => {
 });
 
 // ── Safety fallback: force all content visible after 3s ──
-// This catches cases where IntersectionObserver is blocked (e.g. Brave shields)
 setTimeout(() => {
   document.querySelectorAll('.reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
     el.classList.add('visible');
@@ -1154,115 +1092,7 @@ setTimeout(() => {
   document.querySelectorAll('.intro .word, .testimonial .word').forEach(w => {
     w.classList.add('visible');
   });
-  // Also reveal any split letters that haven't fired
-  document.querySelectorAll('.letter').forEach(l => l.classList.add('visible'));
-}, 4000);
-
-// ══════════════════════════════════════
-// PAGE LOAD CURTAIN
-// ══════════════════════════════════════
-const curtain = document.getElementById('curtain');
-window.addEventListener('load', () => {
-  // Show logo briefly, then open curtain
-  setTimeout(() => {
-    curtain.classList.add('open');
-    // After curtain opens, trigger the hero split letters
-    setTimeout(() => {
-      animateHeroLetters();
-    }, 600);
-    // Remove curtain from DOM after animation
-    setTimeout(() => {
-      curtain.style.display = 'none';
-    }, 1800);
-  }, 800);
-});
-
-// ══════════════════════════════════════
-// SPLIT LETTER HERO ANIMATION
-// ══════════════════════════════════════
-function animateHeroLetters() {
-  const heroTitle = document.getElementById('heroTitle');
-  const text = heroTitle.textContent;
-  heroTitle.innerHTML = '';
-  
-  let letterIndex = 0;
-  for (let i = 0; i < text.length; i++) {
-    if (text[i] === ' ') {
-      const space = document.createElement('span');
-      space.className = 'letter-space';
-      heroTitle.appendChild(space);
-    } else {
-      const span = document.createElement('span');
-      span.className = 'letter';
-      span.textContent = text[i];
-      span.style.transitionDelay = `${letterIndex * 0.03}s`;
-      heroTitle.appendChild(span);
-      letterIndex++;
-    }
-  }
-  
-  // Trigger the animation with a small delay
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      heroTitle.querySelectorAll('.letter').forEach(letter => {
-        letter.classList.add('visible');
-      });
-    });
-  });
-}
-
-// ══════════════════════════════════════
-// MAGNETIC BUTTONS
-// ══════════════════════════════════════
-document.querySelectorAll('.btn, .nav-book').forEach(btn => {
-  const magnetStrength = 0.3; // How strongly the button pulls (0-1)
-  const magnetRange = 80; // Pixel range of the magnetic field
-  
-  btn.addEventListener('mousemove', (e) => {
-    const rect = btn.getBoundingClientRect();
-    const btnCenterX = rect.left + rect.width / 2;
-    const btnCenterY = rect.top + rect.height / 2;
-    
-    const deltaX = e.clientX - btnCenterX;
-    const deltaY = e.clientY - btnCenterY;
-    
-    const moveX = deltaX * magnetStrength;
-    const moveY = deltaY * magnetStrength;
-    
-    btn.style.transform = `translate(${moveX}px, ${moveY}px)`;
-  });
-  
-  btn.addEventListener('mouseleave', () => {
-    btn.style.transform = 'translate(0, 0)';
-    btn.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s, color 0.4s, box-shadow 0.3s';
-  });
-  
-  btn.addEventListener('mouseenter', () => {
-    btn.style.transition = 'transform 0.15s ease-out, background 0.4s, color 0.4s, box-shadow 0.3s';
-  });
-});
-
-// Also apply magnetic effect to nav area around buttons
-document.addEventListener('mousemove', (e) => {
-  document.querySelectorAll('.btn, .nav-book').forEach(btn => {
-    const rect = btn.getBoundingClientRect();
-    const btnCenterX = rect.left + rect.width / 2;
-    const btnCenterY = rect.top + rect.height / 2;
-    
-    const distance = Math.sqrt(
-      Math.pow(e.clientX - btnCenterX, 2) + 
-      Math.pow(e.clientY - btnCenterY, 2)
-    );
-    
-    if (distance < 80 && distance > 0) {
-      const pull = (1 - distance / 80) * 0.15;
-      const deltaX = (e.clientX - btnCenterX) * pull;
-      const deltaY = (e.clientY - btnCenterY) * pull;
-      btn.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
-      btn.style.transition = 'transform 0.2s ease-out';
-    }
-  });
-});
+}, 3000);
 </script>
 </body>
 </html>
