@@ -25,11 +25,28 @@ nav{position:fixed;top:32px;left:0;right:0;z-index:100;display:grid;grid-templat
 .split{display:grid;grid-template-columns:1fr 1fr;min-height:70vh}.split-text{display:flex;flex-direction:column;justify-content:center;padding:80px 64px}.split-text h2{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin-bottom:24px}.split-text p{font-family:var(--font-display);font-size:1rem;line-height:1.9;color:var(--white-70);margin-bottom:16px}.split-text .tagline{font-family:var(--font-display);font-size:1.2rem;font-style:italic;color:var(--white);margin:24px 0}.split-image{position:relative;overflow:hidden;min-height:500px}
 .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}.info-card{background:rgba(255,255,255,.03);border:1px solid var(--white-15);padding:32px;border-radius:4px}.info-card h3{font-family:var(--font-ui);font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}.info-card p{font-family:var(--font-display);font-size:.95rem;line-height:1.8;color:var(--white-70);margin:0}
 .form-section{padding:80px 24px;background:var(--bg)}.form-wrap{max-width:600px;margin:0 auto}.form-wrap h2{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin-bottom:40px;text-align:center}.form-group{margin-bottom:24px}.form-group label{display:block;font-family:var(--font-ui);font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px;color:var(--white-70)}.form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 16px;background:rgba(255,255,255,.05);border:1px solid var(--white-15);color:var(--white);font-family:var(--font-display);font-size:.95rem;border-radius:2px;outline:none;transition:border-color .3s}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--white-50)}.form-group textarea{min-height:120px;resize:vertical}.form-group select{appearance:none;cursor:pointer}.form-submit{text-align:center;margin-top:32px}
-@media(max-width:900px){.info-grid{grid-template-columns:1fr}}
+.count-up{font-family:var(--font-ui);font-weight:600;font-size:1.8rem;color:var(--white);font-variant-numeric:tabular-nums}
+.testimonial-strip{padding:80px 24px;background:rgba(255,255,255,.02);border-top:1px solid var(--white-10);border-bottom:1px solid var(--white-10)}
+.testimonial-track{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1100px;margin:0 auto}
+.testimonial-card{padding:32px;text-align:center}
+.testimonial-card blockquote{font-family:var(--font-display);font-size:1rem;font-style:italic;line-height:1.8;color:var(--white-70);margin-bottom:16px}
+.testimonial-card cite{font-family:var(--font-ui);font-style:normal;font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--white-50)}
+@media(max-width:900px){.info-grid{grid-template-columns:1fr}.testimonial-track{grid-template-columns:1fr;gap:16px}}
 footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--white-15)}.footer-divider{width:72px;height:1px;background:var(--white-30);margin:0 auto 64px}.footer-grid{display:grid;grid-template-columns:repeat(3,1fr);max-width:1000px;margin:0 auto 72px;text-align:center}.footer-col h4{font-family:var(--font-ui);font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}.footer-col p,.footer-col a{font-family:var(--font-display);font-size:.95rem;line-height:1.8;color:var(--white-70);transition:color .3s}.footer-col a:hover{color:var(--white)}.footer-logo-wrap{text-align:center}.footer-logo-wrap img{height:56px;width:auto;object-fit:contain;margin:0 auto}
 @media(max-width:900px){.split{grid-template-columns:1fr}.split-text{padding:60px 28px;text-align:center;align-items:center}.split-image{min-height:350px}.split-reverse{display:flex;flex-direction:column-reverse}.footer-grid{grid-template-columns:1fr;gap:36px}nav{padding:16px 16px}.nav-logo img{height:32px}.nav-book{font-size:.5rem;padding:8px 14px}.reveal-left,.reveal-right{transform:translateY(40px)!important}.reveal-left.visible,.reveal-right.visible{transform:translateY(0)!important}}
 @media(max-width:600px){.page-hero h1{font-size:1.6rem}nav{padding:12px 12px}.nav-hamburger span{width:22px}.nav-logo img{height:26px}.nav-book{font-size:.45rem;padding:7px 12px}.stupid-banner{font-size:.5rem;padding:6px 12px;letter-spacing:.1em}.btn{padding:14px 36px;font-size:.55rem}.section{padding:60px 20px}}
 
+/* Testimonial Strip */
+.testimonial-strip{padding:80px 24px;background:rgba(255,255,255,0.02);border-top:1px solid var(--white-10);border-bottom:1px solid var(--white-10);overflow:hidden}
+.testimonial-track{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1100px;margin:0 auto}
+.testimonial-card{padding:40px 32px;border:1px solid var(--white-10);border-radius:4px;background:rgba(255,255,255,0.02);transition:border-color 0.3s,transform 0.3s}
+.testimonial-card:hover{border-color:var(--white-30);transform:translateY(-4px)}
+.testimonial-card blockquote{font-family:var(--font-display);font-size:1rem;font-style:italic;line-height:1.8;color:var(--white-70);margin-bottom:20px}
+.testimonial-card cite{font-family:var(--font-ui);font-style:normal;font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--white-50)}
+@media(max-width:900px){.testimonial-track{grid-template-columns:1fr;max-width:500px}}
+
+/* Count-up numbers */
+.count-up{font-family:var(--font-ui);font-size:1.8rem;font-weight:600;color:var(--white);display:inline-block;min-width:1.5em}
 </style>
 </head>
 <body>
@@ -89,8 +106,8 @@ footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--wh
     <p>Want the whole place? Exclusive hire of Thirst is perfect for big parties, launches, screenings, art events and everything in between.</p>
     <p>Get in touch to chat through your idea, or pop in for a look around to see if we're the right fit.</p>
     <div class="info-grid" style="margin-top:32px">
-      <div class="info-card"><h3>Upstairs</h3><p>70 standing</p></div>
-      <div class="info-card"><h3>Downstairs</h3><p>80 standing</p></div>
+      <div class="info-card"><h3>Upstairs</h3><p><span class="count-up" data-target="70">0</span> standing</p></div>
+      <div class="info-card"><h3>Downstairs</h3><p><span class="count-up" data-target="80">0</span> standing</p></div>
       <div class="info-card"><h3>Hire Fee</h3><p>No hire fees, just a deposit</p></div>
     </div>
     <p style="margin-top:24px;font-size:.85rem;color:var(--white-50)">Our building is old and full of character, which means our toilets are downstairs and not wheelchair accessible.</p>
@@ -98,6 +115,24 @@ footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--wh
   </div>
   <div class="split-image reveal-right"><img src="assets/private-hire.jpg" alt="Private hire at Thirst"></div>
 </section>
+
+<!-- Testimonial Strip -->
+<div class="testimonial-strip">
+  <div class="testimonial-track">
+    <div class="testimonial-card reveal-up delay-1">
+      <blockquote>&ldquo;Had my 30th here and it was absolutely unreal. The team sorted everything — decorations, drinks packages, the lot. Best birthday I've ever had.&rdquo;</blockquote>
+      <cite>— Sophie, Birthday Party</cite>
+    </div>
+    <div class="testimonial-card reveal-up delay-2">
+      <blockquote>&ldquo;We booked the downstairs for a product launch and the vibe was perfect. Everyone was talking about it for weeks after. Will definitely be back.&rdquo;</blockquote>
+      <cite>— James, Brand Launch</cite>
+    </div>
+    <div class="testimonial-card reveal-up delay-3">
+      <blockquote>&ldquo;Booked a last-minute table for 12 on a Saturday and they made it happen. Cocktails were incredible, staff were legends. Our new go-to spot.&rdquo;</blockquote>
+      <cite>— Priya, Group Booking</cite>
+    </div>
+  </div>
+</div>
 
 <div class="form-section" id="booking-form">
   <div class="form-wrap reveal-up">
@@ -140,6 +175,49 @@ const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){en.t
 document.querySelectorAll('.reveal-up,.reveal-left,.reveal-right,.reveal-scale').forEach(el=>obs.observe(el));
 (function(){const u='soho',d='thirstbar.com';['emailInline','emailFooter'].forEach(id=>{const el=document.getElementById(id);if(el){const a=document.createElement('a');a.href='mail'+'to:'+u+'@'+d;a.textContent=u+'@'+d;el.appendChild(a);}});})();
 setTimeout(()=>{document.querySelectorAll('.reveal-up,.reveal-left,.reveal-right,.reveal-scale').forEach(el=>el.classList.add('visible'));},3000);
+
+// Count-up animation
+const countObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.getAttribute('data-target'));
+      const duration = 1500;
+      const start = performance.now();
+      function tick(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target);
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      countObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
+// Count-up animation for capacity numbers
+const countObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.target);
+      const duration = 1500;
+      const start = performance.now();
+      function tick(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(target * eased);
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      countObs.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.count-up').forEach(el => countObs.observe(el));
 
 </script>
 </body>
