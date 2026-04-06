@@ -627,7 +627,7 @@ nav.scrolled {
 .stupid-hour {
   position: relative;
   background: var(--bg);
-  padding: 80px 0;
+  padding: 80px 0 80px;
   text-align: center;
   overflow: hidden;
 }
@@ -654,7 +654,7 @@ nav.scrolled {
 .stupid-marquee-wrap {
   position: relative;
   overflow: hidden;
-  padding: 20px 0;
+  padding: 20px 0 40px;
 }
 
 /* Gradient overlay so text is readable */
@@ -715,7 +715,7 @@ nav.scrolled {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 24px;
+  padding: 40px 24px 56px;
 }
 
 .stupid-content .join {
@@ -742,6 +742,23 @@ nav.scrolled {
   .stupid-marquee-row img {
     width: 140px;
     height: 105px;
+  }
+  .stupid-content {
+    padding: 24px 16px;
+  }
+  .stupid-content .join {
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+  .stupid-content .times {
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+  }
+  .stupid-content .btn {
+    padding: 14px 36px;
+    background: rgba(11, 17, 43, 0.6);
+    border: 1px solid var(--white);
+    color: var(--white);
   }
 }
 
@@ -869,13 +886,32 @@ footer {
 ══════════════════════════════════════ */
 @media (max-width: 900px) {
   .dual-cards { grid-template-columns: 1fr; }
-  .cocktail-gallery { grid-template-columns: 1fr; }
+  .cocktail-gallery {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 10px;
+    padding: 0 14px;
+  }
+  .cocktail-gallery-item {
+    flex: 0 0 75vw;
+    aspect-ratio: 0.75;
+    scroll-snap-align: center;
+  }
+  .cocktail-gallery::-webkit-scrollbar { display: none; }
   .about { grid-template-columns: 1fr; }
   .about-video { min-height: 400px; }
   .about-text { padding: 60px 28px; }
   .stupid-marquee-row img { width: 160px; height: 120px; }
   .footer-grid { grid-template-columns: 1fr; gap: 36px; }
-  nav { padding: 16px 20px; }
+  nav { padding: 16px 16px; }
+  .nav-logo img { height: 32px; }
+  .nav-book {
+    font-size: 0.5rem;
+    padding: 8px 14px;
+    letter-spacing: 0.15em;
+  }
   .reveal-left, .reveal-right {
     transform: translateY(40px) !important;
   }
@@ -886,6 +922,26 @@ footer {
 
 @media (max-width: 600px) {
   .hero h1 { font-size: 1.8rem; }
+  .cocktail-gallery-item {
+    flex: 0 0 85vw;
+  }
+  nav { padding: 12px 12px; gap: 8px; }
+  .nav-hamburger span { width: 22px; }
+  .nav-logo img { height: 26px; }
+  .nav-book {
+    font-size: 0.45rem;
+    padding: 7px 12px;
+    letter-spacing: 0.1em;
+  }
+  .stupid-banner {
+    font-size: 0.5rem;
+    padding: 6px 12px;
+    letter-spacing: 0.1em;
+  }
+  .btn {
+    padding: 14px 36px;
+    font-size: 0.55rem;
+  }
 }
 
 /* Fallback: if JS doesn't load or IntersectionObserver is blocked,
@@ -1075,7 +1131,7 @@ footer {
     <div class="footer-col reveal-up delay-3">
       <h4>Contact Us</h4>
       <p><a href="tel:02074371977">020 7437 1977</a><br>
-      <a href="/cdn-cgi/l/email-protection#2754484f4867534f4e5554534546550944484a"><span class="__cf_email__" data-cfemail="c9baa6a1a689bda1a0bbbabdaba8bbe7aaa6a4">[email&#160;protected]</span></a></p>
+      <span id="emailLink"></span></p>
     </div>
     <div class="footer-col reveal-up delay-5">
       <h4>Opening Times</h4>
@@ -1087,7 +1143,7 @@ footer {
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ══════════════════════════════════════
 // ANIMATION ENGINE
 // ══════════════════════════════════════
@@ -1350,6 +1406,19 @@ setTimeout(() => {
   // Note: intro words and testimonial words are NOT forced here
   // so they animate naturally when scrolled into view
 }, 3000);
+
+// ── Build email link dynamically to avoid Cloudflare obfuscation ──
+(function() {
+  const u = 'soho';
+  const d = 'thirstbar.com';
+  const el = document.getElementById('emailLink');
+  if (el) {
+    const a = document.createElement('a');
+    a.href = 'mail' + 'to:' + u + '@' + d;
+    a.textContent = u + '@' + d;
+    el.appendChild(a);
+  }
+})();
 </script>
 </body>
 </html>
