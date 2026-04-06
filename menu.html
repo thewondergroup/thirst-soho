@@ -3,136 +3,1643 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Drinks — Thirst Soho</title>
+<title>Menu — Thirst Soho</title>
+<meta name="description" content="Cocktails, wine, beer and more at Thirst Soho — 53 Greek Street, London W1D 3DR. Stupid Hour from £7.50.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Belleza&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0B112B;--white:#fff;--white-70:rgba(255,255,255,0.7);--white-50:rgba(255,255,255,0.5);--white-30:rgba(255,255,255,0.3);--white-15:rgba(255,255,255,0.15);--white-10:rgba(255,255,255,0.1);--gold:#c9a84c;--font-display:'Belleza',sans-serif;--font-ui:'Jost','Futura','Helvetica Neue',sans-serif}
-*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--white);font-family:var(--font-display);-webkit-font-smoothing:antialiased;overflow-x:hidden}img{display:block;width:100%;height:100%;object-fit:cover}a{color:inherit;text-decoration:none}
-@keyframes heroFadeUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
-.reveal-up{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}.reveal-up.visible{opacity:1;transform:translateY(0)}
-.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}.reveal-left.visible{opacity:1;transform:translateX(0)}
-.reveal-right{opacity:0;transform:translateX(60px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}.reveal-right.visible{opacity:1;transform:translateX(0)}
-.reveal-scale{opacity:0;transform:scale(.92);transition:opacity .7s ease,transform .7s ease}.reveal-scale.visible{opacity:1;transform:scale(1)}
-.delay-1{transition-delay:.1s!important}.delay-2{transition-delay:.2s!important}.delay-3{transition-delay:.3s!important}.delay-5{transition-delay:.5s!important}
-.stupid-banner{position:fixed;top:0;left:0;right:0;z-index:101;background:var(--bg);border-bottom:1px solid var(--white-15);padding:8px 24px;text-align:center;font-family:var(--font-ui);font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--white-70);cursor:pointer;transition:background .3s,transform .3s}.stupid-banner:hover{color:var(--white)}.stupid-banner .flip-group{display:inline-flex;gap:1px;vertical-align:middle}.stupid-banner .flip-digit{display:inline-block;position:relative;width:1.1em;height:1.6em;line-height:1.6em;font-family:var(--font-ui);font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:0;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;text-align:center;vertical-align:middle}.stupid-banner.is-live .flip-digit{background:rgba(201,168,76,.15)}.flip-digit .flip-current,.flip-digit .flip-next{display:block;position:absolute;left:0;right:0;text-align:center}.flip-digit .flip-current{top:0}.flip-digit .flip-next{top:0;transform:translateY(100%)}.flip-digit.flipping .flip-current{animation:flipOut .3s ease-in forwards}.flip-digit.flipping .flip-next{animation:flipIn .3s ease-out forwards}@keyframes flipOut{0%{transform:translateY(0);opacity:1}100%{transform:translateY(-100%);opacity:0}}@keyframes flipIn{0%{transform:translateY(100%);opacity:0}100%{transform:translateY(0);opacity:1}}.stupid-banner .flip-label{display:inline-block;font-size:.5rem;letter-spacing:.05em;margin:0 3px;opacity:.6;vertical-align:middle}.stupid-banner span{color:var(--white)}@keyframes livePulse{0%,100%{background:rgba(201,168,76,.1)}50%{background:rgba(201,168,76,.2)}}.stupid-banner.is-live{color:#c9a84c;border-bottom-color:rgba(201,168,76,.3);animation:livePulse 2s ease-in-out infinite}.stupid-banner.is-live span{color:#c9a84c}.stupid-banner .live-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#c9a84c;margin-right:8px;vertical-align:middle;animation:liveDotPulse 1.5s ease-in-out infinite}@keyframes liveDotPulse{0%,100%{opacity:1}50%{opacity:.6}}
-.menu-backdrop{position:fixed;inset:0;z-index:199;background:rgba(0,0,0,.5);opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s;backdrop-filter:blur(4px)}.menu-backdrop.open{opacity:1;visibility:visible}.menu-panel{position:fixed;top:0;left:0;bottom:0;width:380px;max-width:85vw;z-index:200;background:var(--bg);border-right:1px solid var(--white-15);transform:translateX(-100%);transition:transform .5s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;padding:80px 40px 40px;overflow-y:auto}.menu-panel.open{transform:translateX(0)}.menu-close{position:absolute;top:24px;left:28px;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:201}.menu-close span{display:block;width:24px;height:1.5px;background:var(--white);position:absolute;transition:transform .3s}.menu-close span:first-child{transform:rotate(45deg)}.menu-close span:last-child{transform:rotate(-45deg)}.menu-close:hover span{background:var(--white-70)}.menu-links{list-style:none;padding:0;flex:1}.menu-links li{overflow:hidden}.menu-links a{display:block;font-family:var(--font-display);font-size:1.4rem;font-weight:400;color:var(--white);padding:12px 0;border-bottom:1px solid var(--white-10);transform:translateX(-30px);opacity:0;transition:transform .4s cubic-bezier(.16,1,.3,1),opacity .4s ease,color .3s,padding .3s}.menu-panel.open .menu-links a{transform:translateX(0);opacity:1}.menu-links li:nth-child(1) a{transition-delay:.05s}.menu-links li:nth-child(2) a{transition-delay:.08s}.menu-links li:nth-child(3) a{transition-delay:.11s}.menu-links li:nth-child(4) a{transition-delay:.14s}.menu-links li:nth-child(5) a{transition-delay:.17s}.menu-links li:nth-child(6) a{transition-delay:.2s}.menu-links li:nth-child(7) a{transition-delay:.23s}.menu-links li:nth-child(8) a{transition-delay:.26s}.menu-links li:nth-child(9) a{transition-delay:.29s}.menu-links li:nth-child(10) a{transition-delay:.32s}.menu-links li:nth-child(11) a{transition-delay:.35s}.menu-links a:hover{color:var(--white-50);padding-left:8px}.menu-links a.active{color:var(--white-50)}.menu-footer{padding-top:32px;border-top:1px solid var(--white-15);margin-top:24px;opacity:0;transform:translateY(10px);transition:opacity .4s .3s ease,transform .4s .3s ease}.menu-panel.open .menu-footer{opacity:1;transform:translateY(0)}.menu-footer p{font-family:var(--font-display);font-size:.85rem;color:var(--white-50);line-height:1.8}.menu-footer a{color:var(--white-70);transition:color .3s}.menu-footer a:hover{color:var(--white)}.nav-hamburger.is-open span:nth-child(1){transform:translateY(8.5px) rotate(45deg)}.nav-hamburger.is-open span:nth-child(2){opacity:0}.nav-hamburger.is-open span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}.nav-hamburger span{transition:transform .3s,opacity .3s}
-nav{position:fixed;top:32px;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:20px 32px;transition:background .4s,padding .4s,top .4s}nav.scrolled{background:rgba(11,17,43,.95);backdrop-filter:blur(16px);padding:14px 32px;top:0}.nav-hamburger{display:flex;flex-direction:column;gap:7px;cursor:pointer;padding:6px}.nav-hamburger span{display:block;width:30px;height:1.5px;background:var(--white)}.nav-logo{justify-self:center;display:flex;align-items:center}.nav-logo img{height:48px;width:auto;object-fit:contain}.nav-book{justify-self:end;font-family:var(--font-ui);font-size:.65rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;padding:10px 22px;border:1px solid var(--white);transition:background .3s,color .3s}.nav-book:hover{background:var(--white);color:var(--bg)}
-.btn{display:inline-block;font-family:var(--font-ui);font-size:.65rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;padding:18px 56px;border:1px solid var(--white);color:var(--white);background:rgba(11,17,43,.45);transition:background .4s,color .4s,transform .3s;cursor:pointer;position:relative;overflow:hidden}.btn::after{content:'';position:absolute;inset:0;background:var(--white);transform:scaleX(0);transform-origin:right;transition:transform .4s cubic-bezier(.16,1,.3,1);z-index:-1}.btn:hover{color:var(--bg);transform:translateY(-2px)}.btn:hover::after{transform:scaleX(1);transform-origin:left}
-.page-hero{position:relative;height:50vh;min-height:400px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}.page-hero-bg{position:absolute;inset:0}.page-hero-bg img{width:100%;height:100%;object-fit:cover}.page-hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.15)}.page-hero-content{position:relative;z-index:2}.page-hero h1{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);font-weight:400;line-height:1.25;opacity:0;animation:heroFadeUp 1s .3s cubic-bezier(.16,1,.3,1) forwards}
-.page-hero .est{font-family:var(--font-ui);font-size:.65rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--white-50);opacity:0;animation:heroFadeUp 1s .6s cubic-bezier(.16,1,.3,1) forwards}
-.section{padding:100px 24px;max-width:1100px;margin:0 auto}.section-centered{text-align:center}.section h2{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:400;margin-bottom:24px}.section p{font-family:var(--font-display);font-size:1.05rem;line-height:1.9;color:var(--white-70);margin-bottom:16px}.section-divider{width:60px;height:1px;background:var(--white-30);margin:0 auto 40px}
-.split{display:grid;grid-template-columns:1fr 1fr;min-height:70vh}.split-text{display:flex;flex-direction:column;justify-content:center;padding:80px 64px}.split-text h2{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin-bottom:24px}.split-text p{font-family:var(--font-display);font-size:1rem;line-height:1.9;color:var(--white-70);margin-bottom:16px}.split-text .tagline{font-family:var(--font-display);font-size:1.2rem;font-style:italic;color:var(--white);margin:24px 0}.split-image{position:relative;overflow:hidden;min-height:500px}
-.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:48px auto;max-width:700px}.hour-card{background:rgba(255,255,255,.03);border:1px solid var(--white-15);padding:40px 32px;border-radius:4px;text-align:center}.hour-card.gold{border-color:rgba(201,168,76,.3);background:rgba(201,168,76,.05)}.hour-card h3{font-family:var(--font-ui);font-size:.75rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;margin-bottom:24px}.hour-card.gold h3{color:var(--gold)}.hour-card .time-row{margin-bottom:16px}.hour-card .time-label{font-family:var(--font-ui);font-size:.6rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--white-50);margin-bottom:4px}.hour-card .time-value{font-family:var(--font-display);font-size:1.3rem}
-.cocktail-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0 14px}.cocktail-strip-item{aspect-ratio:.92;overflow:hidden}.cocktail-strip-item img{transition:transform .8s cubic-bezier(.16,1,.3,1)}.cocktail-strip-item:hover img{transform:scale(1.06)}
-@media(max-width:900px){.hours-grid{grid-template-columns:1fr}.cocktail-strip{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}.cocktail-strip-item{flex:0 0 75vw;scroll-snap-align:center}.cocktail-strip::-webkit-scrollbar{display:none}}
-@media(max-width:600px){.cocktail-strip-item{flex:0 0 85vw}}
-footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--white-15)}.footer-divider{width:72px;height:1px;background:var(--white-30);margin:0 auto 64px}.footer-grid{display:grid;grid-template-columns:repeat(3,1fr);max-width:1000px;margin:0 auto 72px;text-align:center}.footer-col h4{font-family:var(--font-ui);font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}.footer-col p,.footer-col a{font-family:var(--font-display);font-size:.95rem;line-height:1.8;color:var(--white-70);transition:color .3s}.footer-col a:hover{color:var(--white)}.footer-logo-wrap{text-align:center}.footer-logo-wrap img{height:56px;width:auto;object-fit:contain;margin:0 auto}
-@media(max-width:900px){.split{grid-template-columns:1fr}.split-text{padding:60px 28px;text-align:center}.split-image{min-height:350px}.footer-grid{grid-template-columns:1fr;gap:36px}nav{padding:16px 16px}.nav-logo img{height:32px}.nav-book{font-size:.5rem;padding:8px 14px}.reveal-left,.reveal-right{transform:translateY(40px)!important}.reveal-left.visible,.reveal-right.visible{transform:translateY(0)!important}}
-@media(max-width:600px){.page-hero h1{font-size:1.6rem}nav{padding:12px 12px}.nav-hamburger span{width:22px}.nav-logo img{height:26px}.nav-book{font-size:.45rem;padding:7px 12px}.stupid-banner{font-size:.5rem;padding:6px 12px;letter-spacing:.1em}.btn{padding:14px 36px;font-size:.55rem}.section{padding:60px 20px}}
+/* ══════════════════════════════════════
+   VARIABLES & RESET
+══════════════════════════════════════ */
+:root {
+  --bg: #0b112b;
+  --white: #f5f0eb;
+  --white-70: rgba(245,240,235,.7);
+  --white-50: rgba(245,240,235,.5);
+  --white-30: rgba(245,240,235,.3);
+  --white-15: rgba(245,240,235,.15);
+  --white-10: rgba(245,240,235,.1);
+  --gold: #c9a84c;
+  --gold-20: rgba(201,168,76,.2);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-ui: 'Outfit', system-ui, sans-serif;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--bg); color:var(--white); font-family:var(--font-display); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+a { color:inherit; text-decoration:none; }
+img { display:block; width:100%; height:100%; object-fit:cover; }
 
+/* ══════════════════════════════════════
+   STUPID HOUR COUNTDOWN BANNER
+══════════════════════════════════════ */
+.stupid-banner {
+  position:fixed; top:0; left:0; right:0; z-index:300;
+  background:var(--bg); border-bottom:1px solid var(--white-15);
+  text-align:center; padding:8px 16px;
+  font-family:var(--font-ui); font-size:0.55rem; font-weight:500;
+  letter-spacing:0.15em; text-transform:uppercase; color:var(--white-70);
+  transition:transform 0.3s ease;
+}
+.stupid-banner span { color:var(--white); }
+.stupid-banner.is-live { color:#c9a84c; border-bottom-color:rgba(201,168,76,.3); animation:livePulse 2s ease-in-out infinite; }
+.stupid-banner.is-live span { color:#c9a84c; }
+.stupid-banner .live-dot { display:inline-block; width:6px; height:6px; border-radius:50%; background:#c9a84c; margin-right:8px; vertical-align:middle; animation:liveDotPulse 1.5s ease-in-out infinite; }
+@keyframes livePulse { 0%,100%{background:rgba(201,168,76,.1)} 50%{background:rgba(201,168,76,.2)} }
+@keyframes liveDotPulse { 0%,100%{opacity:1} 50%{opacity:.6} }
+.flip-digit { display:inline-block; min-width:1.1em; text-align:center; font-weight:600; }
+.flip-label { display:inline-block; font-size:.5rem; letter-spacing:.05em; margin:0 3px; opacity:.6; vertical-align:middle; }
+
+/* ══════════════════════════════════════
+   NAV
+══════════════════════════════════════ */
+nav {
+  position:fixed; top:32px; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:20px 32px; transition:top 0.3s, background 0.3s, padding 0.3s;
+}
+nav.scrolled { top:0; background:rgba(11,17,43,.92); backdrop-filter:blur(12px); padding:14px 32px; }
+.nav-hamburger { cursor:pointer; display:flex; flex-direction:column; gap:5px; z-index:101; }
+.nav-hamburger span { display:block; width:26px; height:1.5px; background:var(--white); transition:0.3s; }
+.nav-logo img { height:38px; width:auto; object-fit:contain; }
+.nav-book {
+  font-family:var(--font-ui); font-size:0.55rem; font-weight:600;
+  letter-spacing:0.2em; text-transform:uppercase; color:var(--white);
+  border:1px solid var(--white-30); padding:10px 18px;
+  transition:all 0.3s;
+}
+.nav-book:hover { background:var(--white); color:var(--bg); }
+
+/* Side Panel Menu */
+.menu-backdrop { position:fixed; inset:0; z-index:199; background:rgba(0,0,0,.5); opacity:0; visibility:hidden; transition:opacity .4s ease,visibility .4s; backdrop-filter:blur(4px); }
+.menu-backdrop.open { opacity:1; visibility:visible; }
+.menu-panel { position:fixed; top:0; left:0; bottom:0; width:380px; max-width:85vw; z-index:200; background:var(--bg); border-right:1px solid var(--white-15); transform:translateX(-100%); transition:transform .5s cubic-bezier(.16,1,.3,1); display:flex; flex-direction:column; padding:80px 40px 40px; overflow-y:auto; }
+.menu-panel.open { transform:translateX(0); }
+.menu-close { position:absolute; top:24px; left:28px; width:36px; height:36px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:201; }
+.menu-close span { display:block; width:24px; height:1.5px; background:var(--white); position:absolute; transition:transform .3s; }
+.menu-close span:first-child { transform:rotate(45deg); }
+.menu-close span:last-child { transform:rotate(-45deg); }
+.menu-close:hover span { background:var(--white-70); }
+.menu-links { list-style:none; padding:0; flex:1; }
+.menu-links li { overflow:hidden; }
+.menu-links a { display:block; font-family:var(--font-display); font-size:1.4rem; font-weight:400; color:var(--white); padding:12px 0; border-bottom:1px solid var(--white-10); transform:translateX(-30px); opacity:0; transition:transform .4s cubic-bezier(.16,1,.3,1),opacity .4s ease,color .3s,padding .3s; }
+.menu-panel.open .menu-links a { transform:translateX(0); opacity:1; }
+.menu-links li:nth-child(1) a{transition-delay:.05s} .menu-links li:nth-child(2) a{transition-delay:.08s} .menu-links li:nth-child(3) a{transition-delay:.11s} .menu-links li:nth-child(4) a{transition-delay:.14s} .menu-links li:nth-child(5) a{transition-delay:.17s} .menu-links li:nth-child(6) a{transition-delay:.2s} .menu-links li:nth-child(7) a{transition-delay:.23s} .menu-links li:nth-child(8) a{transition-delay:.26s} .menu-links li:nth-child(9) a{transition-delay:.29s}
+.menu-links a:hover { color:var(--white-50); padding-left:8px; }
+.menu-links a.active { color:var(--gold); }
+.menu-footer { margin-top:auto; padding-top:32px; border-top:1px solid var(--white-10); }
+.menu-footer p { font-family:var(--font-display); font-size:.9rem; line-height:1.8; color:var(--white-50); }
+.menu-footer a { transition:color .3s; }
+.menu-footer a:hover { color:var(--white); }
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+@keyframes heroFadeUp { from{transform:translateY(30px);opacity:0} to{transform:translateY(0);opacity:1} }
+.page-hero { position:relative; height:50vh; min-height:400px; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden; }
+.page-hero-bg { position:absolute; inset:0; }
+.page-hero-bg img { width:100%; height:100%; object-fit:cover; }
+.page-hero-overlay { position:absolute; inset:0; background:linear-gradient(180deg,rgba(11,17,43,.5) 0%,rgba(11,17,43,.7) 100%); }
+.page-hero-content { position:relative; z-index:2; }
+.page-hero h1 { font-family:var(--font-display); font-size:clamp(2rem,4vw,3.2rem); font-weight:400; line-height:1.25; opacity:0; animation:heroFadeUp 1s .3s cubic-bezier(.16,1,.3,1) forwards; }
+
+/* ══════════════════════════════════════
+   REVEAL ANIMATIONS
+══════════════════════════════════════ */
+.reveal-up { opacity:0; transform:translateY(40px); transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1); }
+.reveal-up.visible { opacity:1; transform:translateY(0); }
+
+/* ══════════════════════════════════════
+   SECTION
+══════════════════════════════════════ */
+.section { padding:100px 24px; max-width:1100px; margin:0 auto; }
+.section-centered { text-align:center; }
+.section h2 { font-family:var(--font-display); font-size:clamp(1.6rem,3vw,2.4rem); font-weight:400; margin-bottom:24px; }
+.section p { font-family:var(--font-display); font-size:1.05rem; line-height:1.9; color:var(--white-70); margin-bottom:16px; }
+.section-divider { width:60px; height:1px; background:var(--white-30); margin:0 auto 40px; }
+.btn { display:inline-block; font-family:var(--font-ui); font-size:0.6rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:var(--white); border:1px solid var(--white-30); padding:16px 40px; transition:all 0.4s; position:relative; overflow:hidden; }
+.btn::after { content:''; position:absolute; inset:0; background:var(--white); transform:scaleX(0); transform-origin:right; transition:transform .4s cubic-bezier(.16,1,.3,1); z-index:-1; }
+.btn:hover { color:var(--bg); transform:translateY(-2px); }
+.btn:hover::after { transform:scaleX(1); transform-origin:left; }
+
+/* ══════════════════════════════════════
+   HOURS INFO BAR
+══════════════════════════════════════ */
+.hours-bar {
+  background:rgba(201,168,76,.06);
+  border-top:1px solid var(--gold-20);
+  border-bottom:1px solid var(--gold-20);
+  padding:40px 24px;
+  text-align:center;
+}
+.hours-bar h3 {
+  font-family:var(--font-ui); font-size:.65rem; font-weight:600;
+  letter-spacing:.25em; text-transform:uppercase; color:var(--gold);
+  margin-bottom:24px;
+}
+.hours-grid {
+  display:flex; justify-content:center; gap:48px; flex-wrap:wrap;
+  max-width:800px; margin:0 auto;
+}
+.hours-item {
+  text-align:center;
+}
+.hours-item .hour-label {
+  font-family:var(--font-ui); font-size:.6rem; font-weight:600;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--white);
+  margin-bottom:8px;
+}
+.hours-item .hour-times {
+  font-family:var(--font-display); font-size:.95rem;
+  color:var(--white-70); line-height:1.8;
+}
+
+/* ══════════════════════════════════════
+   CATEGORY TABS
+══════════════════════════════════════ */
+.cat-tabs {
+  position:sticky; top:32px; z-index:50;
+  background:rgba(11,17,43,.95); backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--white-10);
+  padding:0 24px;
+  transition:top 0.3s;
+}
+.cat-tabs.pushed { top:0; }
+.cat-tabs-inner {
+  display:flex; justify-content:center; gap:0;
+  max-width:1100px; margin:0 auto;
+  overflow-x:auto; -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.cat-tabs-inner::-webkit-scrollbar { display:none; }
+.cat-tab {
+  font-family:var(--font-ui); font-size:.6rem; font-weight:500;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--white-50);
+  padding:16px 20px; cursor:pointer; white-space:nowrap;
+  border-bottom:2px solid transparent;
+  transition:color .3s, border-color .3s;
+}
+.cat-tab:hover { color:var(--white-70); }
+.cat-tab.active { color:var(--gold); border-bottom-color:var(--gold); }
+
+/* ══════════════════════════════════════
+   DRINKS CATEGORIES
+══════════════════════════════════════ */
+.drinks-section {
+  padding:80px 24px 40px;
+  max-width:1100px;
+  margin:0 auto;
+}
+.drinks-section:first-of-type { padding-top:60px; }
+.cat-header {
+  text-align:center;
+  margin-bottom:48px;
+  padding-top:20px;
+}
+.cat-header h2 {
+  font-family:var(--font-display);
+  font-size:clamp(1.8rem,3.5vw,2.6rem);
+  font-weight:400;
+  margin-bottom:8px;
+}
+.cat-header .cat-sub {
+  font-family:var(--font-ui); font-size:.6rem; font-weight:400;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--white-50);
+}
+.cat-divider {
+  width:48px; height:1px; background:var(--white-30);
+  margin:0 auto 16px;
+}
+
+/* Sub-category label */
+.sub-cat {
+  font-family:var(--font-ui); font-size:.6rem; font-weight:600;
+  letter-spacing:.25em; text-transform:uppercase; color:var(--gold);
+  text-align:center;
+  margin:56px 0 32px;
+  position:relative;
+}
+.sub-cat::before, .sub-cat::after {
+  content:''; position:absolute; top:50%;
+  width:40px; height:1px; background:var(--gold-20);
+}
+.sub-cat::before { right:calc(50% + 80px); }
+.sub-cat::after { left:calc(50% + 80px); }
+
+/* ══════════════════════════════════════
+   DRINK CARDS
+══════════════════════════════════════ */
+.drink-grid {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0;
+}
+.drink-card {
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:16px;
+  padding:28px 0;
+  border-bottom:1px solid var(--white-10);
+  align-items:start;
+}
+.drink-card:last-child { border-bottom:none; }
+
+.drink-info h3 {
+  font-family:var(--font-display);
+  font-size:1.2rem; font-weight:500;
+  margin-bottom:6px;
+  line-height:1.3;
+}
+.drink-info h3.premium {
+  color:var(--gold);
+}
+.drink-info h3 .premium-tag {
+  display:inline-block;
+  font-family:var(--font-ui); font-size:.45rem; font-weight:600;
+  letter-spacing:.15em; text-transform:uppercase;
+  color:var(--gold); background:var(--gold-20);
+  padding:3px 8px; border-radius:2px;
+  margin-left:8px; vertical-align:middle;
+}
+.drink-info .desc {
+  font-family:var(--font-display); font-size:.92rem;
+  line-height:1.7; color:var(--white-50);
+  max-width:600px;
+}
+
+.drink-prices {
+  display:flex; gap:16px; align-items:start;
+  padding-top:4px;
+}
+.price-col {
+  text-align:center; min-width:52px;
+}
+.price-col .price-label {
+  font-family:var(--font-ui); font-size:.45rem; font-weight:600;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--white-30); margin-bottom:4px;
+  white-space:nowrap;
+}
+.price-col .price-val {
+  font-family:var(--font-ui); font-size:.9rem; font-weight:500;
+  color:var(--white);
+}
+.price-col .price-val.na {
+  color:var(--white-30); font-size:.7rem;
+}
+.price-col.stupid .price-val { color:var(--gold); }
+
+/* ══════════════════════════════════════
+   WINE CARDS
+══════════════════════════════════════ */
+.wine-card {
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:16px;
+  padding:28px 0;
+  border-bottom:1px solid var(--white-10);
+  align-items:start;
+}
+.wine-card:last-child { border-bottom:none; }
+.wine-info h3 {
+  font-family:var(--font-display);
+  font-size:1.15rem; font-weight:500;
+  margin-bottom:4px; line-height:1.3;
+}
+.wine-info .origin {
+  font-family:var(--font-ui); font-size:.55rem; font-weight:500;
+  letter-spacing:.15em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:8px;
+}
+.wine-info .desc {
+  font-family:var(--font-display); font-size:.88rem;
+  line-height:1.7; color:var(--white-50);
+  max-width:550px;
+}
+.wine-prices {
+  display:flex; gap:14px; align-items:start; padding-top:4px;
+}
+
+/* ══════════════════════════════════════
+   BEER CARDS
+══════════════════════════════════════ */
+.beer-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+  gap:16px;
+}
+.beer-card {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:20px 24px;
+  background:rgba(255,255,255,.02);
+  border:1px solid var(--white-10);
+  border-radius:4px;
+  transition:border-color .3s, background .3s;
+}
+.beer-card:hover { border-color:var(--white-30); background:rgba(255,255,255,.04); }
+.beer-info h3 {
+  font-family:var(--font-display); font-size:1.05rem; font-weight:500;
+  margin-bottom:2px;
+}
+.beer-info .beer-meta {
+  font-family:var(--font-ui); font-size:.5rem; font-weight:400;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--white-50);
+}
+.beer-price {
+  font-family:var(--font-ui); font-size:1rem; font-weight:600;
+  color:var(--white); white-space:nowrap;
+}
+
+/* ══════════════════════════════════════
+   PACKAGE CARDS
+══════════════════════════════════════ */
+.pkg-note {
+  text-align:center;
+  font-family:var(--font-ui); font-size:.6rem; font-weight:500;
+  letter-spacing:.15em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:40px;
+  padding:12px 24px;
+  border:1px solid var(--gold-20);
+  border-radius:4px;
+  background:rgba(201,168,76,.04);
+}
+.pkg-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+  gap:20px;
+}
+.pkg-card {
+  padding:32px;
+  background:rgba(255,255,255,.02);
+  border:1px solid var(--white-10);
+  border-radius:4px;
+  display:flex; flex-direction:column;
+  transition:border-color .3s, transform .3s;
+}
+.pkg-card:hover { border-color:var(--white-30); transform:translateY(-2px); }
+.pkg-card h3 {
+  font-family:var(--font-display); font-size:1.2rem; font-weight:500;
+  margin-bottom:8px;
+}
+.pkg-card .pkg-desc {
+  font-family:var(--font-display); font-size:.9rem; line-height:1.7;
+  color:var(--white-50); flex:1; margin-bottom:16px;
+}
+.pkg-card .pkg-price {
+  font-family:var(--font-ui); font-size:1.4rem; font-weight:600;
+  color:var(--gold);
+}
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer {
+  background:var(--bg); padding:48px 24px 72px;
+  border-top:1px solid var(--white-15);
+}
+.footer-divider { width:72px; height:1px; background:var(--white-30); margin:0 auto 64px; }
+.footer-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  max-width:1000px; margin:0 auto 72px; text-align:center;
+}
+.footer-col h4 {
+  font-family:var(--font-ui); font-size:.65rem; font-weight:700;
+  letter-spacing:.2em; text-transform:uppercase; margin-bottom:16px;
+}
+.footer-col p, .footer-col a {
+  font-family:var(--font-display); font-size:.95rem; line-height:1.8;
+  color:var(--white-70); transition:color .3s;
+}
+.footer-col a:hover { color:var(--white); }
+.footer-logo-wrap { text-align:center; }
+.footer-logo-wrap img { height:56px; width:auto; object-fit:contain; margin:0 auto; }
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width:900px) {
+  .footer-grid { grid-template-columns:1fr; gap:36px; }
+  nav { padding:16px 16px; }
+  .nav-logo img { height:32px; }
+  .nav-book { font-size:.5rem; padding:8px 14px; }
+  .hours-grid { gap:24px; }
+  .drink-card, .wine-card { grid-template-columns:1fr; }
+  .drink-prices, .wine-prices { justify-content:flex-start; margin-top:8px; }
+}
+@media (max-width:600px) {
+  .page-hero h1 { font-size:1.6rem; }
+  .page-hero { min-height:300px; height:40vh; }
+  nav { padding:12px 12px; }
+  .nav-hamburger span { width:22px; }
+  .nav-logo img { height:26px; }
+  .nav-book { font-size:.45rem; padding:7px 12px; }
+  .stupid-banner { font-size:.5rem; padding:6px 12px; letter-spacing:.1em; }
+  .btn { padding:14px 36px; font-size:.55rem; }
+  .drinks-section { padding:60px 16px 30px; }
+  .cat-tab { padding:14px 14px; font-size:.5rem; }
+  .beer-grid { grid-template-columns:1fr; }
+  .pkg-grid { grid-template-columns:1fr; }
+  .drink-info .desc, .wine-info .desc { font-size:.85rem; }
+}
 </style>
 </head>
 <body>
 
+<!-- Stupid Hour Countdown -->
 <div class="stupid-banner" id="stupidBanner"><span id="stupidCountdown">Loading...</span></div>
+
+<!-- Nav -->
 <nav id="nav">
   <div class="nav-hamburger" id="menuToggle"><span></span><span></span><span></span></div>
   <a href="index.html" class="nav-logo"><img src="assets/logo.png" alt="Thirst"></a>
-  <a href="https://www.designmynight.com/london/bars/soho/thirst-bar-soho" class="nav-book" target="_blank">Book Now</a>
+  <a href="bookings.html" class="nav-book">Book Now</a>
 </nav>
+
+<!-- Side Panel Menu -->
 <div class="menu-backdrop" id="menuBackdrop"></div>
 <div class="menu-panel" id="menuPanel">
   <div class="menu-close" id="menuClose"><span></span><span></span></div>
   <ul class="menu-links">
     <li><a href="index.html">Welcome</a></li>
-    <li><a href="bookings.html">Bookings & Events</a></li>
-    <li><a href="menu.html" class="active">Drinks</a></li>
-    <li><a href="food.html">Food</a></li>
-    <li><a href="whats-on.html">What's On</a></li>
-    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="bookings.html">Bookings & Hire</a></li>
     <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="menu.html" class="active">Menu</a></li>
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="whats-on.html">What's On</a></li>
     <li><a href="careers.html">Careers</a></li>
     <li><a href="faqs.html">FAQs</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="https://www.designmynight.com/london/bars/soho/thirst-bar-soho" target="_blank" style="color:var(--gold)">Book</a></li>
   </ul>
   <div class="menu-footer"><p>53 Greek St, London, W1D 3DR<br><a href="tel:02074371977">020 7437 1977</a></p></div>
 </div>
 
+<!-- Hero -->
 <section class="page-hero">
-  <div class="page-hero-bg"><img src="assets/mint-cocktail.jpg" alt="Cocktails"><div class="page-hero-overlay"></div></div>
-  <div class="page-hero-content"><h1>Menu</h1></div>
+  <div class="page-hero-bg">
+    <img src="assets/mint-cocktail.jpg" alt="Cocktails at Thirst Soho">
+    <div class="page-hero-overlay"></div>
+  </div>
+  <div class="page-hero-content">
+    <h1>Drinks</h1>
+  </div>
 </section>
 
-<div class="section section-centered reveal-up">
+<!-- Hours Bar -->
+<div class="hours-bar reveal-up">
+  <h3>When to drink for less</h3>
+  <div class="hours-grid">
+    <div class="hours-item">
+      <div class="hour-label">Stupid Hour</div>
+      <div class="hour-times">Sun–Fri: 16:00–18:00<br>Sat: 16:00–17:00</div>
+    </div>
+    <div class="hours-item">
+      <div class="hour-label">Happy Hour</div>
+      <div class="hour-times">Sun–Fri: 18:00–20:00<br>Sat: 17:00–18:00</div>
+    </div>
+  </div>
+</div>
+
+<!-- Category Tabs -->
+<div class="cat-tabs" id="catTabs">
+  <div class="cat-tabs-inner">
+    <div class="cat-tab active" data-target="cocktails">Cocktails</div>
+    <div class="cat-tab" data-target="wine">Wine & Bubbles</div>
+    <div class="cat-tab" data-target="beer">Beer & Cider</div>
+    <div class="cat-tab" data-target="na">Non-Alcoholic</div>
+    <div class="cat-tab" data-target="packages">Packages</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     COCKTAILS
+═══════════════════════════════════════ -->
+<div id="cocktails">
+
+  <!-- House Favourites -->
+  <div class="drinks-section reveal-up">
+    <div class="cat-header">
+      <div class="cat-divider"></div>
+      <h2>Cocktails</h2>
+      <p class="cat-sub">Shaken, stirred & served with soul</p>
+    </div>
+
+    <div class="sub-cat">House Favourites</div>
+    <div class="drink-grid">
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>The Cheeky Chop</h3>
+          <p class="desc">Citron Vodka carefully built with Chambord, lemon juice and topped with lemonade for a sweet and fruity house signature.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Smokescreen</h3>
+          <p class="desc">Freshly muddled watermelon and mezcal shaken with fresh lime juice, hibiscus syrup, and cherry brandy liqueur served up and garnished with a dehydrated lime wheel.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13.50</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Blackbird</h3>
+          <p class="desc">Smoky Alipús mezcal, combined with green Chartreuse and Crème de violette, finished with a maraschino syrup drizzle and a cherry wrapped in orange peel. Dark, floral, and elegant.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£11</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£14</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3 class="premium">Presidential Tommy's <span class="premium-tag">Super Premium</span></h3>
+          <p class="desc">100% Blue Weber Agave Casamigos Reposado Tequila, expertly shaken to perfection with fresh lime juice and organic agave syrup. Served on the rocks with a half-salt rim.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£22</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Gin G Spot</h3>
+          <p class="desc">Muddled cucumber combined with Hendricks Gin, elderflower, sugar and lemon juice for a truly refreshing house classic that hits the spot every time.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Honey Berry Sour</h3>
+          <p class="desc">Citron Vodka shaken with black raspberry liqueur, fresh lemon juice, and honey served over crushed ice.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Spiced Jungle</h3>
+          <p class="desc">Havana Spiced Rum, fresh lime juice, Triple Sec, hibiscus syrup, orange and pineapple juice shaken with a dash of grenadine over the top and garnished with a dehydrated orange slice and a cherry.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Contemporary Cocktails -->
+  <div class="drinks-section reveal-up">
+    <div class="sub-cat">Contemporary Cocktails</div>
+    <div class="drink-grid">
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>The Business</h3>
+          <p class="desc">Vodka and elderflower gently combined with Sauvignon Blanc and fresh mint for a refreshing and elegant drink.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£14</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>London Mule</h3>
+          <p class="desc">A zesty and refreshing blend of London Dry Gin, spicy ginger beer, lime juice and a dash of bitters. Served over ice. Crisp and invigorating with a lively kick.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Passionate Rum Punch</h3>
+          <p class="desc">Claro Rum shaken with Passoa, lime juice, passionfruit purée and sugar. Served over crushed ice and garnished with a flaming dash of Wray & Nephew.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£11</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£14</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Final Solstice</h3>
+          <p class="desc">Rich El Dorado Rum and dark demerara sweetness cut with bright lemon, crowned with a warming mulled-wine float and a cinnamon stick to garnish. Soft, silky, and dangerous.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13.50</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bubbles -->
+  <div class="drinks-section reveal-up">
+    <div class="sub-cat">Bubbles</div>
+    <div class="drink-grid">
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Aperol Spritz</h3>
+          <p class="desc">The Venetian classic – Aperol lengthened with Prosecco and soda. Served over ice with a fresh orange slice.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13.50</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Hugo Spritz</h3>
+          <p class="desc">St-Germain elderflower, prosecco poured over ice topped with soda, mint and a slice of lime. Crisp, floral, and a little flirty — like sunshine in a glass.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13.50</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Classic Cocktails -->
+  <div class="drinks-section reveal-up">
+    <div class="sub-cat">Classic Cocktails</div>
+    <div class="drink-grid">
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Cosmopolitan</h3>
+          <p class="desc">A carefully balanced blend of Citron Vodka, cranberry juice, Triple Sec, and lime juice shaken and garnished with flaming orange zest. Exchange the Vodka for Tequila for a Rude Cosmopolitan. Citrusy, sweet and tangy.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Mojito</h3>
+          <p class="desc">A large measure of Havana 3YO combined with fresh muddled lime, sugar and mint. Served long over crushed ice and topped with soda water. Also available with seasonal fruit infusions.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Bramble</h3>
+          <p class="desc">London Dry Gin shaken with lemon juice and sugar. Served short over crushed ice with a drizzle of blackberry liqueur. Simple and delicious.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Caipirinha</h3>
+          <p class="desc">Gold Cachaça combined with fresh muddled lime and sugar served short over crushed ice. Also available with seasonal fruit infusions. Exchange the Cachaça for Vodka for a Caipiroska.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Tom Collins</h3>
+          <p class="desc">Old Tom Gin mixed with muddled lemons, sugar, and soda water, served long over cubed ice.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Dark and Stormy</h3>
+          <p class="desc">Havana Especial with fresh lime, Angostura Bitters and a dash of sugar, lengthened with ginger beer.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Margarita</h3>
+          <p class="desc">Cabrito 100% Agave Tequila shaken with fresh lime juice and Triple Sec and served straight up or on the rocks with an optional salt rim. Swap the Triple Sec for agave for a Tommy's Margarita, or add chillies for a Picante.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Paloma</h3>
+          <p class="desc">Cabrito 100% Agave Tequila combined with fresh lime and grapefruit soda, served long over cubed ice with a pink Himalayan salt rim.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Mai Tai</h3>
+          <p class="desc">The Tiki classic. Dark and Gold Rums shaken with orange liqueur, fresh lime juice and Orgeat for a nutty tropical drink.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13.50</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Old Fashioned</h3>
+          <p class="desc">Angostura soaked sugar cube muddled and combined with Buffalo Trace Kentucky Straight Bourbon, stirred to perfection and served on the rocks with zest of orange.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£11.50</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£14.50</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3 class="premium">The Blacksmith's Old Fashioned <span class="premium-tag">Super Premium</span></h3>
+          <p class="desc">100% organic rye from Koval Distillery stirred to perfection with an aromatic bitters soaked sugar cube, served on the rocks with zest of orange.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£24</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Piña Colada</h3>
+          <p class="desc">A perfectly balanced mixture of Havana 3YO, a dash of Malibu, coconut cream, pineapple juice and a dash of cream blended to recreate a tropical classic that will transport you right back to that special place.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3 class="premium">Sazerac <span class="premium-tag">Super Premium</span></h3>
+          <p class="desc">Rye whiskey, Peychaud's bitters, absinthe, lemon. A bold New Orleans classic — smooth, aromatic, with just a hint of mischief.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£22</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Daiquiri</h3>
+          <p class="desc">Simple yet delicious. Havana 3YO Rum, sugar and lime shaken and served straight up — or served long with blended seasonal fruits when requested as a Frozen Daiquiri.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Long Island</h3>
+          <p class="desc">A combination of Vodka, Rum, Gin, Tequila, Triple Sec, and lemon juice shaken and layered over a base of Coca-Cola for a cool-looking and potent drink. Swap the Triple Sec for Midori and the Coca-Cola for lemonade for a Japanese Long Island.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13.50</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Ramos Gin Fizz</h3>
+          <p class="desc">A New Orleans classic that's as refreshing as it is indulgent. Bombay Sapphire Gin, lemon juice, egg white, and a touch of orange blossom water are shaken to silky perfection and topped with soda for a light, frothy finish. Effervescent and floral.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13.50</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Martini Cocktails -->
+  <div class="drinks-section reveal-up">
+    <div class="sub-cat">Martini Cocktails</div>
+    <div class="drink-grid">
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>The Thirst Date</h3>
+          <p class="desc">Freshly muddled watermelon and basil shaken with Bombay Sapphire Gin, lemon juice, sugar and watermelon syrup. As delicious as it sounds.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13.50</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Wonderland Martini</h3>
+          <p class="desc">Vanilla Vodka shaken with Kahlúa, Baileys, and a whisper of Frangelico, lifted by fresh coffee and finished with nutmeg. Rich, dreamy, and far too easy to love.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13.50</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3 class="premium">Pure Filth <span class="premium-tag">Super Premium</span></h3>
+          <p class="desc">An unapologetically bold Martini, shaken or stirred ice-cold with Riesling-infused Ferdinand's Saar Dry Gin and an overdose of rich olive brine, garnished with briny olives. Gritty, salty, and downright irresistible.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£24</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Pornstar Martini</h3>
+          <p class="desc">Vanilla Vodka and Passoa shaken ice cold with passion fruit purée and a hint of citrus. Served with bubbles and garnished with half a fresh passion fruit.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Smoke on the Water</h3>
+          <p class="desc">A fabulous mix of Mezcal, Tequila, Chambord, and Triple Sec shaken with agave syrup and lime juice, served up and garnished with a dehydrated lime wheel.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13.50</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Lychee Martini</h3>
+          <p class="desc">Tovaritch Vodka, lychee liqueur, fresh lychee purée, and sweet &amp; sour touch.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>French Martini</h3>
+          <p class="desc">A chic and velvety blend of Vanilla Vodka, Chambord, and pineapple juice, the French Martini delivers a perfect balance of tart and sweet with a silky finish. Elegant, fruity, and effortlessly sophisticated.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /cocktails -->
+
+<!-- ═══════════════════════════════════════
+     WINE & BUBBLES
+═══════════════════════════════════════ -->
+<div id="wine">
+  <div class="drinks-section reveal-up">
+    <div class="cat-header">
+      <div class="cat-divider"></div>
+      <h2>Wine &amp; Bubbles</h2>
+      <p class="cat-sub">By the glass or by the bottle</p>
+    </div>
+
+    <!-- White Wine -->
+    <div class="sub-cat">White Wine</div>
+    <div class="drink-grid">
+
+      <div class="wine-card">
+        <div class="wine-info">
+          <h3>Produttori Soleiano Verdicchio di Matelica</h3>
+          <p class="origin">Italy, 2023</p>
+          <p class="desc">Unoaked blend of 70% Sangiovese and 30% Merlot. Medium-weight, fresh, juicy red bursting with wild cherry and blackberry flavours.</p>
+        </div>
+        <div class="wine-prices">
+          <div class="price-col"><div class="price-label">175ml</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">250ml</div><div class="price-val">£13</div></div>
+          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£35</div></div>
+        </div>
+      </div>
+
+      <div class="wine-card">
+        <div class="wine-info">
+          <h3>Les Grès Chardonnay</h3>
+          <p class="origin">France, 2023</p>
+          <p class="desc">Unoaked blend of 70% Sangiovese and 30% Merlot. Medium-weight, fresh, juicy red bursting with wild cherry and blackberry flavours.</p>
+        </div>
+        <div class="wine-prices">
+          <div class="price-col"><div class="price-label">175ml</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">250ml</div><div class="price-val">£13</div></div>
+          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£35</div></div>
+        </div>
+      </div>
+
+      <div class="wine-card">
+        <div class="wine-info">
+          <h3>Blackenbrook Sauvignon Blanc</h3>
+          <p class="origin">New Zealand, 2023</p>
+          <p class="desc">Unoaked blend of 70% Sangiovese and 30% Merlot. Medium-weight, fresh, juicy red bursting with wild cherry and blackberry flavours.</p>
+        </div>
+        <div class="wine-prices">
+          <div class="price-col"><div class="price-label">175ml</div><div class="price-val">£13</div></div>
+          <div class="price-col"><div class="price-label">250ml</div><div class="price-val">£16</div></div>
+          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£44</div></div>
+        </div>
+      </div>
+
+      <div class="wine-card">
+        <div class="wine-info">
+          <h3>Castelnuovo Pinot Grigio</h3>
+          <p class="origin">Italy, 2023</p>
+          <p class="desc">Unoaked blend of 70% Sangiovese and 30% Merlot. Medium-weight, fresh, juicy red bursting with wild cherry and blackberry flavours.</p>
+        </div>
+        <div class="wine-prices">
+          <div class="price-col"><div class="price-label">175ml</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">250ml</div><div class="price-val">£13</div></div>
+          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£35</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Rosé -->
+    <div class="sub-cat">Rosé Wine</div>
+    <div class="drink-grid">
+
+      <div class="wine-card">
+        <div class="wine-info">
+          <h3>Nature de Roubié Rosé</h3>
+          <p class="origin">France, 2023</p>
+          <p class="desc">Salmon-pink with appealing wild red berries and nectarine on the nose. Medium-bodied, juicy and fresh. A fantastic dry rosé with plenty of flavours and character while retaining elegance.</p>
+        </div>
+        <div class="wine-prices">
+          <div class="price-col"><div class="price-label">175ml</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">250ml</div><div class="price-val">£13</div></div>
+          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£35</div></div>
+        </div>
+      </div>
+
+      <div class="wine-card">
+        <div class="wine-info">
+          <h3>Pur Azur Côtes De Provence Rosé</h3>
+          <p class="origin">France, 2023</p>
+          <p class="desc">The nose offers notes of apricot, wild strawberry, sea air, grapefruit, and white flowers. The palate has an appealing creaminess before finishing crisp and fresh.</p>
+        </div>
+        <div class="wine-prices">
+          <div class="price-col"><div class="price-label">175ml</div><div class="price-val">£13</div></div>
+          <div class="price-col"><div class="price-label">250ml</div><div class="price-val">£16</div></div>
+          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£44</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Red Wine -->
+    <div class="sub-cat">Red Wine</div>
+    <div class="drink-grid">
+
+      <div class="wine-card">
+        <div class="wine-info">
+          <h3>Produttori di Matelica Marche Rosso Soleiano</h3>
+          <p class="origin">Italy, 2022</p>
+          <p class="desc">Unoaked blend of 70% Sangiovese and 30% Merlot. Medium-weight, fresh, juicy red bursting with wild cherry and blackberry flavours.</p>
+        </div>
+        <div class="wine-prices">
+          <div class="price-col"><div class="price-label">175ml</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">250ml</div><div class="price-val">£13</div></div>
+          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£35</div></div>
+        </div>
+      </div>
+
+      <div class="wine-card">
+        <div class="wine-info">
+          <h3>Manissy Domaine Terre Davau Côtes du Rhône</h3>
+          <p class="origin">France, 2022</p>
+          <p class="desc">An elegant Tuscan red with refreshing mulberry flavours.</p>
+        </div>
+        <div class="wine-prices">
+          <div class="price-col"><div class="price-label">175ml</div><div class="price-val">£13</div></div>
+          <div class="price-col"><div class="price-label">250ml</div><div class="price-val">£16</div></div>
+          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£42</div></div>
+        </div>
+      </div>
+
+      <div class="wine-card">
+        <div class="wine-info">
+          <h3>De Gras Pinot Noir Reserva</h3>
+          <p class="origin">Chile, 2023</p>
+          <p class="desc">Impressive Pinot with perfumed wild raspberry with delicate hints of spice.</p>
+        </div>
+        <div class="wine-prices">
+          <div class="price-col"><div class="price-label">175ml</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">250ml</div><div class="price-val">£13</div></div>
+          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£35</div></div>
+        </div>
+      </div>
+
+      <div class="wine-card">
+        <div class="wine-info">
+          <h3>Carelli Latitud 34° Malbec</h3>
+          <p class="origin">Argentina, 2023</p>
+          <p class="desc">Great plum and cranberry perfume with some good spice and leafy secondary characters. Soft but plentiful tannins work well with the acidity and depth of fruit flavour on the palate.</p>
+        </div>
+        <div class="wine-prices">
+          <div class="price-col"><div class="price-label">175ml</div><div class="price-val">£10</div></div>
+          <div class="price-col"><div class="price-label">250ml</div><div class="price-val">£13</div></div>
+          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£35</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Champagne & Prosecco -->
+    <div class="sub-cat">Champagne &amp; Prosecco</div>
+    <div class="drink-grid">
+
+      <div class="wine-card">
+        <div class="wine-info">
+          <h3>Corte Delle Calli Prosecco</h3>
+          <p class="origin">Italy</p>
+          <p class="desc">Delicious soft, round, frothy fizz with gentle floral peach and pear.</p>
+        </div>
+        <div class="wine-prices">
+          <div class="price-col"><div class="price-label">Glass</div><div class="price-val">£8</div></div>
+          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£40</div></div>
+          <div class="price-col"><div class="price-label">Magnum</div><div class="price-val">£70</div></div>
+        </div>
+      </div>
+
+      <div class="wine-card">
+        <div class="wine-info">
+          <h3>A.Bergère Brut</h3>
+          <p class="origin">France</p>
+          <p class="desc">Fine bubbles, vibrant red fruits scented with wild raspberry and white peach and a twist of patisserie; crisp and fresh.</p>
+        </div>
+        <div class="wine-prices">
+          <div class="price-col"><div class="price-label">Glass</div><div class="price-val na">—</div></div>
+          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£90</div></div>
+        </div>
+      </div>
+
+      <div class="wine-card">
+        <div class="wine-info">
+          <h3>Moët &amp; Chandon Brut Imperial</h3>
+          <p class="origin">France</p>
+          <p class="desc">The Brut Imperial from Moët embodies their house style: crisp and clean. This classic Champagne shows citrus aromas and hints of biscuity flavours.</p>
+        </div>
+        <div class="wine-prices">
+          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£120</div></div>
+        </div>
+      </div>
+
+      <div class="wine-card">
+        <div class="wine-info">
+          <h3>Moët &amp; Chandon Brut Rosé</h3>
+          <p class="origin">France</p>
+          <p class="desc">The Brut Imperial from Moët embodies their house style: crisp and clean. This classic Champagne shows citrus aromas and hints of biscuity flavours.</p>
+        </div>
+        <div class="wine-prices">
+          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£140</div></div>
+        </div>
+      </div>
+
+      <div class="wine-card">
+        <div class="wine-info">
+          <h3>Laurent Perrier Cuvée Brut Rosé</h3>
+          <p class="origin">France</p>
+          <p class="desc">Intensely fruity flavours, clean, well-defined and slightly sharp. Red berries, strawberries, Morello cherries, blackcurrants and raspberries.</p>
+        </div>
+        <div class="wine-prices">
+          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£150</div></div>
+        </div>
+      </div>
+
+      <div class="wine-card">
+        <div class="wine-info">
+          <h3>Dom Pérignon</h3>
+          <p class="origin">France — 2013</p>
+          <p class="desc">A graceful, minerally version, featuring rich notes of smoke and chalk that lead to subtle accents of toasted almond and espresso. Seamlessly knit with citrusy acidity leaving a mouthwatering finish.</p>
+        </div>
+        <div class="wine-prices">
+          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£310</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div><!-- /wine -->
+
+<!-- ═══════════════════════════════════════
+     BEER & CIDER
+═══════════════════════════════════════ -->
+<div id="beer">
+  <div class="drinks-section reveal-up">
+    <div class="cat-header">
+      <div class="cat-divider"></div>
+      <h2>Beer &amp; Cider</h2>
+      <p class="cat-sub">Cold ones, done right</p>
+    </div>
+
+    <div class="beer-grid">
+
+      <div class="beer-card">
+        <div class="beer-info">
+          <h3>Peroni</h3>
+          <p class="beer-meta">Italy · 330ml Bottle</p>
+        </div>
+        <div class="beer-price">£5.50</div>
+      </div>
+
+      <div class="beer-card">
+        <div class="beer-info">
+          <h3>Asahi</h3>
+          <p class="beer-meta">Japan · 330ml Bottle</p>
+        </div>
+        <div class="beer-price">£5.50</div>
+      </div>
+
+      <div class="beer-card">
+        <div class="beer-info">
+          <h3>Estrella Dam</h3>
+          <p class="beer-meta">Spain · 330ml Bottle</p>
+        </div>
+        <div class="beer-price">£5.50</div>
+      </div>
+
+      <div class="beer-card">
+        <div class="beer-info">
+          <h3>Corona</h3>
+          <p class="beer-meta">Mexico · 330ml Bottle</p>
+        </div>
+        <div class="beer-price">£5.50</div>
+      </div>
+
+      <div class="beer-card">
+        <div class="beer-info">
+          <h3>Meantime Pale Ale</h3>
+          <p class="beer-meta">UK · 330ml Bottle</p>
+        </div>
+        <div class="beer-price">£7</div>
+      </div>
+
+      <div class="beer-card">
+        <div class="beer-info">
+          <h3>Neck Oil Session IPA</h3>
+          <p class="beer-meta">UK · 330ml Can</p>
+        </div>
+        <div class="beer-price">£7.50</div>
+      </div>
+
+      <div class="beer-card">
+        <div class="beer-info">
+          <h3>Cornish Orchards Gold Cider</h3>
+          <p class="beer-meta">UK · 500ml Bottle</p>
+        </div>
+        <div class="beer-price">£8</div>
+      </div>
+
+      <div class="beer-card">
+        <div class="beer-info">
+          <h3>Rekorderlig Strawberry</h3>
+          <p class="beer-meta">Sweden · 500ml Bottle</p>
+        </div>
+        <div class="beer-price">£8</div>
+      </div>
+
+      <div class="beer-card">
+        <div class="beer-info">
+          <h3>Rekorderlig Passion</h3>
+          <p class="beer-meta">Sweden · 500ml Bottle</p>
+        </div>
+        <div class="beer-price">£8</div>
+      </div>
+
+      <div class="beer-card">
+        <div class="beer-info">
+          <h3>Rekorderlig Wild Berry</h3>
+          <p class="beer-meta">Sweden · 500ml Bottle</p>
+        </div>
+        <div class="beer-price">£8</div>
+      </div>
+
+    </div>
+  </div>
+</div><!-- /beer -->
+
+<!-- ═══════════════════════════════════════
+     NON-ALCOHOLIC
+═══════════════════════════════════════ -->
+<div id="na">
+  <div class="drinks-section reveal-up">
+    <div class="cat-header">
+      <div class="cat-divider"></div>
+      <h2>Non-Alcoholic</h2>
+      <p class="cat-sub">All of the flavour, none of the regret</p>
+    </div>
+
+    <div class="sub-cat">Mocktails</div>
+    <div class="drink-grid">
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Neotropical</h3>
+          <p class="desc">A vibrant concoction of cranberry, orange, apple, and pineapple juices, shaken with lemon juice, sugar syrup, and passion fruit elements, served in a dirty pour style, crowned with a luscious passion fruit half garnish.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£6.50</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£8.50</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£10.50</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Soft Porn</h3>
+          <p class="desc">A delightful mocktail featuring STRYKK Not Rum 0%, harmonized with vanilla and passionfruit syrups, along with the tropical fusion of pineapple and passionfruit puree.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£6.50</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£8.50</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£10.50</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Juicy Affair</h3>
+          <p class="desc">A cool, refreshing embrace of muddled cucumber and zesty lemon, softened by a sweet touch of elderflower and a crisp hint of apple. This tantalising sip promises to linger on your lips.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£6.50</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£8.50</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£10.50</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>Nojito</h3>
+          <p class="desc">STRYKK Not Rum, muddled with lime, sugar, and mint, creates a spirited, non-alcoholic Mojito garnished with a lime wedge and fresh mint sprig for a burst of tropical flavour.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£6.50</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£8.50</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£10.50</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>The Long Con</h3>
+          <p class="desc">Grapefruit and lemon juices meet hibiscus syrup, topped with bitter lemon tonic, shaken with or without egg white, presenting a non-alcoholic elixir adorned with a hibiscus flower for a harmonious citrus and floral symphony.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£6.50</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£8.50</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£10.50</div></div>
+        </div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-info">
+          <h3>El Motivo</h3>
+          <p class="desc">Botivo takes the spotlight in this invigorating non-alcoholic concoction, blended with ginger beer, topped with soda water, and crowned with a twist of lemon peel for a zesty finish.</p>
+        </div>
+        <div class="drink-prices">
+          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£6.50</div></div>
+          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£8.50</div></div>
+          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£10.50</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sub-cat">Non-Alcoholic Beer</div>
+    <div class="beer-grid">
+
+      <div class="beer-card">
+        <div class="beer-info">
+          <h3>Lucky Saint</h3>
+          <p class="beer-meta">Germany · 330ml Bottle</p>
+        </div>
+        <div class="beer-price">£7</div>
+      </div>
+
+      <div class="beer-card">
+        <div class="beer-info">
+          <h3>Brewdog Punk AF</h3>
+          <p class="beer-meta">Scotland · 330ml Bottle · Alcohol Free IPA</p>
+        </div>
+        <div class="beer-price">£5.50</div>
+      </div>
+
+    </div>
+
+  </div>
+</div><!-- /na -->
+
+<!-- ═══════════════════════════════════════
+     PACKAGES
+═══════════════════════════════════════ -->
+<div id="packages">
+  <div class="drinks-section reveal-up">
+    <div class="cat-header">
+      <div class="cat-divider"></div>
+      <h2>Packages</h2>
+      <p class="cat-sub">Pre-order &amp; save</p>
+    </div>
+
+    <div class="pkg-note">Packages can only be pre-ordered and pre-paid in advance — not available on-site</div>
+
+    <div class="pkg-grid">
+
+      <div class="pkg-card">
+        <h3>Beer Bucket</h3>
+        <p class="pkg-desc">12 Bottles of Beer of your choice</p>
+        <div class="pkg-price">£55</div>
+      </div>
+
+      <div class="pkg-card">
+        <h3>Mix &amp; Match Wine Package</h3>
+        <p class="pkg-desc">10 Cocktails and 2 Bottles of Wine (red, white or rosé)</p>
+        <div class="pkg-price">£120</div>
+      </div>
+
+      <div class="pkg-card">
+        <h3>Wine Package</h3>
+        <p class="pkg-desc">5 Bottles of mixed House wine (red, white or rosé)</p>
+        <div class="pkg-price">£140</div>
+      </div>
+
+      <div class="pkg-card">
+        <h3>Magnum Package</h3>
+        <p class="pkg-desc">1 Magnum (1.5lt) Prosecco and 1 bottle of House Spirit (including mixers)</p>
+        <div class="pkg-price">£170</div>
+      </div>
+
+      <div class="pkg-card">
+        <h3>Double Magnum Package</h3>
+        <p class="pkg-desc">2 Magnum (1.5lt) Prosecco and 1 bottle of House Spirit (including mixers)</p>
+        <div class="pkg-price">£250</div>
+      </div>
+
+      <div class="pkg-card">
+        <h3>Mad Magnum Package</h3>
+        <p class="pkg-desc">2 Magnum (1.5lt) Prosecco and 2 bottles of House Spirit (including mixers)</p>
+        <div class="pkg-price">£290</div>
+      </div>
+
+    </div>
+  </div>
+</div><!-- /packages -->
+
+<!-- CTA -->
+<div class="section section-centered reveal-up" style="padding-bottom:120px;">
   <div class="section-divider"></div>
-  <h2>Drinks</h2>
-  <p>We love a good cocktail, and our bartenders know their stuff. Whatever your tipple — cocktails, non-alcoholic drinks, wines, beers and spirits — we quench every thirst.</p>
-  <p>We're also famous for our Stupid and Happy hours, so join us early.</p>
-</div>
-
-<div class="cocktail-strip">
-  <div class="cocktail-strip-item reveal-scale delay-1"><img src="assets/raspberry-martini.jpg" alt="Raspberry martini"></div>
-  <div class="cocktail-strip-item reveal-scale delay-2"><img src="assets/mint-cocktail.jpg" alt="Cocktail with mint"></div>
-  <div class="cocktail-strip-item reveal-scale delay-3"><img src="assets/champagne-flute.jpg" alt="Pink champagne"></div>
-</div>
-
-<div class="section section-centered">
-  <div class="hours-grid reveal-up">
-    <div class="hour-card gold">
-      <h3>Stupid Hour</h3>
-      <div class="time-row"><div class="time-label">Sun – Fri</div><div class="time-value">16:00 – 18:00</div></div>
-      <div class="time-row"><div class="time-label">Saturday</div><div class="time-value">16:00 – 17:00</div></div>
-    </div>
-    <div class="hour-card">
-      <h3>Happy Hour</h3>
-      <div class="time-row"><div class="time-label">Sun – Fri</div><div class="time-value">18:00 – 20:00</div></div>
-      <div class="time-row"><div class="time-label">Saturday</div><div class="time-value">17:00 – 18:00</div></div>
-    </div>
+  <h2>Ready to drink?</h2>
+  <p>Book a table and we'll have your first round waiting.</p>
+  <div style="margin-top:24px;">
+    <a href="bookings.html" class="btn">Book a Table</a>
   </div>
-  <a href="#" class="btn reveal-up delay-3">View Full Drinks Menu</a>
 </div>
 
-<section class="split">
-  <div class="split-image reveal-left"><img src="assets/orange-cocktail.jpg" alt="Drinks and food"></div>
-  <div class="split-text reveal-right">
-    <h2>Food</h2>
-    <p>We're experts in liquid courage. But we have teamed up with our lovely neighbours, Truffle Burger, so that you can enjoy delicious burgers and fries served straight to your table — the perfect accompaniment to Soho's best cocktails.</p>
-    <p class="tagline">We serve. They flip. You feast.</p>
-    <a href="#" class="btn">Visit Truffle Burger</a>
-  </div>
-</section>
-
+<!-- Footer -->
 <footer>
   <div class="footer-divider"></div>
   <div class="footer-grid">
-    <div class="footer-col"><h4>Location</h4><p>53 Greek St<br>London<br>W1D 3DR</p></div>
-    <div class="footer-col"><h4>Contact Us</h4><p><a href="tel:02074371977">020 7437 1977</a><br><span id="emailFooter"></span></p></div>
-    <div class="footer-col"><h4>Opening Times</h4><p>Mon - Sun:<br>16:00-03:00</p></div>
+    <div class="footer-col">
+      <h4>Find Us</h4>
+      <p>53 Greek Street<br>London, W1D 3DR</p>
+    </div>
+    <div class="footer-col">
+      <h4>Hours</h4>
+      <p>Mon–Thu: 16:00–01:00<br>Fri–Sat: 16:00–03:00<br>Sun: 16:00–00:00</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p><a href="tel:02074371977">020 7437 1977</a><br><span id="emailFooter"></span></p>
+    </div>
   </div>
-  <div class="footer-logo-wrap"><a href="index.html"><img src="assets/logo.png" alt="Thirst"></a></div>
+  <div class="footer-logo-wrap">
+    <img src="assets/logo.png" alt="Thirst Soho">
+  </div>
 </footer>
 
 <script>
-const nav=document.getElementById('nav'),sb=document.getElementById('stupidBanner');
-window.addEventListener('scroll',()=>{const s=window.scrollY>60;nav.classList.toggle('scrolled',s);sb.style.transform=s?'translateY(-100%)':'translateY(0)';sb.style.transition='transform .3s ease';});
-const mt=document.getElementById('menuToggle'),mp=document.getElementById('menuPanel'),mb=document.getElementById('menuBackdrop'),mc=document.getElementById('menuClose');
-function om(){mp.classList.add('open');mb.classList.add('open');mt.classList.add('is-open');document.body.style.overflow='hidden';}
-function cm(){mp.classList.remove('open');mb.classList.remove('open');mt.classList.remove('is-open');document.body.style.overflow='';}
-mt.addEventListener('click',()=>{mp.classList.contains('open')?cm():om();});
-mc.addEventListener('click',cm);mb.addEventListener('click',cm);
-document.querySelectorAll('.menu-links a').forEach(l=>l.addEventListener('click',cm));
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mp.classList.contains('open'))cm();});
-let pd={};function cfd(i,v){const p=pd[i];const c=p!==undefined&&p!==v;pd[i]=v;if(c)return`<span class="flip-digit flipping"><span class="flip-current">${p}</span><span class="flip-next">${v}</span></span>`;return`<span class="flip-digit"><span class="flip-current">${v}</span></span>`;}
-function cfg(v,l){const s=String(v).padStart(2,'0');return`<span class="flip-group">${cfd(l+'0',s[0])}${cfd(l+'1',s[1])}</span><span class="flip-label">${l}</span>`;}
-function ush(){const b=document.getElementById('stupidBanner'),c=document.getElementById('stupidCountdown'),n=new Date(),lo=new Date(n.toLocaleString('en-US',{timeZone:'Europe/London'})),d=lo.getDay(),h=lo.getHours(),m=lo.getMinutes(),s=lo.getSeconds(),cu=h*3600+m*60+s,iS=d===6,st=16*3600,en=iS?17*3600:18*3600;if(cu>=st&&cu<en){const l=en-cu,mm=Math.floor(l/60),ss=l%60;b.classList.add('is-live');c.innerHTML=`<span class="live-dot"></span>Stupid Hour is live · ${cfg(mm,'m')} ${cfg(ss,'s')} remaining`;}else if(cu<st){b.classList.remove('is-live');const l=st-cu,hh=Math.floor(l/3600),mm=Math.floor((l%3600)/60),ss=l%60;c.innerHTML=hh>0?`🍸 ${cfg(hh,'h')} ${cfg(mm,'m')} ${cfg(ss,'s')} until <span>Stupid Hour</span>`:`🍸 ${cfg(mm,'m')} ${cfg(ss,'s')} until <span>Stupid Hour</span>`;}else{b.classList.remove('is-live');c.innerHTML=`🍸 <span>Stupid Hour</span> returns tomorrow at 4pm`;}}
-ush();setInterval(ush,1000);
-const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');obs.unobserve(en.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal-up,.reveal-left,.reveal-right,.reveal-scale').forEach(el=>obs.observe(el));
-(function(){const u='soho',d='thirstbar.com';['emailInline','emailFooter'].forEach(id=>{const el=document.getElementById(id);if(el){const a=document.createElement('a');a.href='mail'+'to:'+u+'@'+d;a.textContent=u+'@'+d;el.appendChild(a);}});})();
-setTimeout(()=>{document.querySelectorAll('.reveal-up,.reveal-left,.reveal-right,.reveal-scale').forEach(el=>el.classList.add('visible'));},3000);
+/* ══════════════════════════════════════
+   STUPID HOUR COUNTDOWN
+══════════════════════════════════════ */
+(function(){
+  const el=document.getElementById('stupidCountdown');
+  const banner=document.getElementById('stupidBanner');
+  function update(){
+    const now=new Date();
+    const lon=new Date(now.toLocaleString('en-US',{timeZone:'Europe/London'}));
+    const day=lon.getDay(),h=lon.getHours(),m=lon.getMinutes(),s=lon.getSeconds();
+    const isSat=day===6;
+    const stupidStart=16,stupidEnd=isSat?17:18;
+    const happyStart=stupidEnd,happyEnd=isSat?18:20;
+    const nowMins=h*60+m;
+    if(nowMins>=stupidStart*60&&nowMins<stupidEnd*60){
+      banner.classList.add('is-live');
+      const left=(stupidEnd*60-nowMins)*60-s;
+      const mm=Math.floor(left/60),ss=left%60;
+      el.innerHTML='<span class="live-dot"></span>STUPID HOUR IS <span>LIVE</span> — '+pad(mm)+'<span class="flip-label">m</span>'+pad(ss)+'<span class="flip-label">s</span> remaining';
+    } else if(nowMins>=happyStart*60&&nowMins<happyEnd*60){
+      banner.classList.add('is-live');
+      const left=(happyEnd*60-nowMins)*60-s;
+      const mm=Math.floor(left/60),ss=left%60;
+      el.innerHTML='<span class="live-dot"></span>HAPPY HOUR IS <span>LIVE</span> — '+pad(mm)+'<span class="flip-label">m</span>'+pad(ss)+'<span class="flip-label">s</span> remaining';
+    } else {
+      banner.classList.remove('is-live');
+      let target=new Date(lon);
+      if(nowMins>=happyEnd*60){target.setDate(target.getDate()+1);}
+      target.setHours(16,0,0,0);
+      const diff=Math.max(0,Math.floor((target-lon)/1000));
+      const hh=Math.floor(diff/3600),mm=Math.floor((diff%3600)/60),ss=diff%60;
+      el.innerHTML='STUPID HOUR IN <span>'+pad(hh)+'</span><span class="flip-label">h</span><span>'+pad(mm)+'</span><span class="flip-label">m</span><span>'+pad(ss)+'</span><span class="flip-label">s</span>';
+    }
+  }
+  function pad(n){return n<10?'0'+n:n;}
+  update();setInterval(update,1000);
+})();
 
+/* ══════════════════════════════════════
+   NAV SCROLL
+══════════════════════════════════════ */
+const nav=document.getElementById('nav'),sb=document.getElementById('stupidBanner');
+window.addEventListener('scroll',()=>{
+  const s=window.scrollY>60;
+  nav.classList.toggle('scrolled',s);
+  sb.style.transform=s?'translateY(-100%)':'translateY(0)';
+});
+
+/* ══════════════════════════════════════
+   SIDE PANEL MENU
+══════════════════════════════════════ */
+const menuToggle=document.getElementById('menuToggle');
+const menuPanel=document.getElementById('menuPanel');
+const menuBackdrop=document.getElementById('menuBackdrop');
+const menuClose=document.getElementById('menuClose');
+function openMenu(){menuPanel.classList.add('open');menuBackdrop.classList.add('open');document.body.style.overflow='hidden';}
+function closeMenu(){menuPanel.classList.remove('open');menuBackdrop.classList.remove('open');document.body.style.overflow='';}
+menuToggle.addEventListener('click',openMenu);
+menuClose.addEventListener('click',closeMenu);
+menuBackdrop.addEventListener('click',closeMenu);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+
+/* ══════════════════════════════════════
+   CATEGORY TABS
+══════════════════════════════════════ */
+const tabs=document.querySelectorAll('.cat-tab');
+const catTabs=document.getElementById('catTabs');
+tabs.forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    tabs.forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    const target=document.getElementById(tab.dataset.target);
+    if(target){
+      const offset=catTabs.offsetHeight+10;
+      const y=target.getBoundingClientRect().top+window.scrollY-offset;
+      window.scrollTo({top:y,behavior:'smooth'});
+    }
+  });
+});
+
+// Active tab on scroll
+const catSections=['cocktails','wine','beer','na','packages'].map(id=>document.getElementById(id)).filter(Boolean);
+window.addEventListener('scroll',()=>{
+  const scrollPos=window.scrollY+200;
+  let current='cocktails';
+  catSections.forEach(sec=>{
+    if(sec.offsetTop<=scrollPos) current=sec.id;
+  });
+  tabs.forEach(t=>{
+    t.classList.toggle('active',t.dataset.target===current);
+  });
+  // Sticky tab position
+  catTabs.classList.toggle('pushed',window.scrollY>60);
+},{passive:true});
+
+/* ══════════════════════════════════════
+   REVEAL ON SCROLL
+══════════════════════════════════════ */
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal-up').forEach(el=>obs.observe(el));
+setTimeout(()=>{document.querySelectorAll('.reveal-up').forEach(el=>el.classList.add('visible'));},4000);
+
+/* ══════════════════════════════════════
+   EMAIL OBFUSCATION
+══════════════════════════════════════ */
+(function(){
+  const u='soho',d='thirstbar.com';
+  const el=document.getElementById('emailFooter');
+  if(el){const a=document.createElement('a');a.href='mail'+'to:'+u+'@'+d;a.textContent=u+'@'+d;el.appendChild(a);}
+})();
 </script>
 </body>
 </html>
