@@ -6,23 +6,23 @@
 <title>Menu — Thirst Soho</title>
 <meta name="description" content="Cocktails, wine, beer and more at Thirst Soho — 53 Greek Street, London W1D 3DR. Stupid Hour from £7.50.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Belleza&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ══════════════════════════════════════
    VARIABLES & RESET
 ══════════════════════════════════════ */
 :root {
   --bg: #0b112b;
-  --white: #f5f0eb;
-  --white-70: rgba(245,240,235,.7);
-  --white-50: rgba(245,240,235,.5);
-  --white-30: rgba(245,240,235,.3);
-  --white-15: rgba(245,240,235,.15);
-  --white-10: rgba(245,240,235,.1);
+  --white: #fff;
+  --white-70: rgba(255,255,255,0.7);
+  --white-50: rgba(255,255,255,0.5);
+  --white-30: rgba(255,255,255,0.3);
+  --white-15: rgba(255,255,255,0.15);
+  --white-10: rgba(255,255,255,0.1);
   --gold: #c9a84c;
   --gold-20: rgba(201,168,76,.2);
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-ui: 'Outfit', system-ui, sans-serif;
+  --font-display: 'Belleza', sans-serif;
+  --font-ui: 'Jost', 'Futura', 'Helvetica Neue', sans-serif;
 }
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
@@ -63,9 +63,9 @@ nav.scrolled { top:0; background:rgba(11,17,43,.92); backdrop-filter:blur(12px);
 .nav-hamburger span { display:block; width:26px; height:1.5px; background:var(--white); transition:0.3s; }
 .nav-logo img { height:38px; width:auto; object-fit:contain; }
 .nav-book {
-  font-family:var(--font-ui); font-size:0.55rem; font-weight:600;
+  font-family:var(--font-ui); font-size:0.65rem; font-weight:500;
   letter-spacing:0.2em; text-transform:uppercase; color:var(--white);
-  border:1px solid var(--white-30); padding:10px 18px;
+  border:1px solid var(--white); padding:10px 22px;
   transition:all 0.3s;
 }
 .nav-book:hover { background:var(--white); color:var(--bg); }
@@ -117,7 +117,7 @@ nav.scrolled { top:0; background:rgba(11,17,43,.92); backdrop-filter:blur(12px);
 .section h2 { font-family:var(--font-display); font-size:clamp(1.6rem,3vw,2.4rem); font-weight:400; margin-bottom:24px; }
 .section p { font-family:var(--font-display); font-size:1.05rem; line-height:1.9; color:var(--white-70); margin-bottom:16px; }
 .section-divider { width:60px; height:1px; background:var(--white-30); margin:0 auto 40px; }
-.btn { display:inline-block; font-family:var(--font-ui); font-size:0.6rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:var(--white); border:1px solid var(--white-30); padding:16px 40px; transition:all 0.4s; position:relative; overflow:hidden; }
+.btn { display:inline-block; font-family:var(--font-ui); font-size:0.65rem; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:var(--white); border:1px solid var(--white); padding:18px 56px; background:rgba(11,17,43,.45); transition:all 0.4s; position:relative; overflow:hidden; cursor:pointer; }
 .btn::after { content:''; position:absolute; inset:0; background:var(--white); transform:scaleX(0); transform-origin:right; transition:transform .4s cubic-bezier(.16,1,.3,1); z-index:-1; }
 .btn:hover { color:var(--bg); transform:translateY(-2px); }
 .btn:hover::after { transform:scaleX(1); transform-origin:left; }
@@ -452,7 +452,7 @@ footer {
 <nav id="nav">
   <div class="nav-hamburger" id="menuToggle"><span></span><span></span><span></span></div>
   <a href="index.html" class="nav-logo"><img src="assets/logo.png" alt="Thirst"></a>
-  <a href="bookings.html" class="nav-book">Book Now</a>
+  <a href="https://www.designmynight.com/london/bars/soho/thirst-bar-soho" target="_blank" class="nav-book">Book Now</a>
 </nav>
 
 <!-- Side Panel Menu -->
@@ -461,14 +461,16 @@ footer {
   <div class="menu-close" id="menuClose"><span></span><span></span></div>
   <ul class="menu-links">
     <li><a href="index.html">Welcome</a></li>
-    <li><a href="bookings.html">Bookings & Hire</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="menu.html" class="active">Menu</a></li>
-    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="bookings.html">Bookings & Events</a></li>
+    <li><a href="menu.html" class="active">Drinks</a></li>
+    <li><a href="food.html">Food</a></li>
     <li><a href="whats-on.html">What's On</a></li>
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
     <li><a href="careers.html">Careers</a></li>
     <li><a href="faqs.html">FAQs</a></li>
     <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://www.designmynight.com/london/bars/soho/thirst-bar-soho" target="_blank" style="color:var(--gold)">Book</a></li>
   </ul>
   <div class="menu-footer"><p>53 Greek St, London, W1D 3DR<br><a href="tel:02074371977">020 7437 1977</a></p></div>
 </div>
