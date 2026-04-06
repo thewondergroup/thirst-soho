@@ -1089,9 +1089,8 @@ setTimeout(() => {
   if (st) st.classList.add('visible');
   const ts = document.getElementById('testimonialSection');
   if (ts) ts.classList.add('in-view');
-  document.querySelectorAll('.intro .word, .testimonial .word').forEach(w => {
-    w.classList.add('visible');
-  });
+  // Note: intro words and testimonial words are NOT forced here
+  // so they animate naturally when scrolled into view
 }, 3000);
 </script>
 </body>
