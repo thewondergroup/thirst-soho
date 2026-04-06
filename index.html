@@ -1008,6 +1008,74 @@ nav.scrolled {
 }
 
 /* ══════════════════════════════════════
+   MAP SECTION
+══════════════════════════════════════ */
+.map-section {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+}
+.map-section iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: invert(90%) hue-rotate(180deg) saturate(0.3) brightness(0.6) contrast(1.2);
+}
+.map-overlay-strip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(11,17,43,.8) 100%);
+  padding: 32px 32px 28px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  pointer-events: none;
+}
+.map-overlay-strip .map-address {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--white-70);
+  line-height: 1.6;
+}
+.map-overlay-strip .map-address strong {
+  color: var(--white);
+  font-weight: 400;
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+.map-overlay-strip .map-directions {
+  pointer-events: auto;
+  font-family: var(--font-ui);
+  font-size: .6rem;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--white);
+  border: 1px solid var(--white-30);
+  padding: 10px 24px;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+.map-overlay-strip .map-directions:hover {
+  background: var(--white);
+  color: var(--bg);
+  border-color: var(--white);
+}
+@media (max-width: 600px) {
+  .map-section { height: 350px; }
+  .map-overlay-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px 20px 20px;
+  }
+}
+
+/* ══════════════════════════════════════
    FOOTER
 ══════════════════════════════════════ */
 footer {
@@ -1373,6 +1441,18 @@ footer {
     </div>
   </div>
 </section>
+
+<!-- ════ MAP ════ -->
+<div class="map-section reveal-up">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.0!2d-0.1312!3d51.5138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604d32d6e2c27%3A0x5c5e5e5e5e5e5e5e!2s53+Greek+St%2C+London+W1D+3DR!5e0!3m2!1sen!2suk!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Thirst Soho location"></iframe>
+  <div class="map-overlay-strip">
+    <div class="map-address">
+      <strong>Thirst Soho</strong>
+      53 Greek St, London W1D 3DR
+    </div>
+    <a href="https://www.google.com/maps/dir//53+Greek+St,+London+W1D+3DR" target="_blank" class="map-directions">Get Directions</a>
+  </div>
+</div>
 
 <!-- ════ FOOTER ════ -->
 <footer>
