@@ -162,9 +162,11 @@ nav.scrolled {
   transform: translateX(-50%);
   opacity: 0;
   animation: heroFadeUp 0.6s 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
+  display: flex;
+  align-items: center;
 }
 .nav-logo img {
-  height: 36px;
+  height: 48px;
   width: auto;
   object-fit: contain;
 }
@@ -471,14 +473,16 @@ nav.scrolled {
 }
 
 /* ══════════════════════════════════════
-   STUPID HOUR
+   STUPID HOUR — scrolling image marquee bg
 ══════════════════════════════════════ */
 .stupid-hour {
+  position: relative;
   background: var(--bg);
-  padding: 80px 0 0;
+  padding: 80px 0;
   text-align: center;
   overflow: hidden;
 }
+
 .stupid-hour h2 {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3rem);
@@ -486,7 +490,8 @@ nav.scrolled {
   text-transform: uppercase;
   margin-bottom: 40px;
   padding: 0 24px;
-  /* Letter expand animation triggered by JS */
+  position: relative;
+  z-index: 3;
   opacity: 0;
   letter-spacing: 0.3em;
   transition: opacity 0.8s ease, letter-spacing 1.2s cubic-bezier(0.16,1,0.3,1);
@@ -496,61 +501,102 @@ nav.scrolled {
   letter-spacing: 0.06em;
 }
 
-.stupid-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-  padding: 0 10px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.stupid-cell {
-  aspect-ratio: 0.82;
+/* Image marquee container */
+.stupid-marquee-wrap {
+  position: relative;
   overflow: hidden;
-  border-radius: 2px;
+  padding: 20px 0;
 }
-.stupid-cell img {
-  transition: transform 0.6s ease;
+
+/* Gradient overlay so text is readable */
+.stupid-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(11,17,43,0.88) 0%,
+    rgba(11,17,43,0.65) 50%,
+    rgba(11,17,43,0.4) 100%
+  );
+  pointer-events: none;
 }
-.stupid-cell:hover img {
-  transform: scale(1.04);
+
+/* Scrolling marquee rows */
+@keyframes marqueeLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
-.stupid-center {
+@keyframes marqueeRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.stupid-marquee-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  width: max-content;
+}
+.stupid-marquee-row:last-child {
+  margin-bottom: 0;
+}
+
+.stupid-marquee-row.scroll-left {
+  animation: marqueeLeft 35s linear infinite;
+}
+.stupid-marquee-row.scroll-right {
+  animation: marqueeRight 40s linear infinite;
+}
+
+.stupid-marquee-row img {
+  width: 220px;
+  height: 165px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* Text content floating over the marquee */
+.stupid-content {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px 12px;
-  aspect-ratio: auto;
+  padding: 40px 24px;
 }
-.stupid-center .join {
+
+.stupid-content .join {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.7;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
-.stupid-center .join strong {
+.stupid-content .join strong {
   font-family: var(--font-ui);
   font-weight: 700;
   letter-spacing: 0.05em;
 }
-.stupid-center .times {
+.stupid-content .times {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   line-height: 1.8;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
-.stupid-bottom {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-  padding: 10px 10px 80px;
-  max-width: 1200px;
-  margin: 0 auto;
+/* Pause marquee on hover for a nice touch */
+.stupid-marquee-wrap:hover .stupid-marquee-row {
+  animation-play-state: paused;
 }
-.stupid-bottom .stupid-cell {
-  aspect-ratio: 0.82;
+
+@media (max-width: 600px) {
+  .stupid-marquee-row img {
+    width: 140px;
+    height: 105px;
+  }
 }
 
 /* ══════════════════════════════════════
@@ -654,7 +700,7 @@ footer {
   text-align: center;
 }
 .footer-logo-wrap img {
-  height: 44px;
+  height: 56px;
   width: auto;
   object-fit: contain;
   margin: 0 auto;
@@ -681,12 +727,7 @@ footer {
   .about { grid-template-columns: 1fr; }
   .about-video { min-height: 400px; }
   .about-text { padding: 60px 28px; }
-  .stupid-grid,
-  .stupid-bottom { grid-template-columns: repeat(3, 1fr); }
-  .stupid-cell:first-child,
-  .stupid-cell:last-child { display: none; }
-  .stupid-bottom .stupid-cell:first-child,
-  .stupid-bottom .stupid-cell:last-child { display: none; }
+  .stupid-marquee-row img { width: 160px; height: 120px; }
   .footer-grid { grid-template-columns: 1fr; gap: 36px; }
   nav { padding: 16px 20px; }
   .reveal-left, .reveal-right {
@@ -699,10 +740,27 @@ footer {
 
 @media (max-width: 600px) {
   .hero h1 { font-size: 1.8rem; }
-  .stupid-grid,
-  .stupid-bottom { grid-template-columns: 1fr 1fr; }
+}
+
+/* Fallback: if JS doesn't load or IntersectionObserver is blocked,
+   make everything visible after a short delay */
+@keyframes forceFallback {
+  to { opacity: 1; transform: none; }
 }
 </style>
+<!-- Fallback for browsers where JS is blocked -->
+<noscript>
+<style>
+  .reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale,
+  .hero h1, .hero-times, .hero .btn, .hero-scroll,
+  .nav-hamburger, .nav-logo, .nav-book,
+  .stupid-hour h2, .intro .word, .testimonial .word {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+</style>
+</noscript>
 </head>
 <body>
 
@@ -789,41 +847,57 @@ footer {
 <section class="stupid-hour">
   <h2 id="stupidTitle">Home of Stupid Hour</h2>
   
-  <div class="stupid-grid">
-    <div class="stupid-cell reveal-scale delay-1">
+  <div class="stupid-marquee-wrap reveal-up">
+    <!-- Gradient overlay -->
+    <div class="stupid-overlay"></div>
+    
+    <!-- Row 1: scrolls left -->
+    <div class="stupid-marquee-row scroll-left">
       <img src="assets/orange-cocktail.jpg" alt="Cocktail">
-    </div>
-    <div class="stupid-cell reveal-scale delay-2">
+      <img src="assets/raspberry-martini.jpg" alt="Cocktail">
+      <img src="assets/champagne-flute.jpg" alt="Cocktail">
+      <img src="assets/mint-cocktail.jpg" alt="Cocktail">
+      <img src="assets/passionfruit.jpg" alt="Cocktail">
+      <img src="assets/dj.jpg" alt="DJ">
+      <img src="assets/orange-cocktail.jpg" alt="Cocktail">
+      <img src="assets/raspberry-martini.jpg" alt="Cocktail">
+      <!-- Duplicate set for seamless loop -->
+      <img src="assets/orange-cocktail.jpg" alt="Cocktail">
+      <img src="assets/raspberry-martini.jpg" alt="Cocktail">
+      <img src="assets/champagne-flute.jpg" alt="Cocktail">
+      <img src="assets/mint-cocktail.jpg" alt="Cocktail">
+      <img src="assets/passionfruit.jpg" alt="Cocktail">
+      <img src="assets/dj.jpg" alt="DJ">
+      <img src="assets/orange-cocktail.jpg" alt="Cocktail">
       <img src="assets/raspberry-martini.jpg" alt="Cocktail">
     </div>
-    <div class="stupid-center reveal-up delay-3">
+    
+    <!-- Row 2: scrolls right (different order) -->
+    <div class="stupid-marquee-row scroll-right">
+      <img src="assets/passionfruit.jpg" alt="Cocktail">
+      <img src="assets/champagne-flute.jpg" alt="Cocktail">
+      <img src="assets/dj.jpg" alt="DJ">
+      <img src="assets/orange-cocktail.jpg" alt="Cocktail">
+      <img src="assets/mint-cocktail.jpg" alt="Cocktail">
+      <img src="assets/raspberry-martini.jpg" alt="Cocktail">
+      <img src="assets/champagne-flute.jpg" alt="Cocktail">
+      <img src="assets/passionfruit.jpg" alt="Cocktail">
+      <!-- Duplicate set for seamless loop -->
+      <img src="assets/passionfruit.jpg" alt="Cocktail">
+      <img src="assets/champagne-flute.jpg" alt="Cocktail">
+      <img src="assets/dj.jpg" alt="DJ">
+      <img src="assets/orange-cocktail.jpg" alt="Cocktail">
+      <img src="assets/mint-cocktail.jpg" alt="Cocktail">
+      <img src="assets/raspberry-martini.jpg" alt="Cocktail">
+      <img src="assets/champagne-flute.jpg" alt="Cocktail">
+      <img src="assets/passionfruit.jpg" alt="Cocktail">
+    </div>
+    
+    <!-- Text content floating on top -->
+    <div class="stupid-content reveal-up delay-3">
       <div class="join">Join us for <strong>STUPID HOUR</strong> . The cheapest drinks in SOHO</div>
       <div class="times">Sun–Fri<br>16:00 – 18:00<br>Sat<br>16:00 – 17:00</div>
       <a href="#" class="btn">View Menu</a>
-    </div>
-    <div class="stupid-cell reveal-scale delay-4">
-      <img src="assets/mint-cocktail.jpg" alt="Cocktail">
-    </div>
-    <div class="stupid-cell reveal-scale delay-5">
-      <img src="assets/champagne-flute.jpg" alt="Cocktail">
-    </div>
-  </div>
-
-  <div class="stupid-bottom">
-    <div class="stupid-cell reveal-scale delay-2">
-      <img src="assets/passionfruit.jpg" alt="Cocktail">
-    </div>
-    <div class="stupid-cell reveal-scale delay-3">
-      <img src="assets/champagne-flute.jpg" alt="Cocktail">
-    </div>
-    <div class="stupid-cell reveal-scale delay-4">
-      <img src="assets/raspberry-martini.jpg" alt="Cocktail">
-    </div>
-    <div class="stupid-cell reveal-scale delay-5">
-      <img src="assets/mint-cocktail.jpg" alt="Cocktail">
-    </div>
-    <div class="stupid-cell reveal-scale delay-6">
-      <img src="assets/orange-cocktail.jpg" alt="Cocktail">
     </div>
   </div>
 </section>
@@ -850,7 +924,7 @@ footer {
     <div class="footer-col reveal-up delay-3">
       <h4>Contact Us</h4>
       <p><a href="tel:02074371977">020 7437 1977</a><br>
-      <a href="mailto:soho@thirstbar.com">soho@thirstbar.com</a></p>
+      <a href="/cdn-cgi/l/email-protection#2754484f4867534f4e5554534546550944484a"><span class="__cf_email__" data-cfemail="c9baa6a1a689bda1a0bbbabdaba8bbe7aaa6a4">[email&#160;protected]</span></a></p>
     </div>
     <div class="footer-col reveal-up delay-5">
       <h4>Opening Times</h4>
@@ -862,7 +936,7 @@ footer {
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ══════════════════════════════════════
 // ANIMATION ENGINE
 // ══════════════════════════════════════
@@ -1006,6 +1080,25 @@ document.querySelectorAll('.cocktail-gallery-item').forEach(item => {
     img.style.transform = 'scale(1) rotateY(0deg) rotateX(0deg)';
   });
 });
+
+// ── Safety fallback: force all content visible after 3s ──
+// This catches cases where IntersectionObserver is blocked (e.g. Brave shields)
+setTimeout(() => {
+  document.querySelectorAll('.reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+    el.classList.add('visible');
+  });
+  document.querySelectorAll('.intro-divider, .footer-divider').forEach(el => {
+    el.classList.add('visible');
+  });
+  const st = document.getElementById('stupidTitle');
+  if (st) st.classList.add('visible');
+  const ts = document.getElementById('testimonialSection');
+  if (ts) ts.classList.add('in-view');
+  // Reveal intro words
+  document.querySelectorAll('.intro .word, .testimonial .word').forEach(w => {
+    w.classList.add('visible');
+  });
+}, 3000);
 </script>
 </body>
 </html>
