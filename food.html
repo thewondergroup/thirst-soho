@@ -172,23 +172,15 @@ nav.scrolled { top:0; background:rgba(11,17,43,.92); backdrop-filter:blur(12px);
 .split-image img { transition:transform .6s ease; }
 .split-image:hover img { transform:scale(1.03); }
 
-/* ══════════════════════════════════════
-   VIDEO SECTION
-══════════════════════════════════════ */
-.video-break {
-  position:relative; width:100%; height:50vh; min-height:350px;
-  overflow:hidden;
+/* Video in split layout */
+.split-video {
+  position:relative; overflow:hidden; min-height:450px;
 }
-.video-break video {
+.split-video video {
   position:absolute; top:50%; left:50%;
   min-width:100%; min-height:100%;
   transform:translate(-50%,-50%);
   object-fit:cover;
-}
-.video-break-overlay {
-  position:absolute; inset:0;
-  background:linear-gradient(180deg,rgba(11,17,43,.3) 0%,rgba(11,17,43,.15) 40%,rgba(11,17,43,.3) 100%);
-  pointer-events:none;
 }
 
 /* ══════════════════════════════════════
@@ -245,6 +237,7 @@ footer {
   .split { grid-template-columns:1fr; }
   .split-text { padding:60px 28px; text-align:center; align-items:center; }
   .split-image { min-height:350px; }
+  .split-video { min-height:300px; }
   .food-info { grid-template-columns:1fr; }
   .footer-grid { grid-template-columns:1fr; gap:36px; }
   nav { padding:16px 16px; }
@@ -256,7 +249,6 @@ footer {
 @media (max-width:600px) {
   .page-hero h1 { font-size:1.6rem; }
   .page-hero { min-height:400px; height:60vh; }
-  .video-break { height:40vh; min-height:260px; }
   nav { padding:12px 12px; }
   .nav-hamburger span { width:22px; }
   .nav-logo img { height:26px; }
@@ -320,7 +312,11 @@ footer {
 
 <!-- Truffle Burger Partnership -->
 <section class="split">
-  <div class="split-image reveal-left"><img src="assets/terrace.jpg" alt="Food at Thirst"></div>
+  <div class="split-video reveal-left">
+    <video autoplay muted loop playsinline>
+      <source src="assets/food-video.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="split-text reveal-right">
     <h2>Truffle Burger Partnership</h2>
     <p>We have teamed up with our lovely neighbours, Truffle Burger, so that you can enjoy delicious burgers and fries served straight to your table — the perfect accompaniment to Soho's best cocktails.</p>
@@ -328,14 +324,6 @@ footer {
     <a href="#" class="btn">Visit Truffle Burger</a>
   </div>
 </section>
-
-<!-- Video Break -->
-<div class="video-break reveal-up">
-  <video autoplay muted loop playsinline>
-    <source src="assets/food-video.mp4" type="video/mp4">
-  </video>
-  <div class="video-break-overlay"></div>
-</div>
 
 <!-- Info Cards -->
 <div class="section section-centered reveal-up" style="padding-bottom:40px;">
