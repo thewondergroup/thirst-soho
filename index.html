@@ -7,23 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ══════════════════════════════════════════════════════════
-   THIRST SOHO — DESIGN REFERENCE
-   
-   Colours:
-     Background:       #0B112B
-     White:             #FFFFFF
-     White muted:       rgba(255,255,255,0.7)
-     Button border:     #FFFFFF
-     
-   Fonts:
-     Display/body:      Belleza (regular 400) — used for headings & body text
-     UI/buttons/nav:    Futura (use Jost as web sub) — used for buttons, labels, nav
-     
-   In Framer, load the actual Futura font files.
-   Belleza is free on Google Fonts.
-══════════════════════════════════════════════════════════ */
-
 :root {
   --bg: #0B112B;
   --white: #ffffff;
@@ -49,19 +32,94 @@ body {
 img { display: block; width: 100%; height: 100%; object-fit: cover; }
 a { color: inherit; text-decoration: none; }
 
-/* ── Scroll Reveal ── */
-.reveal {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* ══════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════ */
+
+/* Staggered fade up for hero elements */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
+/* Ken Burns slow zoom */
+@keyframes kenBurns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+/* Scroll indicator pulse */
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 1; transform: translateX(-50%) translateY(8px); }
+}
+
+/* Divider line draw */
+@keyframes drawLine {
+  from { width: 0; }
+  to { width: 72px; }
+}
+
+/* Slide from left */
+@keyframes slideFromLeft {
+  from { opacity: 0; transform: translateX(-80px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Slide from right */
+@keyframes slideFromRight {
+  from { opacity: 0; transform: translateX(80px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Scale in */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Fade in */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Letter spacing expand */
+@keyframes letterExpand {
+  from { letter-spacing: 0.3em; opacity: 0; }
+  to { letter-spacing: 0.06em; opacity: 1; }
+}
+
+/* ── Reveal classes ── */
+.reveal { opacity: 0; transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; }
+
+.reveal-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+.reveal-up.visible { opacity: 1; transform: translateY(0); }
+
+.reveal-left { opacity: 0; transform: translateX(-60px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+.reveal-right { opacity: 0; transform: translateX(60px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+.reveal-scale { opacity: 0; transform: scale(0.92); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+/* Stagger delays */
+.delay-1 { transition-delay: 0.1s !important; }
+.delay-2 { transition-delay: 0.2s !important; }
+.delay-3 { transition-delay: 0.3s !important; }
+.delay-4 { transition-delay: 0.4s !important; }
+.delay-5 { transition-delay: 0.5s !important; }
+.delay-6 { transition-delay: 0.6s !important; }
+.delay-7 { transition-delay: 0.7s !important; }
+.delay-8 { transition-delay: 0.8s !important; }
+.delay-9 { transition-delay: 0.9s !important; }
+.delay-10 { transition-delay: 1.0s !important; }
+
 /* ══════════════════════════════════════
-   NAV — hamburger left, logo centre, book now right
+   NAV
 ══════════════════════════════════════ */
 nav {
   position: fixed;
@@ -71,11 +129,12 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 20px 32px;
-  transition: background 0.3s;
+  transition: background 0.4s, padding 0.4s;
 }
 nav.scrolled {
   background: rgba(11, 17, 43, 0.95);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  padding: 14px 32px;
 }
 
 .nav-hamburger {
@@ -84,18 +143,25 @@ nav.scrolled {
   gap: 7px;
   cursor: pointer;
   padding: 6px;
+  opacity: 0;
+  animation: heroFadeUp 0.6s 0.2s cubic-bezier(0.16,1,0.3,1) forwards;
 }
 .nav-hamburger span {
   display: block;
   width: 30px;
   height: 1.5px;
   background: var(--white);
+  transition: transform 0.3s, opacity 0.3s;
 }
+.nav-hamburger:hover span:nth-child(1) { transform: translateX(4px); }
+.nav-hamburger:hover span:nth-child(3) { transform: translateX(-4px); }
 
 .nav-logo {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  opacity: 0;
+  animation: heroFadeUp 0.6s 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
 }
 .nav-logo img {
   height: 36px;
@@ -111,15 +177,18 @@ nav.scrolled {
   text-transform: uppercase;
   padding: 10px 22px;
   border: 1px solid var(--white);
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
+  opacity: 0;
+  animation: heroFadeUp 0.6s 0.4s cubic-bezier(0.16,1,0.3,1) forwards;
 }
 .nav-book:hover {
   background: var(--white);
   color: var(--bg);
+  transform: translateY(-1px);
 }
 
 /* ══════════════════════════════════════
-   HERO — full viewport, video bg
+   HERO
 ══════════════════════════════════════ */
 .hero {
   position: relative;
@@ -140,17 +209,24 @@ nav.scrolled {
 .hero-video video {
   width: 100%; height: 100%;
   object-fit: cover;
+  animation: kenBurns 20s ease-in-out infinite alternate;
 }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.3);
+  background: linear-gradient(
+    180deg,
+    rgba(11,17,43,0.4) 0%,
+    rgba(0,0,0,0.2) 50%,
+    rgba(11,17,43,0.6) 100%
+  );
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
 }
+
 .hero h1 {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 4.5vw, 3.6rem);
@@ -158,7 +234,10 @@ nav.scrolled {
   line-height: 1.25;
   margin-bottom: 20px;
   letter-spacing: 0.01em;
+  opacity: 0;
+  animation: heroFadeUp 1s 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
 }
+
 .hero-times {
   font-family: var(--font-display);
   font-size: 1rem;
@@ -166,6 +245,13 @@ nav.scrolled {
   line-height: 1.7;
   color: var(--white-70);
   margin-bottom: 40px;
+  opacity: 0;
+  animation: heroFadeUp 1s 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+.hero .btn {
+  opacity: 0;
+  animation: heroFadeUp 1s 1.2s cubic-bezier(0.16,1,0.3,1) forwards;
 }
 
 .btn {
@@ -179,16 +265,62 @@ nav.scrolled {
   border: 1px solid var(--white);
   color: var(--white);
   background: rgba(11, 17, 43, 0.45);
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.4s, color 0.4s, transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--white);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  z-index: -1;
 }
 .btn:hover {
-  background: var(--white);
   color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.btn:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: scrollPulse 2.5s ease-in-out infinite;
+  opacity: 0;
+}
+.hero-scroll.show {
+  animation: fadeIn 1s 2s forwards, scrollPulse 2.5s 3s ease-in-out infinite;
+}
+.scroll-text {
+  font-family: var(--font-ui);
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--white-50);
+}
+.scroll-arrow {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, var(--white-50), transparent);
 }
 
 /* ══════════════════════════════════════
-   DUAL CARDS — Find Us / View the Menu
+   DUAL CARDS
 ══════════════════════════════════════ */
 .dual-cards {
   display: grid;
@@ -204,10 +336,10 @@ nav.scrolled {
   cursor: pointer;
 }
 .dual-card img {
-  transition: transform 0.6s ease;
+  transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
 }
 .dual-card:hover img {
-  transform: scale(1.04);
+  transform: scale(1.06);
 }
 .dual-card-label {
   position: absolute;
@@ -224,24 +356,39 @@ nav.scrolled {
   background: rgba(11, 17, 43, 0.65);
   color: var(--white);
   white-space: nowrap;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.3s, letter-spacing 0.3s;
 }
 .dual-card:hover .dual-card-label {
   background: rgba(11, 17, 43, 0.85);
+  transform: translateX(-50%) translateY(-4px);
+  letter-spacing: 0.35em;
 }
 
 /* ══════════════════════════════════════
-   INTRO TEXT
+   INTRO
 ══════════════════════════════════════ */
 .intro {
   background: var(--bg);
   padding: 100px 24px;
   text-align: center;
+  overflow: hidden;
 }
 .intro-inner {
   max-width: 880px;
   margin: 0 auto;
 }
+
+.intro-divider {
+  height: 1px;
+  background: var(--white-30);
+  margin: 0 auto 48px;
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.16,1,0.3,1);
+}
+.intro-divider.visible {
+  width: 72px;
+}
+
 .intro p {
   font-family: var(--font-display);
   font-size: clamp(1.15rem, 2vw, 1.45rem);
@@ -251,8 +398,20 @@ nav.scrolled {
   margin-bottom: 48px;
 }
 
+/* Word-by-word reveal for intro text */
+.intro .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.intro .word.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ══════════════════════════════════════
-   COCKTAIL GALLERY — 3 images
+   COCKTAIL GALLERY
 ══════════════════════════════════════ */
 .cocktail-gallery {
   display: grid;
@@ -264,21 +423,23 @@ nav.scrolled {
 .cocktail-gallery-item {
   aspect-ratio: 0.92;
   overflow: hidden;
+  position: relative;
 }
 .cocktail-gallery-item img {
-  transition: transform 0.6s ease;
+  transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
 }
 .cocktail-gallery-item:hover img {
-  transform: scale(1.04);
+  transform: scale(1.06) rotate(0.5deg);
 }
 
 /* ══════════════════════════════════════
-   ABOUT — text left, video right
+   ABOUT
 ══════════════════════════════════════ */
 .about {
   display: grid;
   grid-template-columns: 1fr 1fr;
   background: var(--bg);
+  overflow: hidden;
 }
 .about-text {
   display: flex;
@@ -316,18 +477,25 @@ nav.scrolled {
   background: var(--bg);
   padding: 80px 0 0;
   text-align: center;
+  overflow: hidden;
 }
 .stupid-hour h2 {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 400;
-  letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 40px;
   padding: 0 24px;
+  /* Letter expand animation triggered by JS */
+  opacity: 0;
+  letter-spacing: 0.3em;
+  transition: opacity 0.8s ease, letter-spacing 1.2s cubic-bezier(0.16,1,0.3,1);
+}
+.stupid-hour h2.visible {
+  opacity: 1;
+  letter-spacing: 0.06em;
 }
 
-/* 2-row grid: top row has 5 cols (imgs + center text), bottom row 5 imgs */
 .stupid-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -403,6 +571,10 @@ nav.scrolled {
 }
 .testimonial-bg img {
   width: 100%; height: 100%; object-fit: cover;
+  transition: transform 8s ease;
+}
+.testimonial.in-view .testimonial-bg img {
+  transform: scale(1.06);
 }
 .testimonial-overlay {
   position: absolute;
@@ -424,6 +596,18 @@ nav.scrolled {
   color: var(--white);
 }
 
+/* Quote word reveal */
+.testimonial .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.testimonial .word.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ══════════════════════════════════════
    FOOTER
 ══════════════════════════════════════ */
@@ -432,10 +616,14 @@ footer {
   padding: 48px 24px 72px;
 }
 .footer-divider {
-  width: 72px;
   height: 1px;
   background: var(--white-30);
   margin: 0 auto 64px;
+  width: 0;
+  transition: width 1s cubic-bezier(0.16,1,0.3,1);
+}
+.footer-divider.visible {
+  width: 72px;
 }
 .footer-grid {
   display: grid;
@@ -458,6 +646,7 @@ footer {
   font-size: 0.95rem;
   line-height: 1.8;
   color: var(--white-70);
+  transition: color 0.3s;
 }
 .footer-col a:hover { color: var(--white); }
 
@@ -469,8 +658,18 @@ footer {
   width: auto;
   object-fit: contain;
   margin: 0 auto;
-  /* Invert so white logo shows on dark, matching the Canva white-on-navy style */
-  /* If you need the bordered version, wrap in a border box instead */
+  transition: transform 0.3s;
+}
+.footer-logo-wrap:hover img {
+  transform: scale(1.05);
+}
+
+/* ══════════════════════════════════════
+   PARALLAX CONTAINER
+══════════════════════════════════════ */
+.parallax-img {
+  will-change: transform;
+  transition: transform 0.1s linear;
 }
 
 /* ══════════════════════════════════════
@@ -490,13 +689,18 @@ footer {
   .stupid-bottom .stupid-cell:last-child { display: none; }
   .footer-grid { grid-template-columns: 1fr; gap: 36px; }
   nav { padding: 16px 20px; }
+  .reveal-left, .reveal-right {
+    transform: translateY(40px) !important;
+  }
+  .reveal-left.visible, .reveal-right.visible {
+    transform: translateY(0) !important;
+  }
 }
 
 @media (max-width: 600px) {
   .hero h1 { font-size: 1.8rem; }
   .stupid-grid,
   .stupid-bottom { grid-template-columns: 1fr 1fr; }
-  .cocktail-gallery { gap: 10px; padding: 0 10px; }
 }
 </style>
 </head>
@@ -513,7 +717,7 @@ footer {
   <a href="#" class="nav-book">Book Now</a>
 </nav>
 
-<!-- ════ HERO (video background) ════ -->
+<!-- ════ HERO ════ -->
 <section class="hero">
   <div class="hero-video">
     <video autoplay muted loop playsinline>
@@ -521,20 +725,24 @@ footer {
     </video>
     <div class="hero-overlay"></div>
   </div>
-  <div class="hero-content reveal">
+  <div class="hero-content">
     <h1>The late-night Soho institution</h1>
     <div class="hero-times">Mon–Sun:<br>4pm til 3am</div>
     <a href="#" class="btn">Book Now</a>
+  </div>
+  <div class="hero-scroll" id="heroScroll">
+    <span class="scroll-text">Scroll</span>
+    <div class="scroll-arrow"></div>
   </div>
 </section>
 
 <!-- ════ DUAL CARDS ════ -->
 <section class="dual-cards">
-  <div class="dual-card">
+  <div class="dual-card reveal-left">
     <img src="assets/dj.jpg" alt="Live DJs at Thirst">
     <span class="dual-card-label">Find Us</span>
   </div>
-  <div class="dual-card">
+  <div class="dual-card reveal-right">
     <img src="assets/orange-cocktail.jpg" alt="Cocktail with dried orange">
     <span class="dual-card-label">View the Menu</span>
   </div>
@@ -542,34 +750,35 @@ footer {
 
 <!-- ════ INTRO ════ -->
 <section class="intro">
-  <div class="intro-inner reveal">
-    <p>We're here for the good times, the best cocktails, the fun vibes, the joy of friends and the dance till you drop kind of nights. From intimate date nights and after-work drinks to 'oh f*ck it, let's stay out all night' energy, we've got you.</p>
-    <a href="#" class="btn">Book Now</a>
+  <div class="intro-inner">
+    <div class="intro-divider reveal" id="introDivider"></div>
+    <p id="introText">We're here for the good times, the best cocktails, the fun vibes, the joy of friends and the dance till you drop kind of nights. From intimate date nights and after-work drinks to 'oh f*ck it, let's stay out all night' energy, we've got you.</p>
+    <a href="#" class="btn reveal-up delay-5">Book Now</a>
   </div>
 </section>
 
 <!-- ════ COCKTAIL GALLERY ════ -->
 <section class="cocktail-gallery">
-  <div class="cocktail-gallery-item reveal">
+  <div class="cocktail-gallery-item reveal-scale delay-1">
     <img src="assets/raspberry-martini.jpg" alt="Raspberry martini">
   </div>
-  <div class="cocktail-gallery-item reveal">
+  <div class="cocktail-gallery-item reveal-scale delay-3">
     <img src="assets/mint-cocktail.jpg" alt="Cocktail with mint garnish">
   </div>
-  <div class="cocktail-gallery-item reveal">
+  <div class="cocktail-gallery-item reveal-scale delay-5">
     <img src="assets/champagne-flute.jpg" alt="Pink champagne cocktail">
   </div>
 </section>
 
-<!-- ════ ABOUT (text + video) ════ -->
+<!-- ════ ABOUT ════ -->
 <section class="about">
-  <div class="about-text reveal">
-    <p>Proudly one of the longest-running, independent bars in Soho, where friends and memories are made.</p>
-    <p>With an extensive list of delicious (not to mention award-winning) cocktails from non-alcoholic to highly potent - join us for chic interiors and an intimate vibe upstairs, or live DJs and dancing downstairs.</p>
-    <p>We're one of the elite open until 3 am crew, and we love a party as much as you do.</p>
-    <a href="#" class="btn">Book Now</a>
+  <div class="about-text">
+    <p class="reveal-left delay-1">Proudly one of the longest-running, independent bars in Soho, where friends and memories are made.</p>
+    <p class="reveal-left delay-3">With an extensive list of delicious (not to mention award-winning) cocktails from non-alcoholic to highly potent - join us for chic interiors and an intimate vibe upstairs, or live DJs and dancing downstairs.</p>
+    <p class="reveal-left delay-5">We're one of the elite open until 3 am crew, and we love a party as much as you do.</p>
+    <a href="#" class="btn reveal-left delay-7">Book Now</a>
   </div>
-  <div class="about-video">
+  <div class="about-video reveal-right">
     <video autoplay muted loop playsinline>
       <source src="assets/about-video.mp4" type="video/mp4">
     </video>
@@ -578,101 +787,225 @@ footer {
 
 <!-- ════ STUPID HOUR ════ -->
 <section class="stupid-hour">
-  <h2 class="reveal">Home of Stupid Hour</h2>
+  <h2 id="stupidTitle">Home of Stupid Hour</h2>
   
-  <!-- Top row: 5 cells (2 imgs, center text, 2 imgs) -->
-  <div class="stupid-grid reveal">
-    <div class="stupid-cell">
+  <div class="stupid-grid">
+    <div class="stupid-cell reveal-scale delay-1">
       <img src="assets/orange-cocktail.jpg" alt="Cocktail">
     </div>
-    <div class="stupid-cell">
+    <div class="stupid-cell reveal-scale delay-2">
       <img src="assets/raspberry-martini.jpg" alt="Cocktail">
     </div>
-    <div class="stupid-center">
+    <div class="stupid-center reveal-up delay-3">
       <div class="join">Join us for <strong>STUPID HOUR</strong> . The cheapest drinks in SOHO</div>
       <div class="times">Sun–Fri<br>16:00 – 18:00<br>Sat<br>16:00 – 17:00</div>
       <a href="#" class="btn">View Menu</a>
     </div>
-    <div class="stupid-cell">
+    <div class="stupid-cell reveal-scale delay-4">
       <img src="assets/mint-cocktail.jpg" alt="Cocktail">
     </div>
-    <div class="stupid-cell">
+    <div class="stupid-cell reveal-scale delay-5">
       <img src="assets/champagne-flute.jpg" alt="Cocktail">
     </div>
   </div>
 
-  <!-- Bottom row: 5 images -->
-  <div class="stupid-bottom reveal">
-    <div class="stupid-cell">
+  <div class="stupid-bottom">
+    <div class="stupid-cell reveal-scale delay-2">
       <img src="assets/passionfruit.jpg" alt="Cocktail">
     </div>
-    <div class="stupid-cell">
+    <div class="stupid-cell reveal-scale delay-3">
       <img src="assets/champagne-flute.jpg" alt="Cocktail">
     </div>
-    <div class="stupid-cell">
+    <div class="stupid-cell reveal-scale delay-4">
       <img src="assets/raspberry-martini.jpg" alt="Cocktail">
     </div>
-    <div class="stupid-cell">
+    <div class="stupid-cell reveal-scale delay-5">
       <img src="assets/mint-cocktail.jpg" alt="Cocktail">
     </div>
-    <div class="stupid-cell">
+    <div class="stupid-cell reveal-scale delay-6">
       <img src="assets/orange-cocktail.jpg" alt="Cocktail">
     </div>
   </div>
 </section>
 
 <!-- ════ TESTIMONIAL ════ -->
-<section class="testimonial">
+<section class="testimonial" id="testimonialSection">
   <div class="testimonial-bg">
     <img src="assets/passionfruit.jpg" alt="Passion fruit cocktails">
     <div class="testimonial-overlay"></div>
   </div>
-  <div class="testimonial-content reveal">
-    <blockquote>&ldquo;Best night out, best cocktails and the best staff ever, love it! Definitely will be back soon. Thank you Thirst&rdquo;</blockquote>
+  <div class="testimonial-content">
+    <blockquote id="quoteText">&ldquo;Best night out, best cocktails and the best staff ever, love it! Definitely will be back soon. Thank you Thirst&rdquo;</blockquote>
   </div>
 </section>
 
 <!-- ════ FOOTER ════ -->
 <footer>
-  <div class="footer-divider"></div>
+  <div class="footer-divider reveal" id="footerDivider"></div>
   <div class="footer-grid">
-    <div class="footer-col">
+    <div class="footer-col reveal-up delay-1">
       <h4>Location</h4>
       <p>53 Greek St<br>London<br>W1D 3DR</p>
     </div>
-    <div class="footer-col">
+    <div class="footer-col reveal-up delay-3">
       <h4>Contact Us</h4>
       <p><a href="tel:02074371977">020 7437 1977</a><br>
       <a href="mailto:soho@thirstbar.com">soho@thirstbar.com</a></p>
     </div>
-    <div class="footer-col">
+    <div class="footer-col reveal-up delay-5">
       <h4>Opening Times</h4>
       <p>Mon - Sun:<br>16:00-03:00</p>
     </div>
   </div>
-  <div class="footer-logo-wrap">
+  <div class="footer-logo-wrap reveal-up delay-6">
     <img src="assets/logo.png" alt="Thirst">
   </div>
 </footer>
 
 <script>
-// Nav scroll
+// ══════════════════════════════════════
+// ANIMATION ENGINE
+// ══════════════════════════════════════
+
+// ── Nav scroll ──
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 });
 
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
+// ── Hero scroll indicator ──
+setTimeout(() => {
+  document.getElementById('heroScroll').classList.add('show');
+}, 2500);
+
+// ── Intersection Observer for reveals ──
+const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+      revealObserver.unobserve(entry.target);
     }
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+  revealObserver.observe(el);
+});
+
+// ── Intro text word-by-word reveal ──
+const introText = document.getElementById('introText');
+const introWords = introText.textContent.split(' ');
+introText.innerHTML = introWords.map(word => 
+  `<span class="word">${word}</span>`
+).join(' ');
+
+const introWordObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const words = entry.target.querySelectorAll('.word');
+      words.forEach((word, i) => {
+        setTimeout(() => {
+          word.classList.add('visible');
+        }, i * 40); // 40ms between each word
+      });
+      introWordObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+introWordObserver.observe(introText);
+
+// ── Stupid Hour title letter-spacing animation ──
+const stupidTitle = document.getElementById('stupidTitle');
+const stupidObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      stupidObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+stupidObserver.observe(stupidTitle);
+
+// ── Testimonial: word-by-word quote reveal + parallax zoom ──
+const quoteText = document.getElementById('quoteText');
+const quoteWords = quoteText.textContent.split(' ');
+quoteText.innerHTML = quoteWords.map(word => 
+  `<span class="word">${word}</span>`
+).join(' ');
+
+const testimonialSection = document.getElementById('testimonialSection');
+const quoteObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      testimonialSection.classList.add('in-view');
+      const words = quoteText.querySelectorAll('.word');
+      words.forEach((word, i) => {
+        setTimeout(() => {
+          word.classList.add('visible');
+        }, 200 + i * 60); // Slightly slower for dramatic effect
+      });
+      quoteObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+quoteObserver.observe(testimonialSection);
+
+// ── Divider draw animations ──
+const dividerObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      dividerObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.intro-divider, .footer-divider').forEach(el => {
+  dividerObserver.observe(el);
+});
+
+// ── Parallax on scroll (subtle, for dual cards and gallery images) ──
+const parallaxElements = document.querySelectorAll('.dual-card img, .cocktail-gallery-item img');
+let ticking = false;
+
+function updateParallax() {
+  const scrollY = window.scrollY;
+  const viewportH = window.innerHeight;
+  
+  parallaxElements.forEach(el => {
+    const rect = el.parentElement.getBoundingClientRect();
+    if (rect.top < viewportH && rect.bottom > 0) {
+      const progress = (rect.top + rect.height / 2) / viewportH;
+      const offset = (progress - 0.5) * 20; // subtle -10px to 10px range
+      el.style.transform = `translateY(${offset}px) scale(1)`;
+    }
+  });
+  ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(updateParallax);
+    ticking = true;
+  }
+});
+
+// ── Smooth cursor-follow tilt on gallery items ──
+document.querySelectorAll('.cocktail-gallery-item').forEach(item => {
+  item.addEventListener('mousemove', (e) => {
+    const rect = item.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    const img = item.querySelector('img');
+    img.style.transform = `scale(1.06) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`;
+  });
+  
+  item.addEventListener('mouseleave', () => {
+    const img = item.querySelector('img');
+    img.style.transform = 'scale(1) rotateY(0deg) rotateX(0deg)';
+  });
+});
 </script>
 </body>
 </html>
