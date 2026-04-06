@@ -471,16 +471,14 @@ nav.scrolled {
 }
 
 /* ══════════════════════════════════════
-   STUPID HOUR — scrolling image marquee bg
+   STUPID HOUR
 ══════════════════════════════════════ */
 .stupid-hour {
-  position: relative;
   background: var(--bg);
-  padding: 80px 0;
+  padding: 80px 0 0;
   text-align: center;
   overflow: hidden;
 }
-
 .stupid-hour h2 {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3rem);
@@ -488,8 +486,7 @@ nav.scrolled {
   text-transform: uppercase;
   margin-bottom: 40px;
   padding: 0 24px;
-  position: relative;
-  z-index: 3;
+  /* Letter expand animation triggered by JS */
   opacity: 0;
   letter-spacing: 0.3em;
   transition: opacity 0.8s ease, letter-spacing 1.2s cubic-bezier(0.16,1,0.3,1);
@@ -499,102 +496,61 @@ nav.scrolled {
   letter-spacing: 0.06em;
 }
 
-/* Image marquee container */
-.stupid-marquee-wrap {
-  position: relative;
-  overflow: hidden;
-  padding: 20px 0;
-}
-
-/* Gradient overlay so text is readable */
-.stupid-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(11,17,43,0.88) 0%,
-    rgba(11,17,43,0.65) 50%,
-    rgba(11,17,43,0.4) 100%
-  );
-  pointer-events: none;
-}
-
-/* Scrolling marquee rows */
-@keyframes marqueeLeft {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-@keyframes marqueeRight {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-
-.stupid-marquee-row {
-  display: flex;
+.stupid-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   gap: 10px;
-  margin-bottom: 10px;
-  width: max-content;
+  padding: 0 10px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.stupid-marquee-row:last-child {
-  margin-bottom: 0;
+.stupid-cell {
+  aspect-ratio: 0.82;
+  overflow: hidden;
+  border-radius: 2px;
 }
-
-.stupid-marquee-row.scroll-left {
-  animation: marqueeLeft 35s linear infinite;
+.stupid-cell img {
+  transition: transform 0.6s ease;
 }
-.stupid-marquee-row.scroll-right {
-  animation: marqueeRight 40s linear infinite;
+.stupid-cell:hover img {
+  transform: scale(1.04);
 }
-
-.stupid-marquee-row img {
-  width: 220px;
-  height: 165px;
-  object-fit: cover;
-  border-radius: 4px;
-  flex-shrink: 0;
-}
-
-/* Text content floating over the marquee */
-.stupid-content {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
+.stupid-center {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 24px;
+  padding: 20px 12px;
+  aspect-ratio: auto;
 }
-
-.stupid-content .join {
+.stupid-center .join {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.7;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
-.stupid-content .join strong {
+.stupid-center .join strong {
   font-family: var(--font-ui);
   font-weight: 700;
   letter-spacing: 0.05em;
 }
-.stupid-content .times {
+.stupid-center .times {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.8;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
-/* Pause marquee on hover for a nice touch */
-.stupid-marquee-wrap:hover .stupid-marquee-row {
-  animation-play-state: paused;
+.stupid-bottom {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  padding: 10px 10px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-
-@media (max-width: 600px) {
-  .stupid-marquee-row img {
-    width: 140px;
-    height: 105px;
-  }
+.stupid-bottom .stupid-cell {
+  aspect-ratio: 0.82;
 }
 
 /* ══════════════════════════════════════
@@ -725,7 +681,12 @@ footer {
   .about { grid-template-columns: 1fr; }
   .about-video { min-height: 400px; }
   .about-text { padding: 60px 28px; }
-  .stupid-marquee-row img { width: 160px; height: 120px; }
+  .stupid-grid,
+  .stupid-bottom { grid-template-columns: repeat(3, 1fr); }
+  .stupid-cell:first-child,
+  .stupid-cell:last-child { display: none; }
+  .stupid-bottom .stupid-cell:first-child,
+  .stupid-bottom .stupid-cell:last-child { display: none; }
   .footer-grid { grid-template-columns: 1fr; gap: 36px; }
   nav { padding: 16px 20px; }
   .reveal-left, .reveal-right {
@@ -738,6 +699,8 @@ footer {
 
 @media (max-width: 600px) {
   .hero h1 { font-size: 1.8rem; }
+  .stupid-grid,
+  .stupid-bottom { grid-template-columns: 1fr 1fr; }
 }
 </style>
 </head>
@@ -826,57 +789,41 @@ footer {
 <section class="stupid-hour">
   <h2 id="stupidTitle">Home of Stupid Hour</h2>
   
-  <div class="stupid-marquee-wrap reveal-up">
-    <!-- Gradient overlay -->
-    <div class="stupid-overlay"></div>
-    
-    <!-- Row 1: scrolls left -->
-    <div class="stupid-marquee-row scroll-left">
+  <div class="stupid-grid">
+    <div class="stupid-cell reveal-scale delay-1">
       <img src="assets/orange-cocktail.jpg" alt="Cocktail">
-      <img src="assets/raspberry-martini.jpg" alt="Cocktail">
-      <img src="assets/champagne-flute.jpg" alt="Cocktail">
-      <img src="assets/mint-cocktail.jpg" alt="Cocktail">
-      <img src="assets/passionfruit.jpg" alt="Cocktail">
-      <img src="assets/dj.jpg" alt="DJ">
-      <img src="assets/orange-cocktail.jpg" alt="Cocktail">
-      <img src="assets/raspberry-martini.jpg" alt="Cocktail">
-      <!-- Duplicate set for seamless loop -->
-      <img src="assets/orange-cocktail.jpg" alt="Cocktail">
-      <img src="assets/raspberry-martini.jpg" alt="Cocktail">
-      <img src="assets/champagne-flute.jpg" alt="Cocktail">
-      <img src="assets/mint-cocktail.jpg" alt="Cocktail">
-      <img src="assets/passionfruit.jpg" alt="Cocktail">
-      <img src="assets/dj.jpg" alt="DJ">
-      <img src="assets/orange-cocktail.jpg" alt="Cocktail">
+    </div>
+    <div class="stupid-cell reveal-scale delay-2">
       <img src="assets/raspberry-martini.jpg" alt="Cocktail">
     </div>
-    
-    <!-- Row 2: scrolls right (different order) -->
-    <div class="stupid-marquee-row scroll-right">
-      <img src="assets/passionfruit.jpg" alt="Cocktail">
-      <img src="assets/champagne-flute.jpg" alt="Cocktail">
-      <img src="assets/dj.jpg" alt="DJ">
-      <img src="assets/orange-cocktail.jpg" alt="Cocktail">
-      <img src="assets/mint-cocktail.jpg" alt="Cocktail">
-      <img src="assets/raspberry-martini.jpg" alt="Cocktail">
-      <img src="assets/champagne-flute.jpg" alt="Cocktail">
-      <img src="assets/passionfruit.jpg" alt="Cocktail">
-      <!-- Duplicate set for seamless loop -->
-      <img src="assets/passionfruit.jpg" alt="Cocktail">
-      <img src="assets/champagne-flute.jpg" alt="Cocktail">
-      <img src="assets/dj.jpg" alt="DJ">
-      <img src="assets/orange-cocktail.jpg" alt="Cocktail">
-      <img src="assets/mint-cocktail.jpg" alt="Cocktail">
-      <img src="assets/raspberry-martini.jpg" alt="Cocktail">
-      <img src="assets/champagne-flute.jpg" alt="Cocktail">
-      <img src="assets/passionfruit.jpg" alt="Cocktail">
-    </div>
-    
-    <!-- Text content floating on top -->
-    <div class="stupid-content reveal-up delay-3">
+    <div class="stupid-center reveal-up delay-3">
       <div class="join">Join us for <strong>STUPID HOUR</strong> . The cheapest drinks in SOHO</div>
       <div class="times">Sun–Fri<br>16:00 – 18:00<br>Sat<br>16:00 – 17:00</div>
       <a href="#" class="btn">View Menu</a>
+    </div>
+    <div class="stupid-cell reveal-scale delay-4">
+      <img src="assets/mint-cocktail.jpg" alt="Cocktail">
+    </div>
+    <div class="stupid-cell reveal-scale delay-5">
+      <img src="assets/champagne-flute.jpg" alt="Cocktail">
+    </div>
+  </div>
+
+  <div class="stupid-bottom">
+    <div class="stupid-cell reveal-scale delay-2">
+      <img src="assets/passionfruit.jpg" alt="Cocktail">
+    </div>
+    <div class="stupid-cell reveal-scale delay-3">
+      <img src="assets/champagne-flute.jpg" alt="Cocktail">
+    </div>
+    <div class="stupid-cell reveal-scale delay-4">
+      <img src="assets/raspberry-martini.jpg" alt="Cocktail">
+    </div>
+    <div class="stupid-cell reveal-scale delay-5">
+      <img src="assets/mint-cocktail.jpg" alt="Cocktail">
+    </div>
+    <div class="stupid-cell reveal-scale delay-6">
+      <img src="assets/orange-cocktail.jpg" alt="Cocktail">
     </div>
   </div>
 </section>
@@ -903,7 +850,7 @@ footer {
     <div class="footer-col reveal-up delay-3">
       <h4>Contact Us</h4>
       <p><a href="tel:02074371977">020 7437 1977</a><br>
-      <a href="/cdn-cgi/l/email-protection#2754484f4867534f4e5554534546550944484a"><span class="__cf_email__" data-cfemail="c9baa6a1a689bda1a0bbbabdaba8bbe7aaa6a4">[email&#160;protected]</span></a></p>
+      <a href="mailto:soho@thirstbar.com">soho@thirstbar.com</a></p>
     </div>
     <div class="footer-col reveal-up delay-5">
       <h4>Opening Times</h4>
@@ -915,7 +862,7 @@ footer {
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ══════════════════════════════════════
 // ANIMATION ENGINE
 // ══════════════════════════════════════
@@ -1051,4 +998,14 @@ document.querySelectorAll('.cocktail-gallery-item').forEach(item => {
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
     const img = item.querySelector('img');
-    img.style.transform = `scale(1.06) rota
+    img.style.transform = `scale(1.06) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`;
+  });
+  
+  item.addEventListener('mouseleave', () => {
+    const img = item.querySelector('img');
+    img.style.transform = 'scale(1) rotateY(0deg) rotateX(0deg)';
+  });
+});
+</script>
+</body>
+</html>
