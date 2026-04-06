@@ -256,6 +256,141 @@ a { color: inherit; text-decoration: none; }
   50% { opacity: 0.6; box-shadow: 0 0 8px 3px rgba(201, 168, 76, 0.3); }
 }
 
+/* ══════════════════════════════════════
+   SLIDE-IN SIDE PANEL MENU
+══════════════════════════════════════ */
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 199;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s;
+  backdrop-filter: blur(4px);
+}
+.menu-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 380px;
+  max-width: 85vw;
+  z-index: 200;
+  background: var(--bg);
+  border-right: 1px solid var(--white-15);
+  transform: translateX(-100%);
+  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+  display: flex;
+  flex-direction: column;
+  padding: 80px 40px 40px;
+  overflow-y: auto;
+}
+.menu-panel.open {
+  transform: translateX(0);
+}
+
+.menu-close {
+  position: absolute;
+  top: 24px;
+  left: 28px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 201;
+}
+.menu-close span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--white);
+  position: absolute;
+  transition: transform 0.3s;
+}
+.menu-close span:first-child { transform: rotate(45deg); }
+.menu-close span:last-child { transform: rotate(-45deg); }
+.menu-close:hover span { background: var(--white-70); }
+
+.menu-links {
+  list-style: none;
+  padding: 0;
+  flex: 1;
+}
+.menu-links li {
+  overflow: hidden;
+}
+.menu-links a {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--white);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--white-10);
+  transform: translateX(-30px);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease, color 0.3s, padding 0.3s;
+}
+.menu-panel.open .menu-links a {
+  transform: translateX(0);
+  opacity: 1;
+}
+.menu-links li:nth-child(1) a { transition-delay: 0.05s; }
+.menu-links li:nth-child(2) a { transition-delay: 0.08s; }
+.menu-links li:nth-child(3) a { transition-delay: 0.11s; }
+.menu-links li:nth-child(4) a { transition-delay: 0.14s; }
+.menu-links li:nth-child(5) a { transition-delay: 0.17s; }
+.menu-links li:nth-child(6) a { transition-delay: 0.2s; }
+.menu-links li:nth-child(7) a { transition-delay: 0.23s; }
+.menu-links li:nth-child(8) a { transition-delay: 0.26s; }
+.menu-links li:nth-child(9) a { transition-delay: 0.29s; }
+
+.menu-links a:hover {
+  color: var(--white-50);
+  padding-left: 8px;
+}
+.menu-links a.active {
+  color: var(--white-50);
+}
+
+.menu-footer {
+  padding-top: 32px;
+  border-top: 1px solid var(--white-15);
+  margin-top: 24px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s 0.3s ease, transform 0.4s 0.3s ease;
+}
+.menu-panel.open .menu-footer {
+  opacity: 1;
+  transform: translateY(0);
+}
+.menu-footer p {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--white-50);
+  line-height: 1.8;
+}
+.menu-footer a {
+  color: var(--white-70);
+  transition: color 0.3s;
+}
+.menu-footer a:hover { color: var(--white); }
+
+/* Hamburger animation to X */
+.nav-hamburger.is-open span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+.nav-hamburger.is-open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.is-open span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+.nav-hamburger span { transition: transform 0.3s, opacity 0.3s; }
+
 /* Push nav down to make room for the banner */
 nav {
   position: fixed;
@@ -973,14 +1108,37 @@ footer {
 
 <!-- ════ NAV ════ -->
 <nav id="nav">
-  <div class="nav-hamburger">
+  <div class="nav-hamburger" id="menuToggle">
     <span></span><span></span><span></span>
   </div>
-  <a href="#" class="nav-logo">
+  <a href="index.html" class="nav-logo">
     <img src="assets/logo.png" alt="Thirst">
   </a>
-  <a href="#" class="nav-book">Book Now</a>
+  <a href="bookings.html" class="nav-book">Book Now</a>
 </nav>
+
+<!-- ════ SLIDE-IN MENU ════ -->
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<div class="menu-panel" id="menuPanel">
+  <div class="menu-close" id="menuClose">
+    <span></span><span></span>
+  </div>
+  <ul class="menu-links">
+    <li><a href="index.html" class="active">Welcome</a></li>
+    <li><a href="bookings.html">Bookings & Hire</a></li>
+    <li><a href="#">Gallery</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="#">What's On</a></li>
+    <li><a href="#">Careers</a></li>
+    <li><a href="#">FAQs</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <div class="menu-footer">
+    <p>53 Greek St, London, W1D 3DR<br>
+    <a href="tel:02074371977">020 7437 1977</a></p>
+  </div>
+</div>
 
 <!-- ════ HERO ════ -->
 <section class="hero">
@@ -1157,6 +1315,47 @@ window.addEventListener('scroll', () => {
   // Hide banner on scroll, show at top
   stupidBanner.style.transform = scrolled ? 'translateY(-100%)' : 'translateY(0)';
   stupidBanner.style.transition = 'transform 0.3s ease';
+});
+
+// ── Slide-in menu ──
+const menuToggle = document.getElementById('menuToggle');
+const menuPanel = document.getElementById('menuPanel');
+const menuBackdrop = document.getElementById('menuBackdrop');
+const menuClose = document.getElementById('menuClose');
+
+function openMenu() {
+  menuPanel.classList.add('open');
+  menuBackdrop.classList.add('open');
+  menuToggle.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  menuPanel.classList.remove('open');
+  menuBackdrop.classList.remove('open');
+  menuToggle.classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+
+menuToggle.addEventListener('click', () => {
+  if (menuPanel.classList.contains('open')) {
+    closeMenu();
+  } else {
+    openMenu();
+  }
+});
+menuClose.addEventListener('click', closeMenu);
+menuBackdrop.addEventListener('click', closeMenu);
+
+// Close menu when clicking a link
+document.querySelectorAll('.menu-links a').forEach(link => {
+  link.addEventListener('click', () => { closeMenu(); });
+});
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && menuPanel.classList.contains('open')) {
+    closeMenu();
+  }
 });
 
 // ── Stupid Hour Countdown with flip digits ──
