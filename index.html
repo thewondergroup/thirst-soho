@@ -3,590 +3,1818 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thirst Oxford — Late Night Cocktail Bar</title>
+<title>Thirst Soho</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0d0815;
-  --bg-card: #160f22;
-  --bg-elevated: #1e1530;
-  --white: #fff;
-  --white-90: rgba(255,255,255,.9);
-  --white-70: rgba(255,255,255,.7);
-  --white-50: rgba(255,255,255,.5);
-  --white-30: rgba(255,255,255,.3);
-  --white-15: rgba(255,255,255,.15);
-  --white-10: rgba(255,255,255,.1);
-  --white-05: rgba(255,255,255,.05);
-  --violet: #a855f7;
-  --violet-bright: #c084fc;
-  --violet-20: rgba(168,85,247,.15);
-  --violet-glow: rgba(168,85,247,.08);
-  --red: var(--violet-bright);
-  --red-20: rgba(239,68,68,.15);
-  --gold: #c9a84c;
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Belleza',serif;background:var(--bg);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-
-/* ===== STUPID BANNER ===== */
-.stupid-banner{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--bg);border-bottom:1px solid var(--white-10);padding:8px 20px;display:flex;align-items:center;justify-content:center;gap:12px;font-family:'Jost',sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;transition:transform .4s ease;backdrop-filter:blur(12px)}
-.stupid-banner.hidden{transform:translateY(-100%)}
-.stupid-banner .countdown{color:var(--violet-bright);font-weight:600;font-variant-numeric:tabular-nums}
-.stupid-banner .label{color:var(--white-50)}
-.stupid-banner.live{background:linear-gradient(90deg,var(--bg),rgba(168,85,247,.2),rgba(184,240,38,.15),rgba(168,85,247,.2),var(--bg));background-size:200% 100%;animation:bannerShimmer 3s ease-in-out infinite;border-bottom:1px solid var(--violet)}
-.stupid-banner.live .label{color:var(--white);font-weight:600}
-.stupid-banner.live .countdown{color:var(--lime);font-size:.8rem;text-shadow:0 0 12px rgba(184,240,38,.5)}
-.stupid-banner.live .emoji-pulse{animation:emojiBounce 1s ease-in-out infinite alternate}
-@keyframes bannerShimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-@keyframes emojiBounce{0%{transform:scale(1)}100%{transform:scale(1.3)}}
-
-/* ===== NAV ===== */
-.nav{position:fixed;top:0;left:0;right:0;z-index:900;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:18px 40px;transition:background .4s ease,margin-top .4s ease;margin-top:var(--banner-h,36px)}
-.nav.banner-hidden{margin-top:0}
-
-.nav.scrolled{background:rgba(13,8,21,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
-.nav-left{display:flex;align-items:center}
-.hamburger{background:none;border:none;cursor:pointer;width:30px;height:20px;display:flex;flex-direction:column;justify-content:space-between;padding:0}
-.hamburger span{display:block;width:100%;height:1.5px;background:var(--white);transition:all .3s ease}
-.nav-logo{display:flex;justify-content:center}
-.nav-logo-img{height:48px;width:auto}
-.nav-right{display:flex;justify-content:flex-end;align-items:center}
-
-/* Buttons */
-.btn{font-family:'Jost',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--white);border:1px solid var(--white-30);background:transparent;padding:18px 56px;text-decoration:none;display:inline-block;position:relative;overflow:hidden;transition:all .35s ease}
-.btn::before{content:'';position:absolute;inset:0;background:var(--white);transform:scaleX(0);transform-origin:right;transition:transform .4s cubic-bezier(.4,0,.2,1)}
-.btn:hover{color:var(--bg);border-color:var(--white);transform:translateY(-2px)}
-.btn:hover::before{transform:scaleX(1);transform-origin:left}
-.btn span{position:relative;z-index:1}
-.btn-sm{padding:12px 32px;font-size:.6rem}
-.btn-violet{border-color:var(--violet);color:var(--violet-bright)}
-.btn-violet::before{background:var(--violet)}
-.btn-violet:hover{color:var(--white)}
-.btn-violet{border-color:var(--violet-bright);color:var(--violet-bright)}
-.btn-violet::before{background:var(--violet-bright)}
-.btn-violet:hover{color:var(--white)}
-.btn-fill{background:var(--violet);color:var(--white);border-color:var(--violet);font-weight:600}
-.btn-fill::before{background:var(--white)}
-.btn-fill:hover{color:var(--violet)}
-
-/* ===== SIDE PANEL ===== */
-.side-panel{position:fixed;top:0;left:0;width:380px;max-width:85vw;height:100vh;background:var(--bg);z-index:1010;transform:translateX(-100%);transition:transform .5s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;padding:80px 40px 40px;border-right:1px solid var(--white-10)}
-.side-panel.open{transform:translateX(0)}
-.side-panel-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1005;opacity:0;pointer-events:none;transition:opacity .4s ease}
-.side-panel-overlay.open{opacity:1;pointer-events:all}
-.side-panel-close{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--white);font-size:1.4rem;cursor:pointer;width:40px;height:40px;display:flex;align-items:center;justify-content:center}
-.side-panel nav{display:flex;flex-direction:column;flex:1}
-.side-panel a{font-family:'Jost',sans-serif;font-size:.85rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--white);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--white-10);opacity:0;transform:translateX(-20px);transition:opacity .3s ease,transform .3s ease,color .2s ease}
-.side-panel.open a{opacity:1;transform:translateX(0)}
-.side-panel a:hover{color:var(--violet-bright)}
-.side-panel a.accent-link{color:var(--violet-bright)!important;font-weight:600;border-bottom:none}
-.side-panel-footer{margin-top:auto;padding-top:30px}
-.side-panel-footer p{font-family:'Jost',sans-serif;font-size:.7rem;color:var(--white-50);letter-spacing:.1em;line-height:1.8}
-.side-panel-social{display:flex;gap:16px;margin-bottom:16px}
-.side-panel-social a{border:none!important;padding:0!important;opacity:1!important;transform:none!important}
-.side-panel-social svg{width:20px;height:20px;fill:var(--white-50);transition:fill .2s ease}
-.side-panel-social a:hover svg{fill:var(--violet-bright)}
-
-/* ===== HERO ===== */
-.hero{height:100vh;min-height:600px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0}
-.hero-img{width:100%;height:100%;object-fit:cover}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,8,21,.4) 0%,rgba(13,8,21,.3) 50%,var(--bg) 100%)}
-.hero-content{position:relative;z-index:2;text-align:center;max-width:840px;padding:0 30px}
-.hero-tag{font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--violet-bright);margin-bottom:28px;opacity:0;animation:fadeUp .8s ease .3s forwards}
-.hero h1{font-family:'Belleza',serif;font-size:clamp(2.4rem,6vw,4.5rem);font-weight:400;line-height:1.1;margin-bottom:28px;opacity:0;animation:fadeUp .8s ease .5s forwards}
-.hero h1 em{font-style:normal;position:relative;display:inline-block}
-.hero h1 em::after{content:'';position:absolute;bottom:2px;left:0;right:0;height:3px;background:var(--violet);opacity:.6}
-.rotating-wrap{display:inline-block;position:relative;vertical-align:baseline}
-.rotating-words{display:inline-flex;position:relative;height:1.2em;overflow:hidden;vertical-align:baseline}
-.rw{display:block;position:absolute;top:0;left:0;width:max-content;opacity:0;transform:translateY(100%);transition:opacity .45s ease,transform .45s cubic-bezier(.4,0,.2,1);color:var(--violet-bright);line-height:inherit}
-.rw.active{position:relative;opacity:1;transform:translateY(0)}
-.rw.exit{opacity:0;transform:translateY(-100%)}
-.hero-sub{font-family:'Belleza',serif;font-size:1.1rem;color:var(--white-70);line-height:1.7;max-width:560px;margin:0 auto 44px;opacity:0;animation:fadeUp .8s ease .7s forwards}
-.hero-cta{opacity:0;animation:fadeUp .8s ease .9s forwards;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.hero-scroll{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;opacity:0;animation:fadeUp .8s ease 1.2s forwards}
-.scroll-line{width:1px;height:50px;background:var(--white-15);position:relative;overflow:hidden;margin:0 auto}
-.scroll-line::after{content:'';position:absolute;top:-50px;left:0;width:100%;height:50px;background:linear-gradient(to bottom,transparent,var(--violet-bright));animation:scrollPulse 2s ease-in-out infinite}
-@keyframes scrollPulse{0%{top:-50px}100%{top:50px}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-
-/* ===== SECTIONS ===== */
-section{padding:100px 40px}
-.section-inner{max-width:1100px;margin:0 auto}
-.section-header{text-align:center;margin-bottom:60px}
-.section-header .tag,.tag{font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--violet-bright);margin-bottom:16px;display:block}
-.section-header h2{font-family:'Belleza',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:400;line-height:1.2}
-
-/* ===== INTRO ===== */
-.intro{padding:100px 40px}
-.intro-split{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.intro-img{overflow:hidden;border-radius:2px;aspect-ratio:4/5}
-.intro-img img{width:100%;height:100%;object-fit:cover}
-.intro-text h2{font-family:'Belleza',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;line-height:1.2;margin:16px 0 24px}
-.intro-text p{font-family:'Belleza',serif;font-size:1.05rem;color:var(--white-70);line-height:1.8;margin-bottom:20px}
-.intro-text p em{font-style:italic;color:var(--white)}
-.intro-ctas{display:flex;align-items:center;gap:24px;margin-top:32px;flex-wrap:wrap}
-.btn-text{font-family:'Jost',sans-serif;font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--violet-bright);text-decoration:none;transition:color .2s ease}
-.btn-text:hover{color:var(--white)}
-
-/* ===== SPACES ===== */
-.spaces-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;max-width:1100px;margin:0 auto}
-.space-card{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:pointer}
-.space-card-placeholder{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.4,0,.2,1)}
-.space-card:hover .space-card-placeholder{transform:scale(1.05)}
-.space-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,8,21,.9) 0%,rgba(13,8,21,.1) 60%);display:flex;flex-direction:column;justify-content:flex-end;padding:30px}
-.space-card h3{font-family:'Belleza',serif;font-size:1.3rem;font-weight:400;margin-bottom:8px}
-.space-card p{font-family:'Jost',sans-serif;font-size:.75rem;color:var(--white-50);letter-spacing:.05em;line-height:1.6}
-.space-card .card-num{position:absolute;top:20px;left:24px;font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.2em;color:var(--violet-bright);text-transform:uppercase}
-
-/* ===== STUPID HOUR ===== */
-.stupid-section{background:var(--bg);padding:100px 40px;text-align:center;position:relative;overflow:hidden}
-.stupid-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,var(--violet-glow) 0%,transparent 70%);pointer-events:none}
-.stupid-inner{position:relative;max-width:700px;margin:0 auto}
-.stupid-section h2{font-family:'Belleza',serif;font-size:clamp(2rem,4vw,3rem);font-weight:400;margin-bottom:20px}
-.stupid-section .sub{font-family:'Belleza',serif;font-size:1.05rem;color:var(--white-70);line-height:1.7;margin-bottom:40px}
-.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:40px}
-.hour-card{background:var(--bg-card);padding:36px 24px;text-align:center}
-.hour-card h3{font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--violet-bright);margin-bottom:16px;font-weight:600}
-.hour-card .time{font-family:'Belleza',serif;font-size:1.1rem;color:var(--white);margin-bottom:4px}
-.hour-card .days{font-family:'Jost',sans-serif;font-size:.7rem;color:var(--white-30);letter-spacing:.1em}
-
-/* ===== MARQUEE ===== */
-.marquee-section{padding:0;overflow:hidden;background:var(--bg-card)}
-.marquee-row{display:flex;gap:3px;animation:marquee 30s linear infinite;width:max-content;padding:1.5px 0}
-.marquee-row.reverse{animation-direction:reverse}
-.marquee-item{width:280px;height:360px;flex-shrink:0;overflow:hidden}
-.marquee-item .ph{width:100%;height:100%}
-.mq-img{width:100%;height:100%;object-fit:cover}
-@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-/* ===== DJ SECTION ===== */
-.dj-section{padding:100px 40px;position:relative}
-.dj-content{position:relative;max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.dj-text .tag{color:var(--violet-bright)}
-.dj-text h2{font-family:'Belleza',serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:400;margin-bottom:20px;line-height:1.2}
-.dj-text p{font-family:'Belleza',serif;font-size:1rem;color:var(--white-70);line-height:1.8;margin-bottom:30px}
-.dj-image{aspect-ratio:4/5;overflow:hidden}
-.dj-image .ph{width:100%;height:100%;background:linear-gradient(135deg,#1e1530,#2a1535)}
-
-/* ===== STATS STRIP ===== */
-.stats-strip{padding:60px 40px;border-top:1px solid var(--white-10);border-bottom:1px solid var(--white-10)}
-.stats-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
-.stat-item .num{font-family:'Jost',sans-serif;font-size:2rem;font-weight:700;color:var(--violet-bright);line-height:1;margin-bottom:8px}
-.stat-item .label{font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--white-50)}
-
-/* ===== REVIEWS ===== */
-.reviews-section{padding:100px 40px}
-.reviews-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:20px;scrollbar-width:none}
-.reviews-track::-webkit-scrollbar{display:none}
-.review-card{min-width:300px;max-width:380px;flex-shrink:0;scroll-snap-align:start;padding:40px 28px;position:relative;overflow:hidden;border-radius:2px}
-.review-card-bg{position:absolute;inset:0}
-.review-card-bg img{width:100%;height:100%;object-fit:cover}
-.review-card-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,8,21,.75),rgba(13,8,21,.9))}
-.review-stars{position:relative;z-index:1;color:var(--violet-bright);font-size:.85rem;letter-spacing:4px;margin-bottom:20px}
-.review-card blockquote{position:relative;z-index:1;font-family:'Belleza',serif;font-size:.95rem;line-height:1.7;color:var(--white-70);margin-bottom:24px;font-style:italic}
-.review-card cite{position:relative;z-index:1;font-family:'Jost',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--white-30);font-style:normal}
-
-/* ===== MAP ===== */
-.map-section{position:relative;padding:0}
-.map-container{width:100%;height:400px;filter:invert(90%) hue-rotate(180deg) saturate(.2) brightness(.5) contrast(1.3)}
-.map-container iframe{width:100%;height:100%;border:0}
-.map-overlay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:2;background:rgba(13,8,21,.92);padding:40px 50px;border:1px solid var(--white-10)}
-.map-overlay h3{font-family:'Belleza',serif;font-size:1.3rem;margin-bottom:8px}
-.map-overlay p{font-family:'Jost',sans-serif;font-size:.75rem;color:var(--white-50);letter-spacing:.1em;margin-bottom:20px;line-height:1.7}
-
-/* ===== FOOTER ===== */
-.footer{padding:80px 40px 40px;border-top:1px solid var(--white-10)}
-.footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-bottom:60px}
-.footer h4{font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--violet-bright);margin-bottom:20px;font-weight:600}
-.footer p,.footer a{font-family:'Jost',sans-serif;font-size:.78rem;color:var(--white-30);line-height:1.8;text-decoration:none;letter-spacing:.03em}
-.footer a:hover{color:var(--white)}
-.footer-links{display:flex;flex-direction:column;gap:8px}
-.footer-nl{display:flex;gap:0;margin-top:8px}
-.footer-nl input{flex:1;background:var(--bg-card);border:1px solid var(--white-10);border-right:none;padding:12px 16px;color:var(--white);font-family:'Jost',sans-serif;font-size:.75rem;outline:none}
-.footer-nl input::placeholder{color:var(--white-30)}
-.footer-nl input:focus{border-color:var(--violet)}
-.footer-nl button{font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;background:var(--violet);color:var(--white);border:1px solid var(--violet);padding:12px 20px;cursor:pointer;font-weight:600;transition:background .3s ease}
-.footer-nl button:hover{background:#9333ea}
-.footer-bottom{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding-top:30px;border-top:1px solid var(--white-10)}
-.footer-bottom p{font-family:'Jost',sans-serif;font-size:.65rem;color:var(--white-15);letter-spacing:.1em}
-.footer-sisters{display:flex;gap:20px}
-.footer-social{display:flex;gap:16px}
-.footer-social a{color:var(--white-30);transition:color .2s ease}
-.footer-social a:hover{color:var(--violet-bright)}
-.footer-sisters a{font-family:'Jost',sans-serif;font-size:.65rem;color:var(--white-15);text-decoration:none;letter-spacing:.1em;transition:color .2s ease}
-.footer-sisters a:hover{color:var(--violet-bright)}
-
-/* ===== REVEALS ===== */
-.reveal-up{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
-.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity .7s ease,transform .7s ease}
-.reveal-right{opacity:0;transform:translateX(60px);transition:opacity .7s ease,transform .7s ease}
-.reveal-scale{opacity:0;transform:scale(.92);transition:opacity .7s ease,transform .7s ease}
-.revealed{opacity:1!important;transform:none!important}
-.delay-1{transition-delay:.1s}.delay-2{transition-delay:.2s}.delay-3{transition-delay:.3s}.delay-4{transition-delay:.4s}.delay-5{transition-delay:.5s}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:900px){
-  .nav{padding:16px 24px}
-  .nav-logo-img{height:42px}
-  section{padding:80px 24px}
-  .spaces-grid{grid-template-columns:1fr 1fr}
-  .dj-content{grid-template-columns:1fr;gap:40px}
-  .intro-split{grid-template-columns:1fr;gap:40px}
-  .intro-img{aspect-ratio:16/9}
-  .stats-grid{grid-template-columns:repeat(2,1fr);gap:30px}
-  .footer-grid{grid-template-columns:repeat(2,1fr)}
-  .reveal-left,.reveal-right{transform:translateY(40px)}
-}
-@media(max-width:600px){
-  .nav{padding:12px 16px;gap:8px}
-  .nav-logo-img{height:38px}
-  .btn-sm{padding:6px 12px;font-size:.45rem;letter-spacing:.12em}
-  section{padding:60px 16px}
-  .hero h1{font-size:2.2rem}
-  .spaces-grid{grid-template-columns:1fr}
-  .hours-grid{grid-template-columns:1fr}
-  .btn{padding:14px 36px}
-  .marquee-item{width:200px;height:260px}
-  .review-card{min-width:260px;max-width:85vw}
-  .map-overlay{padding:28px 24px;width:90%}
-  .stats-grid{grid-template-columns:repeat(2,1fr)}
-  .footer-grid{grid-template-columns:1fr}
-  .footer-bottom{flex-direction:column;gap:16px;text-align:center}
-  .footer-sisters{justify-content:center}
+  --bg: #0B112B;
+  --white: #ffffff;
+  --white-70: rgba(255,255,255,0.7);
+  --white-50: rgba(255,255,255,0.5);
+  --white-30: rgba(255,255,255,0.3);
+  --white-15: rgba(255,255,255,0.15);
+  --font-display: 'Belleza', sans-serif;
+  --font-ui: 'Jost', 'Futura', 'Helvetica Neue', sans-serif;
 }
 
-.reveal-fallback .reveal-up,.reveal-fallback .reveal-left,.reveal-fallback .reveal-right,.reveal-fallback .reveal-scale{opacity:1!important;transform:none!important}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { display: block; width: 100%; height: 100%; object-fit: cover; }
+a { color: inherit; text-decoration: none; }
+
+/* ══════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════ */
+
+/* Staggered fade up for hero elements */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ken Burns slow zoom */
+@keyframes kenBurns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+/* Scroll indicator pulse */
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 1; transform: translateX(-50%) translateY(8px); }
+}
+
+/* Divider line draw */
+@keyframes drawLine {
+  from { width: 0; }
+  to { width: 72px; }
+}
+
+/* Slide from left */
+@keyframes slideFromLeft {
+  from { opacity: 0; transform: translateX(-80px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Slide from right */
+@keyframes slideFromRight {
+  from { opacity: 0; transform: translateX(80px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Scale in */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Fade in */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Letter spacing expand */
+@keyframes letterExpand {
+  from { letter-spacing: 0.3em; opacity: 0; }
+  to { letter-spacing: 0.06em; opacity: 1; }
+}
+
+/* ── Reveal classes ── */
+.reveal { opacity: 0; transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; }
+
+.reveal-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+.reveal-up.visible { opacity: 1; transform: translateY(0); }
+
+.reveal-left { opacity: 0; transform: translateX(-60px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+.reveal-right { opacity: 0; transform: translateX(60px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+.reveal-scale { opacity: 0; transform: scale(0.92); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+/* Stagger delays */
+.delay-1 { transition-delay: 0.1s !important; }
+.delay-2 { transition-delay: 0.2s !important; }
+.delay-3 { transition-delay: 0.3s !important; }
+.delay-4 { transition-delay: 0.4s !important; }
+.delay-5 { transition-delay: 0.5s !important; }
+.delay-6 { transition-delay: 0.6s !important; }
+.delay-7 { transition-delay: 0.7s !important; }
+.delay-8 { transition-delay: 0.8s !important; }
+.delay-9 { transition-delay: 0.9s !important; }
+.delay-10 { transition-delay: 1.0s !important; }
+
+/* ══════════════════════════════════════
+   NAV
+══════════════════════════════════════ */
+/* ══════════════════════════════════════
+   STUPID HOUR COUNTDOWN BANNER
+══════════════════════════════════════ */
+.stupid-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 101;
+  background: var(--bg);
+  border-bottom: 1px solid var(--white-15);
+  padding: 8px 24px;
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white-70);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+.stupid-banner:hover {
+  color: var(--white);
+}
+
+/* Flip animation digits */
+.stupid-banner .flip-group {
+  display: inline-flex;
+  gap: 1px;
+  vertical-align: middle;
+}
+
+.stupid-banner .flip-digit {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+  height: 1.6em;
+  line-height: 1.6em;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  overflow: hidden;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.stupid-banner.is-live .flip-digit {
+  background: rgba(201, 168, 76, 0.15);
+}
+
+.flip-digit .flip-current,
+.flip-digit .flip-next {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.flip-digit .flip-current {
+  top: 0;
+}
+
+.flip-digit .flip-next {
+  top: 0;
+  transform: translateY(100%);
+}
+
+.flip-digit.flipping .flip-current {
+  animation: flipOut 0.3s ease-in forwards;
+}
+
+.flip-digit.flipping .flip-next {
+  animation: flipIn 0.3s ease-out forwards;
+}
+
+@keyframes flipOut {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100%); opacity: 0; }
+}
+
+@keyframes flipIn {
+  0% { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.stupid-banner .flip-label {
+  display: inline-block;
+  font-size: 0.5rem;
+  letter-spacing: 0.05em;
+  margin: 0 3px;
+  opacity: 0.6;
+  vertical-align: middle;
+}
+
+.stupid-banner span {
+  color: var(--white);
+}
+
+/* Live state — gold pulse */
+@keyframes livePulse {
+  0%, 100% { background: rgba(201, 168, 76, 0.1); }
+  50% { background: rgba(201, 168, 76, 0.2); }
+}
+
+.stupid-banner.is-live {
+  color: #c9a84c;
+  border-bottom-color: rgba(201, 168, 76, 0.3);
+  animation: livePulse 2s ease-in-out infinite;
+}
+.stupid-banner.is-live span {
+  color: #c9a84c;
+}
+
+/* Live dot indicator */
+.stupid-banner .live-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c9a84c;
+  margin-right: 8px;
+  vertical-align: middle;
+  animation: liveDotPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes liveDotPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4); }
+  50% { opacity: 0.6; box-shadow: 0 0 8px 3px rgba(201, 168, 76, 0.3); }
+}
+
+/* ══════════════════════════════════════
+   SLIDE-IN SIDE PANEL MENU
+══════════════════════════════════════ */
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 199;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s;
+  backdrop-filter: blur(4px);
+}
+.menu-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 380px;
+  max-width: 85vw;
+  z-index: 200;
+  background: var(--bg);
+  border-right: 1px solid var(--white-15);
+  transform: translateX(-100%);
+  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+  display: flex;
+  flex-direction: column;
+  padding: 80px 40px 40px;
+  overflow-y: auto;
+}
+.menu-panel.open {
+  transform: translateX(0);
+}
+
+.menu-close {
+  position: absolute;
+  top: 24px;
+  left: 28px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 201;
+}
+.menu-close span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--white);
+  position: absolute;
+  transition: transform 0.3s;
+}
+.menu-close span:first-child { transform: rotate(45deg); }
+.menu-close span:last-child { transform: rotate(-45deg); }
+.menu-close:hover span { background: var(--white-70); }
+
+.menu-links {
+  list-style: none;
+  padding: 0;
+  flex: 1;
+}
+.menu-links li {
+  overflow: hidden;
+}
+.menu-links a {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--white);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--white-10);
+  transform: translateX(-30px);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease, color 0.3s, padding 0.3s;
+}
+.menu-panel.open .menu-links a {
+  transform: translateX(0);
+  opacity: 1;
+}
+.menu-links li:nth-child(1) a { transition-delay: 0.05s; }
+.menu-links li:nth-child(2) a { transition-delay: 0.08s; }
+.menu-links li:nth-child(3) a { transition-delay: 0.11s; }
+.menu-links li:nth-child(4) a { transition-delay: 0.14s; }
+.menu-links li:nth-child(5) a { transition-delay: 0.17s; }
+.menu-links li:nth-child(6) a { transition-delay: 0.2s; }
+.menu-links li:nth-child(7) a { transition-delay: 0.23s; }
+.menu-links li:nth-child(8) a { transition-delay: 0.26s; }
+.menu-links li:nth-child(9) a { transition-delay: 0.29s; }
+.menu-links li:nth-child(10) a { transition-delay: 0.32s; }
+.menu-links li:nth-child(11) a { transition-delay: 0.35s; }
+
+.menu-links a:hover {
+  color: var(--white-50);
+  padding-left: 8px;
+}
+.menu-links a.active {
+  color: var(--white-50);
+}
+.menu-links a.book-link,
+.menu-links a.book-link:hover,
+.menu-panel.open .menu-links a.book-link {
+  color: #c9a84c !important;
+}
+
+.menu-footer {
+  padding-top: 32px;
+  border-top: 1px solid var(--white-15);
+  margin-top: 24px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s 0.3s ease, transform 0.4s 0.3s ease;
+}
+.menu-panel.open .menu-footer {
+  opacity: 1;
+  transform: translateY(0);
+}
+.menu-footer p {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--white-50);
+  line-height: 1.8;
+}
+.menu-footer a {
+  color: var(--white-70);
+  transition: color 0.3s;
+}
+.menu-footer a:hover { color: var(--white); }
+.menu-insta {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--white-50);
+  transition: color 0.3s, transform 0.3s;
+}
+.menu-insta:hover {
+  color: var(--gold);
+  transform: scale(1.1);
+}
+
+/* Hamburger animation to X */
+.nav-hamburger.is-open span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+.nav-hamburger.is-open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.is-open span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+.nav-hamburger span { transition: transform 0.3s, opacity 0.3s; }
+
+/* Push nav down to make room for the banner */
+nav {
+  position: fixed;
+  top: 32px;
+  left: 0; right: 0;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 20px 32px;
+  transition: background 0.4s, padding 0.4s, top 0.4s;
+}
+nav.scrolled {
+  background: rgba(11, 17, 43, 0.95);
+  backdrop-filter: blur(16px);
+  padding: 14px 32px;
+  top: 0;
+}
+
+.nav-hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  cursor: pointer;
+  padding: 6px;
+  opacity: 0;
+  animation: heroFadeUp 0.6s 0.2s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+.nav-hamburger span {
+  display: block;
+  width: 30px;
+  height: 1.5px;
+  background: var(--white);
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav-hamburger:hover span:nth-child(1) { transform: translateX(4px); }
+.nav-hamburger:hover span:nth-child(3) { transform: translateX(-4px); }
+
+.nav-logo {
+  justify-self: center;
+  opacity: 0;
+  animation: heroFadeUp 0.6s 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
+  display: flex;
+  align-items: center;
+}
+.nav-logo img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-book {
+  justify-self: end;
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border: 1px solid var(--white);
+  transition: background 0.3s, color 0.3s, transform 0.3s;
+  opacity: 0;
+  animation: heroFadeUp 0.6s 0.4s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+.nav-book:hover {
+  background: var(--white);
+  color: var(--bg);
+  transform: translateY(-1px);
+}
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+}
+.hero-video video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  animation: kenBurns 20s ease-in-out infinite alternate;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(11,17,43,0.4) 0%,
+    rgba(0,0,0,0.2) 50%,
+    rgba(11,17,43,0.6) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.25;
+  margin-bottom: 20px;
+  letter-spacing: 0.01em;
+  opacity: 0;
+  animation: heroFadeUp 1s 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+.hero-times {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--white-70);
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: heroFadeUp 1s 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+.hero .btn {
+  opacity: 0;
+  animation: heroFadeUp 1s 1.2s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding: 18px 56px;
+  border: 1px solid var(--white);
+  color: var(--white);
+  background: rgba(11, 17, 43, 0.45);
+  transition: background 0.4s, color 0.4s, transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--white);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  z-index: -1;
+}
+.btn:hover {
+  color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.btn:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: scrollPulse 2.5s ease-in-out infinite;
+  opacity: 0;
+}
+.hero-scroll.show {
+  animation: fadeIn 1s 2s forwards, scrollPulse 2.5s 3s ease-in-out infinite;
+}
+.scroll-text {
+  font-family: var(--font-ui);
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--white-50);
+}
+.scroll-arrow {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, var(--white-50), transparent);
+}
+
+/* ══════════════════════════════════════
+   DUAL CARDS
+══════════════════════════════════════ */
+.dual-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding: 14px;
+  background: var(--bg);
+}
+.dual-card {
+  position: relative;
+  aspect-ratio: 1.15;
+  overflow: hidden;
+  cursor: pointer;
+}
+.dual-card img {
+  transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.dual-card:hover img {
+  transform: scale(1.06);
+}
+.dual-card-label {
+  position: absolute;
+  bottom: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  background: rgba(11, 17, 43, 0.65);
+  color: var(--white);
+  white-space: nowrap;
+  transition: background 0.3s, transform 0.3s, letter-spacing 0.3s;
+}
+.dual-card:hover .dual-card-label {
+  background: rgba(11, 17, 43, 0.85);
+  transform: translateX(-50%) translateY(-4px);
+  letter-spacing: 0.35em;
+}
+
+/* ══════════════════════════════════════
+   INTRO
+══════════════════════════════════════ */
+.intro {
+  background: var(--bg);
+  padding: 100px 24px;
+  text-align: center;
+  overflow: hidden;
+}
+.intro-inner {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.intro-divider {
+  height: 1px;
+  background: var(--white-30);
+  margin: 0 auto 48px;
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.16,1,0.3,1);
+}
+.intro-divider.visible {
+  width: 72px;
+}
+
+.intro p {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 400;
+  line-height: 1.95;
+  color: var(--white);
+  margin-bottom: 48px;
+}
+
+/* Word-by-word reveal for intro text */
+.intro .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.intro .word.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Word reveal for about section */
+.about-text .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.about-text .word.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ══════════════════════════════════════
+   COCKTAIL GALLERY
+══════════════════════════════════════ */
+.cocktail-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  padding: 0 14px;
+  background: var(--bg);
+}
+.cocktail-gallery-item {
+  aspect-ratio: 0.92;
+  overflow: hidden;
+  position: relative;
+}
+.cocktail-gallery-item img {
+  transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.cocktail-gallery-item:hover img {
+  transform: scale(1.06) rotate(0.5deg);
+}
+
+/* ══════════════════════════════════════
+   ABOUT
+══════════════════════════════════════ */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--bg);
+  overflow: hidden;
+}
+.about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 64px;
+  text-align: center;
+}
+.about-text p {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.95;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+.about-text p:last-of-type {
+  margin-bottom: 48px;
+}
+.about-video {
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+}
+.about-video video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+/* ══════════════════════════════════════
+   STUPID HOUR — scrolling image marquee bg
+══════════════════════════════════════ */
+.stupid-hour {
+  position: relative;
+  background: var(--bg);
+  padding: 80px 0 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.stupid-hour h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  padding: 0 24px;
+  position: relative;
+  z-index: 3;
+  opacity: 0;
+  letter-spacing: 0.3em;
+  transition: opacity 0.8s ease, letter-spacing 1.2s cubic-bezier(0.16,1,0.3,1);
+}
+.stupid-hour h2.visible {
+  opacity: 1;
+  letter-spacing: 0.06em;
+}
+
+/* Image marquee container */
+.stupid-marquee-wrap {
+  position: relative;
+  overflow: hidden;
+  padding: 60px 0 80px;
+}
+
+/* Gradient overlay so text is readable */
+.stupid-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(11,17,43,0.88) 0%,
+    rgba(11,17,43,0.65) 50%,
+    rgba(11,17,43,0.4) 100%
+  );
+  pointer-events: none;
+}
+
+/* Scrolling marquee rows */
+@keyframes marqueeLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marqueeRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.stupid-marquee-row {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 14px;
+  width: max-content;
+}
+.stupid-marquee-row:last-child {
+  margin-bottom: 0;
+}
+
+.stupid-marquee-row.scroll-left {
+  animation: marqueeLeft 35s linear infinite;
+}
+.stupid-marquee-row.scroll-right {
+  animation: marqueeRight 40s linear infinite;
+}
+
+.stupid-marquee-row img {
+  width: 320px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* Text content floating over the marquee */
+.stupid-content {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px 72px;
+}
+
+.stupid-content .join {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.stupid-content .join strong {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.stupid-content .times {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+.stupid-content .btn {
+  background: rgba(11, 17, 43, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+/* Marquee scrolls continuously */
+
+@media (max-width: 600px) {
+  .stupid-marquee-row img {
+    width: 200px;
+    height: 260px;
+  }
+  .stupid-marquee-row {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .stupid-marquee-wrap {
+    padding: 40px 0 60px;
+  }
+  .stupid-content {
+    padding: 24px 16px;
+  }
+  .stupid-content .join {
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+  .stupid-content .times {
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+  }
+  .stupid-content .btn {
+    padding: 14px 36px;
+    background: rgba(11, 17, 43, 0.75);
+    border: 1px solid var(--white);
+    color: var(--white);
+  }
+}
+
+/* ══════════════════════════════════════
+   TESTIMONIAL CAROUSEL
+══════════════════════════════════════ */
+.reviews {
+  background: var(--bg);
+  padding: 40px 0 80px;
+  overflow: hidden;
+}
+.reviews-heading {
+  text-align: center;
+  margin-bottom: 48px;
+  padding: 0 24px;
+}
+.reviews-heading h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.reviews-heading p {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white-50);
+}
+
+.reviews-track {
+  display: flex;
+  gap: 20px;
+  padding: 0 40px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+}
+.reviews-track:active { cursor: grabbing; }
+.reviews-track::-webkit-scrollbar { display: none; }
+
+.review-card {
+  flex: 0 0 420px;
+  max-width: 85vw;
+  min-height: 320px;
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  scroll-snap-align: center;
+  display: flex;
+  align-items: flex-end;
+}
+.review-card-bg {
+  position: absolute;
+  inset: 0;
+}
+.review-card-bg img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.review-card:hover .review-card-bg img {
+  transform: scale(1.05);
+}
+.review-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+}
+.review-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 32px;
+}
+.review-card blockquote {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.review-card cite {
+  font-family: var(--font-ui);
+  font-style: normal;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--white-50);
+}
+.review-stars {
+  color: #c9a84c;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 600px) {
+  .review-card { flex: 0 0 85vw; min-height: 280px; }
+  .reviews-track { padding: 0 20px; gap: 14px; }
+}
+
+/* ══════════════════════════════════════
+   MAP SECTION
+══════════════════════════════════════ */
+.map-section {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+}
+.map-section iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: invert(90%) hue-rotate(180deg) saturate(0.3) brightness(0.6) contrast(1.2);
+}
+.map-overlay-strip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(11,17,43,.8) 100%);
+  padding: 32px 32px 28px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  pointer-events: none;
+}
+.map-overlay-strip .map-address {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--white-70);
+  line-height: 1.6;
+}
+.map-overlay-strip .map-address strong {
+  color: var(--white);
+  font-weight: 400;
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+.map-overlay-strip .map-directions {
+  pointer-events: auto;
+  font-family: var(--font-ui);
+  font-size: .6rem;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--white);
+  border: 1px solid var(--white-30);
+  padding: 10px 24px;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+.map-overlay-strip .map-directions:hover {
+  background: var(--white);
+  color: var(--bg);
+  border-color: var(--white);
+}
+@media (max-width: 600px) {
+  .map-section { height: 350px; }
+  .map-overlay-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px 20px 20px;
+  }
+}
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer {
+  background: var(--bg);
+  padding: 48px 24px 72px;
+}
+.footer-divider {
+  height: 1px;
+  background: var(--white-30);
+  margin: 0 auto 64px;
+  width: 0;
+  transition: width 1s cubic-bezier(0.16,1,0.3,1);
+}
+.footer-divider.visible {
+  width: 72px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1000px;
+  margin: 0 auto 72px;
+  text-align: center;
+}
+.footer-col h4 {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.footer-col p,
+.footer-col a {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--white-70);
+  transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--white); }
+
+.footer-logo-wrap {
+  text-align: center;
+}
+.footer-logo-wrap img {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  transition: transform 0.3s;
+}
+.footer-logo-wrap:hover img {
+  transform: scale(1.05);
+}
+
+/* ══════════════════════════════════════
+   PARALLAX CONTAINER
+══════════════════════════════════════ */
+.parallax-img {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 900px) {
+  .dual-cards { grid-template-columns: 1fr; }
+  .cocktail-gallery {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 10px;
+    padding: 0 14px;
+  }
+  .cocktail-gallery-item {
+    flex: 0 0 75vw;
+    aspect-ratio: 0.75;
+    scroll-snap-align: center;
+  }
+  .cocktail-gallery::-webkit-scrollbar { display: none; }
+  .about { grid-template-columns: 1fr; }
+  .about-video { min-height: 400px; }
+  .about-text { padding: 60px 28px; }
+  .stupid-marquee-row img { width: 240px; height: 180px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+  nav { padding: 16px 16px; }
+  .nav-logo img { height: 42px; }
+  .nav-book {
+    font-size: 0.5rem;
+    padding: 8px 14px;
+    letter-spacing: 0.15em;
+  }
+  .reveal-left, .reveal-right {
+    transform: translateY(40px) !important;
+  }
+  .reveal-left.visible, .reveal-right.visible {
+    transform: translateY(0) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 1.8rem; }
+  .cocktail-gallery-item {
+    flex: 0 0 85vw;
+  }
+  nav { padding: 12px 12px; gap: 8px; }
+  .nav-hamburger span { width: 22px; }
+  .nav-logo img { height: 36px; }
+  .nav-book {
+    font-size: 0.45rem;
+    padding: 7px 12px;
+    letter-spacing: 0.1em;
+  }
+  .stupid-banner {
+    font-size: 0.5rem;
+    padding: 6px 12px;
+    letter-spacing: 0.1em;
+  }
+  .btn {
+    padding: 14px 36px;
+    font-size: 0.55rem;
+  }
+}
+
+/* Fallback: if JS doesn't load or IntersectionObserver is blocked,
+   make everything visible after a short delay */
+@keyframes forceFallback {
+  to { opacity: 1; transform: none; }
+}
 </style>
+<!-- Fallback for browsers where JS is blocked -->
+<noscript>
+<style>
+  .reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale,
+  .hero h1, .hero-times, .hero .btn, .hero-scroll,
+  .nav-hamburger, .nav-logo, .nav-book,
+  .stupid-hour h2, .intro .word, .testimonial .word {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+</style>
+</noscript>
 </head>
 <body>
 
-<!-- STUPID HOUR BANNER -->
+<!-- ════ STUPID HOUR COUNTDOWN ════ -->
 <div class="stupid-banner" id="stupidBanner">
-  <span class="emoji-pulse">🍸</span>
-  <span class="label" id="stupidLabel">Stupid Hour</span>
-  <span class="countdown" id="stupidCountdown">--:--:--</span>
-  <span class="emoji-pulse">🕺</span>
+  <span id="stupidCountdown">Loading...</span>
 </div>
 
-<!-- NAV -->
-<header class="nav" id="mainNav">
-  <div class="nav-left">
-    <button class="hamburger" id="menuToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+<!-- ════ NAV ════ -->
+<nav id="nav">
+  <div class="nav-hamburger" id="menuToggle">
+    <span></span><span></span><span></span>
   </div>
-  <div class="nav-logo"><a href="index.html"><img src="assets/logo.png" alt="Thirst Oxford" class="nav-logo-img"></a></div>
-  <div class="nav-right">
-    <a href="https://www.designmynight.com/oxford/bars/oxford-city-centre/thirst-bar-oxford" target="_blank" rel="noopener" class="btn btn-sm btn-violet"><span>Book Now</span></a>
-  </div>
-</header>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/logo.png" alt="Thirst">
+  </a>
+  <a href="https://www.designmynight.com/london/bars/soho/thirst-bar-soho" class="nav-book" target="_blank">Book Now</a>
+</nav>
 
-<!-- SIDE PANEL -->
-<div class="side-panel-overlay" id="panelOverlay"></div>
-<aside class="side-panel" id="sidePanel">
-  <button class="side-panel-close" id="panelClose" aria-label="Close menu">✕</button>
-  <nav>
-    <a href="index.html" style="transition-delay:.05s">Welcome</a>
-    <a href="bookings.html" style="transition-delay:.08s">Bookings & Parties</a>
-    <a href="thirsty.html" style="transition-delay:.11s">Thirsty</a>
-    <a href="whats-on.html" style="transition-delay:.14s">What's On</a>
-    <a href="our-story.html" style="transition-delay:.17s">Our Story</a>
-    <a href="gallery.html" style="transition-delay:.20s">Gallery</a>
-    <a href="faqs.html" style="transition-delay:.23s">FAQs</a>
-    <a href="contact.html" style="transition-delay:.26s">Contact</a>
-    <a href="https://www.designmynight.com/oxford/bars/oxford-city-centre/thirst-bar-oxford" target="_blank" rel="noopener" class="accent-link" style="transition-delay:.29s">Book</a>
-  </nav>
-  <div class="side-panel-footer">
-    <div class="side-panel-social">
-      <a href="https://www.instagram.com/thirstoxford/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-      <a href="https://www.facebook.com/thirstoxford/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-    </div>
-    <p>Park End Street<br>Oxford OX1 1BN</p>
+<!-- ════ SLIDE-IN MENU ════ -->
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<div class="menu-panel" id="menuPanel">
+  <div class="menu-close" id="menuClose">
+    <span></span><span></span>
   </div>
-</aside>
+  <ul class="menu-links">
+    <li><a href="index.html" class="active">Welcome</a></li>
+    <li><a href="bookings.html">Bookings & Events</a></li>
+    <li><a href="menu.html">Drinks</a></li>
+    <li><a href="food.html">Food</a></li>
+    <li><a href="whats-on.html">What's On</a></li>
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="faqs.html">FAQs</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://www.designmynight.com/london/bars/soho/thirst-bar-soho" target="_blank" class="book-link">Book</a></li>
+  </ul>
+  <div class="menu-footer">
+    <p>53 Greek St, London, W1D 3DR<br>
+    <a href="tel:02074371977">020 7437 1977</a></p>
+    <a href="https://www.instagram.com/thirstbar/" target="_blank" class="menu-insta" aria-label="Instagram">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+    </a>
+  </div>
+</div>
 
-<!-- HERO -->
+<!-- ════ HERO ════ -->
 <section class="hero">
-  <div class="hero-bg"><video class="hero-img" id="heroVideo" autoplay muted loop playsinline><source src="assets/Oxford-vibe-video1.mp4" type="video/mp4"></video></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-tag">Est. 1999 · Park End Street, Oxford</div>
-    <h1>Where DJs, cocktails and <span class="rotating-wrap"><span class="rotating-words" id="rotatingWords"><span class="rw active">good</span><span class="rw">thirsty</span><span class="rw">dancing</span><span class="rw">late</span><span class="rw">stupid</span><span class="rw">wild</span></span></span> times come alive</h1>
-    <p class="hero-sub">Your friendly, local, late-night, independent cocktail bar in the heart of Oxford.</p>
-    <div class="hero-cta">
-      <a href="https://www.designmynight.com/oxford/bars/oxford-city-centre/thirst-bar-oxford" target="_blank" rel="noopener" class="btn btn-fill"><span>Book Here</span></a>
-      <a href="thirsty.html" class="btn"><span>See Drinks</span></a>
-    </div>
+  <div class="hero-video">
+    <video autoplay muted loop playsinline>
+      <source src="assets/hero-video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
   </div>
-  <div class="hero-scroll"><div class="scroll-line"></div></div>
+  <div class="hero-content">
+    <h1>The late-night Soho institution</h1>
+    <div class="hero-times">Mon–Sun:<br>4pm til 3am</div>
+    <a href="https://www.designmynight.com/london/bars/soho/thirst-bar-soho" target="_blank" class="btn">Book Now</a>
+  </div>
+  <div class="hero-scroll" id="heroScroll">
+    <span class="scroll-text">Scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
 </section>
 
-<!-- INTRO -->
+<!-- ════ DUAL CARDS ════ -->
+<section class="dual-cards">
+  <a href="contact.html" class="dual-card reveal-left">
+    <img src="assets/dj.jpg" alt="Live DJs at Thirst">
+    <span class="dual-card-label">Find Us</span>
+  </a>
+  <a href="menu.html" class="dual-card reveal-right">
+    <img src="assets/orange-cocktail.jpg" alt="Cocktail with dried orange">
+    <span class="dual-card-label">View the Menu</span>
+  </a>
+</section>
+
+<!-- ════ INTRO ════ -->
 <section class="intro">
-  <div class="intro-split">
-    <div class="intro-img reveal-left">
-      <img src="assets/oxford-people3.jpg" alt="Good times at Thirst Oxford">
+  <div class="intro-inner">
+    <div class="intro-divider reveal" id="introDivider"></div>
+    <p id="introText">We're here for the good times, the best cocktails, the fun vibes, the joy of friends and the dance till you drop kind of nights. From intimate date nights and after-work drinks to 'oh f*ck it, let's stay out all night' energy, we've got you.</p>
+    <a href="https://www.designmynight.com/london/bars/soho/thirst-bar-soho" target="_blank" class="btn reveal-up delay-5">Book Now</a>
+  </div>
+</section>
+
+<!-- ════ COCKTAIL GALLERY ════ -->
+<section class="cocktail-gallery">
+  <div class="cocktail-gallery-item reveal-scale delay-1">
+    <img src="assets/raspberry-martini.jpg" alt="Raspberry martini">
+  </div>
+  <div class="cocktail-gallery-item reveal-scale delay-3">
+    <img src="assets/mint-cocktail.jpg" alt="Cocktail with mint garnish">
+  </div>
+  <div class="cocktail-gallery-item reveal-scale delay-5">
+    <img src="assets/champagne-flute.jpg" alt="Pink champagne cocktail">
+  </div>
+</section>
+
+<!-- ════ ABOUT ════ -->
+<section class="about">
+  <div class="about-text">
+    <p class="about-word-reveal" id="aboutText1">Proudly one of the longest-running, independent bars in Soho, where friends and memories are made.</p>
+    <p class="about-word-reveal" id="aboutText2">With an extensive list of delicious (not to mention award-winning) cocktails from non-alcoholic to highly potent - join us for chic interiors and an intimate vibe upstairs, or live DJs and dancing downstairs.</p>
+    <p class="about-word-reveal" id="aboutText3">We're one of the elite open until 3 am crew, and we love a party as much as you do.</p>
+    <a href="https://www.designmynight.com/london/bars/soho/thirst-bar-soho" target="_blank" class="btn reveal-left delay-7">Book Now</a>
+  </div>
+  <div class="about-video reveal-right">
+    <video autoplay muted loop playsinline>
+      <source src="assets/about-video.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<!-- ════ STUPID HOUR ════ -->
+<section class="stupid-hour">
+  <h2 id="stupidTitle">Home of Stupid Hour</h2>
+  
+  <div class="stupid-marquee-wrap reveal-up">
+    <!-- Gradient overlay -->
+    <div class="stupid-overlay"></div>
+    
+    <!-- Row 1: scrolls left -->
+    <div class="stupid-marquee-row scroll-left">
+      <img src="assets/orange-cocktail.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-1.jpg" alt="Good times">
+      <img src="assets/champagne-flute.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-3.jpg" alt="Dancing">
+      <img src="assets/gallery-cocktail-1.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-5.jpg" alt="Party">
+      <img src="assets/raspberry-martini.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-2.jpg" alt="Friends">
+      <img src="assets/mint-cocktail.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-6.jpg" alt="Cheers">
+      <!-- Duplicate set for seamless loop -->
+      <img src="assets/orange-cocktail.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-1.jpg" alt="Good times">
+      <img src="assets/champagne-flute.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-3.jpg" alt="Dancing">
+      <img src="assets/gallery-cocktail-1.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-5.jpg" alt="Party">
+      <img src="assets/raspberry-martini.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-2.jpg" alt="Friends">
+      <img src="assets/mint-cocktail.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-6.jpg" alt="Cheers">
     </div>
-    <div class="intro-text reveal-right">
-      <span class="tag">Since 1999</span>
-      <h2>Established by two friends, still going strong</h2>
-      <p>Established in 1999 by two friends, our humble bar has been serving the best cocktails and high-energy late night parties ever since.</p>
-      <p>From chilled catch-ups over delicious drinks to <em>how is it 3am already?</em> nights, we've got you.</p>
-      <p>Join us in the main bar for pouring cocktails (including our renowned Stupid Hour) and plenty of spirits. Or check out our chill-out lounge space if you want to sit and talk or perfect for birthday hires. Outside, we have a heated, covered terrace with comfy seating and its own bar — rain or shine.</p>
-      <div class="intro-ctas">
-        <a href="bookings.html" class="btn"><span>Book a Table</span></a>
-        <a href="our-story.html" class="btn-text">Our Story →</a>
+    
+    <!-- Row 2: scrolls right (different order) -->
+    <div class="stupid-marquee-row scroll-right">
+      <img src="assets/gallery-crowd-4.jpg" alt="Smiles">
+      <img src="assets/passionfruit.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-7.jpg" alt="Vibes">
+      <img src="assets/gallery-cocktail-2.jpg" alt="Cocktail">
+      <img src="assets/dj.jpg" alt="DJ">
+      <img src="assets/gallery-crowd-8.jpg" alt="Dancing">
+      <img src="assets/gallery-cocktail-3.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-9.jpg" alt="Friends">
+      <img src="assets/bar-cocktails.jpg" alt="Cocktails">
+      <img src="assets/gallery-crowd-10.jpg" alt="Party">
+      <!-- Duplicate set for seamless loop -->
+      <img src="assets/gallery-crowd-4.jpg" alt="Smiles">
+      <img src="assets/passionfruit.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-7.jpg" alt="Vibes">
+      <img src="assets/gallery-cocktail-2.jpg" alt="Cocktail">
+      <img src="assets/dj.jpg" alt="DJ">
+      <img src="assets/gallery-crowd-8.jpg" alt="Dancing">
+      <img src="assets/gallery-cocktail-3.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-9.jpg" alt="Friends">
+      <img src="assets/bar-cocktails.jpg" alt="Cocktails">
+      <img src="assets/gallery-crowd-10.jpg" alt="Party">
+    </div>
+    
+    <!-- Text content floating on top -->
+    <div class="stupid-content reveal-up delay-3">
+      <div class="join">Join us for <strong>STUPID HOUR</strong> . The cheapest drinks in SOHO</div>
+      <div class="times">Sun–Fri<br>16:00 – 18:00<br>Sat<br>16:00 – 17:00</div>
+      <a href="menu.html" class="btn">View Menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ REVIEWS CAROUSEL ════ -->
+<section class="reviews reveal-up" id="testimonialSection">
+  <div class="reviews-heading">
+    <h2>What People Say</h2>
+    <p>Swipe to see more</p>
+  </div>
+  <div class="reviews-track" id="reviewsTrack">
+    <div class="review-card">
+      <div class="review-card-bg"><img src="assets/passionfruit.jpg" alt="Cocktails"><div class="review-card-overlay"></div></div>
+      <div class="review-card-content">
+        <div class="review-stars">★★★★★</div>
+        <blockquote>&ldquo;Best night out, best cocktails and the best staff ever, love it! Definitely will be back soon.&rdquo;</blockquote>
+        <cite>— Google Review</cite>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-card-bg"><img src="assets/raspberry-martini.jpg" alt="Cocktails"><div class="review-card-overlay"></div></div>
+      <div class="review-card-content">
+        <div class="review-stars">★★★★★</div>
+        <blockquote>&ldquo;One of the best bars in Soho. Great cocktails, amazing vibes, and the staff really make you feel welcome.&rdquo;</blockquote>
+        <cite>— TripAdvisor</cite>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-card-bg"><img src="assets/dj.jpg" alt="DJ at Thirst"><div class="review-card-overlay"></div></div>
+      <div class="review-card-content">
+        <div class="review-stars">★★★★★</div>
+        <blockquote>&ldquo;The Stupid Hour is genuinely stupid cheap. We stayed until 3am and had the best night. Already planning our next visit.&rdquo;</blockquote>
+        <cite>— Google Review</cite>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-card-bg"><img src="assets/orange-cocktail.jpg" alt="Cocktails"><div class="review-card-overlay"></div></div>
+      <div class="review-card-content">
+        <div class="review-stars">★★★★★</div>
+        <blockquote>&ldquo;Had my birthday here and they absolutely smashed it. The team went above and beyond. 10/10 would recommend.&rdquo;</blockquote>
+        <cite>— Google Review</cite>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-card-bg"><img src="assets/champagne-flute.jpg" alt="Cocktails"><div class="review-card-overlay"></div></div>
+      <div class="review-card-content">
+        <div class="review-stars">★★★★★</div>
+        <blockquote>&ldquo;A proper Soho institution. Been coming here for years and it never disappoints. The cocktails are unreal.&rdquo;</blockquote>
+        <cite>— TripAdvisor</cite>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SPACES -->
-<section class="spaces" style="padding-top:40px">
-  <div class="section-header reveal-up">
-    <span class="tag">Your Space</span>
-    <h2>Three ways to Thirst</h2>
-  </div>
-  <div class="spaces-grid">
-    <div class="space-card reveal-scale delay-1">
-      <img src="assets/main-bar1.jpg" alt="Main Bar" class="space-card-placeholder">
-      <span class="card-num">01</span>
-      <div class="space-card-overlay"><h3>Main Bar</h3><p>Huge drinks selection, booth &amp; table seating</p></div>
+<!-- ════ MAP ════ -->
+<div class="map-section reveal-up">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.0!2d-0.1312!3d51.5138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604d32d6e2c27%3A0x5c5e5e5e5e5e5e5e!2s53+Greek+St%2C+London+W1D+3DR!5e0!3m2!1sen!2suk!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Thirst Soho location"></iframe>
+  <div class="map-overlay-strip">
+    <div class="map-address">
+      <strong>Thirst Soho</strong>
+      53 Greek St, London W1D 3DR
     </div>
-    <div class="space-card reveal-scale delay-2">
-      <img src="assets/chill-out-lounge1.jpg" alt="Chill-Out Lounge" class="space-card-placeholder">
-      <span class="card-num">02</span>
-      <div class="space-card-overlay"><h3>Chill-Out Lounge</h3><p>Opulent space for bookings &amp; celebrations</p></div>
-    </div>
-    <div class="space-card reveal-scale delay-3">
-      <img src="assets/terrace1.jpg" alt="Covered Terrace" class="space-card-placeholder">
-      <span class="card-num">03</span>
-      <div class="space-card-overlay"><h3>Covered Terrace</h3><p>Heated outdoor bar — rain or shine</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- STATS -->
-<section class="stats-strip">
-  <div class="stats-grid">
-    <div class="stat-item reveal-up"><div class="num" data-count="27">0</div><div class="label">Years Running</div></div>
-    <div class="stat-item reveal-up delay-1"><div class="num">3am</div><div class="label">Last Orders</div></div>
-    <div class="stat-item reveal-up delay-2"><div class="num">3</div><div class="label">Distinct Spaces</div></div>
-    <div class="stat-item reveal-up delay-3"><div class="num">DJs</div><div class="label">Every Night</div></div>
-  </div>
-</section>
-
-<!-- STUPID HOUR -->
-<section class="stupid-section" id="stupidHour">
-  <div class="stupid-inner">
-    <span class="tag reveal-up">You're Welcome</span>
-    <h2 class="reveal-up delay-1">Stupid Hour</h2>
-    <p class="sub reveal-up delay-2">We're famous for our Stupid and Happy hours — award-winning cocktails at stupidly cheap prices. It's even more stupid than our Happy Hour (which is also pretty stupid).</p>
-    <div class="hours-grid reveal-up delay-3">
-      <div class="hour-card"><h3>Stupid Hour</h3><div class="time">Times TBC</div><div class="days">Sun – Sat</div></div>
-      <div class="hour-card"><h3>Happy Hour</h3><div class="time">Times TBC</div><div class="days">Sun – Sat</div></div>
-    </div>
-    <a href="thirsty.html" class="btn btn-violet reveal-up delay-4"><span>View Drinks</span></a>
-  </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee-section">
-  <div class="marquee-row">
-    <div class="marquee-item"><img src="assets/oxford-drink1.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-people1.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-drink2.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/stupid-hour1.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-drink3.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-people2.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-drink4.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/mixing-drinks1.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-drink5.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-people3.jpg" alt="" class="mq-img"></div>
-    <!-- duplicate for seamless loop -->
-    <div class="marquee-item"><img src="assets/oxford-drink1.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-people1.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-drink2.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/stupid-hour1.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-drink3.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-people2.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-drink4.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/mixing-drinks1.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-drink5.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-people3.jpg" alt="" class="mq-img"></div>
-  </div>
-  <div class="marquee-row reverse">
-    <div class="marquee-item"><img src="assets/oxford-people4.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-drink6.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/stupid-hour3.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-drink7.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/main-bar2.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-fire-drink.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-drink1.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-people1.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-drink3.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/stupid-hour1.jpg" alt="" class="mq-img"></div>
-    <!-- duplicate for seamless loop -->
-    <div class="marquee-item"><img src="assets/oxford-people4.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-drink6.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/stupid-hour3.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-drink7.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/main-bar2.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-fire-drink.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-drink1.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-people1.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/oxford-drink3.jpg" alt="" class="mq-img"></div>
-    <div class="marquee-item"><img src="assets/stupid-hour1.jpg" alt="" class="mq-img"></div>
+    <a href="https://www.google.com/maps/dir//53+Greek+St,+London+W1D+3DR" target="_blank" class="map-directions">Get Directions</a>
   </div>
 </div>
 
-<!-- DJ -->
-<section class="dj-section">
-  <div class="dj-content">
-    <div class="dj-text">
-      <span class="tag reveal-up" style="color:var(--violet-bright)">Open Til 3am</span>
-      <h2 class="reveal-up delay-1">When the DJs come on, the dance floor fills up</h2>
-      <p class="reveal-up delay-2">Shots get ordered, shoes get ignored and things go late. We're open until 3am with live DJs — do with that what you will.</p>
-      <div class="reveal-up delay-3"><a href="whats-on.html" class="btn btn-violet"><span>What's On</span></a></div>
-    </div>
-    <div class="dj-image reveal-scale delay-2"><img src="assets/stupid-hour2.jpg" alt="Bartenders having fun at Thirst Oxford" style="width:100%;height:100%;object-fit:cover"></div>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section class="reviews-section">
-  <div class="section-header reveal-up">
-    <span class="tag">Don't Just Take Our Word</span>
-    <h2>What people say</h2>
-  </div>
-  <div class="reviews-track">
-    <div class="review-card"><div class="review-card-bg"><img src="assets/oxford-drink1.jpg" alt=""></div><div class="review-stars">★★★★★</div><blockquote>"Best bar in Oxford, hands down. The cocktails are incredible and the vibe is always on point."</blockquote><cite>— Google Review</cite></div>
-    <div class="review-card"><div class="review-card-bg"><img src="assets/oxford-people3.jpg" alt=""></div><div class="review-stars">★★★★★</div><blockquote>"We came for Stupid Hour and stayed until 3am. Absolute scenes on the dance floor."</blockquote><cite>— Google Review</cite></div>
-    <div class="review-card"><div class="review-card-bg"><img src="assets/oxford-drink4.jpg" alt=""></div><div class="review-stars">★★★★★</div><blockquote>"Such a gem. Friendly staff, amazing drinks and a proper late-night spot."</blockquote><cite>— Google Review</cite></div>
-    <div class="review-card"><div class="review-card-bg"><img src="assets/oxford-people4.jpg" alt=""></div><div class="review-stars">★★★★★</div><blockquote>"Booked the lounge for a birthday — they went above and beyond. Will be back every weekend."</blockquote><cite>— Google Review</cite></div>
-  </div>
-</section>
-
-<!-- MAP -->
-<section class="map-section">
-  <div class="map-container">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2470.5!2d-1.2682!3d51.7520!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876c6a9a4!2sThirst+Bar+Oxford!5e0!3m2!1sen!4v1" allowfullscreen loading="lazy"></iframe>
-  </div>
-  <div class="map-overlay">
-    <h3>Find Us</h3>
-    <p>Park End Street<br>Oxford OX1 1BN</p>
-    <a href="https://maps.google.com/maps?q=Thirst+Bar+Oxford+Park+End+Street" target="_blank" rel="noopener" class="btn btn-sm"><span>Get Directions</span></a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="footer-divider reveal" id="footerDivider"></div>
   <div class="footer-grid">
-    <div>
-      <h4>Visit</h4>
-      <p>Park End Street<br>Oxford OX1 1BN</p>
-      <p style="margin-top:12px"><a href="tel:+441234567890">01234 567 890</a><br><a href="#" id="footerEmail">Loading...</a></p>
+    <div class="footer-col reveal-up delay-1">
+      <h4>Location</h4>
+      <p>53 Greek St<br>London<br>W1D 3DR</p>
     </div>
-    <div>
-      <h4>Hours</h4>
-      <p>Mon – Sat: 4pm – 3am<br>Sun: Check What's On</p>
+    <div class="footer-col reveal-up delay-3">
+      <h4>Contact Us</h4>
+      <p><a href="tel:02074371977">020 7437 1977</a><br>
+      <span id="emailLink"></span><br>
+      <a href="https://www.instagram.com/thirstbar/" target="_blank">@thirstbar</a></p>
     </div>
-    <div>
-      <h4>Explore</h4>
-      <div class="footer-links">
-        <a href="bookings.html">Bookings & Parties</a>
-        <a href="thirsty.html">Drinks</a>
-        <a href="whats-on.html">What's On</a>
-        <a href="our-story.html">Our Story</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="faqs.html">FAQs</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </div>
-    <div>
-      <h4>Stay in the Loop</h4>
-      <p>Sign up for special events and the occasional offer.</p>
-      <div class="footer-nl"><input type="email" placeholder="Your email"><button>Go</button></div>
+    <div class="footer-col reveal-up delay-5">
+      <h4>Opening Times</h4>
+      <p>Mon - Sun:<br>16:00-03:00</p>
     </div>
   </div>
-  <div class="footer-bottom">
-    <p>&copy; 2026 Thirst Oxford. All rights reserved.</p>
-    <div class="footer-social">
-      <a href="https://www.instagram.com/thirstoxford/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-      <a href="https://www.facebook.com/thirstoxford/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-    </div>
-    <div class="footer-sisters">
-      <a href="https://thirstsoho.com" target="_blank">Thirst Soho</a>
-      <a href="#" target="_blank">Raouls</a>
-      <a href="#" target="_blank">Hanks</a>
-    </div>
+  <div class="footer-logo-wrap reveal-up delay-6">
+    <img src="assets/logo.png" alt="Thirst">
   </div>
 </footer>
 
 <script>
-(function(){var e=document.getElementById('footerEmail');if(e){var a='oxford',b='thirstbar.com';e.href='mailto:'+a+'@'+b;e.textContent=a+'@'+b}})();
-// Force-play hero video (iOS)
-(function(){var v=document.getElementById('heroVideo');if(!v)return;v.play().catch(function(){document.addEventListener('touchstart',function h(){v.play();document.removeEventListener('touchstart',h)},{once:true})})})();
-var revEls=document.querySelectorAll('.reveal-up,.reveal-left,.reveal-right,.reveal-scale');
-var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('revealed');obs.unobserve(e.target)}})},{threshold:.12,rootMargin:'-40px'});
-revEls.forEach(function(el){obs.observe(el)});
-setTimeout(function(){document.body.classList.add('reveal-fallback')},3000);
-var lastY=0,nav=document.getElementById('mainNav'),ban=document.getElementById('stupidBanner');
-if(ban&&nav){document.documentElement.style.setProperty('--banner-h',ban.offsetHeight+'px')}
-window.addEventListener('scroll',function(){var y=window.scrollY;var bannerHidden=y>200&&y>lastY;nav.classList.toggle('scrolled',y>60);nav.classList.toggle('banner-hidden',bannerHidden);if(ban)ban.classList.toggle('hidden',bannerHidden);lastY=y},{passive:true});
-var panel=document.getElementById('sidePanel'),ov=document.getElementById('panelOverlay');
-document.getElementById('menuToggle').addEventListener('click',function(){panel.classList.add('open');ov.classList.add('open');document.body.style.overflow='hidden'});
-function cp(){panel.classList.remove('open');ov.classList.remove('open');document.body.style.overflow=''}
-document.getElementById('panelClose').addEventListener('click',cp);ov.addEventListener('click',cp);
-function uc(){
-  var now=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/London'}));
-  var h=now.getHours(),day=now.getDay();
-  var banner=document.getElementById('stupidBanner');
-  var cd=document.getElementById('stupidCountdown');
-  var lbl=document.getElementById('stupidLabel');
-  // Stupid Hour: Sun-Fri 4-6pm, Sat 4-5pm (placeholder — TBC)
-  var isSat=(day===6);
-  var stupidEnd=isSat?17:18;
-  var happyEnd=isSat?18:20;
-  var isStupid=(h>=16&&h<stupidEnd);
-  var isHappy=(!isStupid&&h>=stupidEnd&&h<happyEnd);
-  if(isStupid){
-    banner.classList.add('live');
-    lbl.textContent='STUPID HOUR IS LIVE';
-    cd.textContent='🔥 GO GO GO 🔥';
-  } else if(isHappy){
-    banner.classList.add('live');
-    lbl.textContent='HAPPY HOUR IS LIVE';
-    cd.textContent='🍹 DRINK UP 🍹';
+// ══════════════════════════════════════
+// ANIMATION ENGINE
+// ══════════════════════════════════════
+
+// ── Nav scroll + banner hide ──
+const nav = document.getElementById('nav');
+const stupidBanner = document.getElementById('stupidBanner');
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY > 60;
+  nav.classList.toggle('scrolled', scrolled);
+  // Hide banner on scroll, show at top
+  stupidBanner.style.transform = scrolled ? 'translateY(-100%)' : 'translateY(0)';
+  stupidBanner.style.transition = 'transform 0.3s ease';
+});
+
+// ── Slide-in menu ──
+const menuToggle = document.getElementById('menuToggle');
+const menuPanel = document.getElementById('menuPanel');
+const menuBackdrop = document.getElementById('menuBackdrop');
+const menuClose = document.getElementById('menuClose');
+
+function openMenu() {
+  menuPanel.classList.add('open');
+  menuBackdrop.classList.add('open');
+  menuToggle.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  menuPanel.classList.remove('open');
+  menuBackdrop.classList.remove('open');
+  menuToggle.classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+
+menuToggle.addEventListener('click', () => {
+  if (menuPanel.classList.contains('open')) {
+    closeMenu();
   } else {
-    banner.classList.remove('live');
-    lbl.textContent='Stupid Hour';
-    var n4=new Date(now);n4.setHours(16,0,0,0);
-    if(h>=16)n4.setDate(n4.getDate()+1);
-    var d=n4-now;
-    var hrs=Math.floor(d/36e5),mins=Math.floor(d%36e5/6e4),secs=Math.floor(d%6e4/1e3);
-    cd.textContent=String(hrs).padStart(2,'0')+':'+String(mins).padStart(2,'0')+':'+String(secs).padStart(2,'0');
+    openMenu();
+  }
+});
+menuClose.addEventListener('click', closeMenu);
+menuBackdrop.addEventListener('click', closeMenu);
+
+// Close menu when clicking a link
+document.querySelectorAll('.menu-links a').forEach(link => {
+  link.addEventListener('click', () => { closeMenu(); });
+});
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && menuPanel.classList.contains('open')) {
+    closeMenu();
+  }
+});
+
+// ── Stupid Hour Countdown with flip digits ──
+document.getElementById('stupidBanner').addEventListener('click', () => {
+  document.querySelector('.stupid-hour').scrollIntoView({ behavior: 'smooth' });
+});
+
+// Store previous values to detect changes for flip animation
+let prevDigits = {};
+
+function createFlipDigit(id, value) {
+  const prev = prevDigits[id];
+  const changed = prev !== undefined && prev !== value;
+  prevDigits[id] = value;
+  
+  if (changed) {
+    return `<span class="flip-digit flipping" data-id="${id}">` +
+      `<span class="flip-current">${prev}</span>` +
+      `<span class="flip-next">${value}</span>` +
+    `</span>`;
+  }
+  return `<span class="flip-digit" data-id="${id}">` +
+    `<span class="flip-current">${value}</span>` +
+  `</span>`;
+}
+
+function createFlipGroup(val, label) {
+  const str = String(val).padStart(2, '0');
+  const d1 = createFlipDigit(label + '0', str[0]);
+  const d2 = createFlipDigit(label + '1', str[1]);
+  return `<span class="flip-group">${d1}${d2}</span><span class="flip-label">${label}</span>`;
+}
+
+function updateStupidHour() {
+  const banner = document.getElementById('stupidBanner');
+  const countdown = document.getElementById('stupidCountdown');
+  
+  const now = new Date();
+  const london = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/London' }));
+  const day = london.getDay();
+  const hours = london.getHours();
+  const minutes = london.getMinutes();
+  const seconds = london.getSeconds();
+  const currentSeconds = hours * 3600 + minutes * 60 + seconds;
+  
+  const isSaturday = day === 6;
+  const startTime = 16 * 3600;
+  const endTime = isSaturday ? 17 * 3600 : 18 * 3600;
+  
+  if (currentSeconds >= startTime && currentSeconds < endTime) {
+    const secsLeft = endTime - currentSeconds;
+    const m = Math.floor(secsLeft / 60);
+    const s = secsLeft % 60;
+    banner.classList.add('is-live');
+    countdown.innerHTML = `<span class="live-dot"></span>Stupid Hour is live · ${createFlipGroup(m, 'm')} ${createFlipGroup(s, 's')} remaining 🕺`;
+  } else if (currentSeconds < startTime) {
+    banner.classList.remove('is-live');
+    const secsUntil = startTime - currentSeconds;
+    const h = Math.floor(secsUntil / 3600);
+    const m = Math.floor((secsUntil % 3600) / 60);
+    const s = secsUntil % 60;
+    if (h > 0) {
+      countdown.innerHTML = `🍸 ${createFlipGroup(h, 'h')} ${createFlipGroup(m, 'm')} ${createFlipGroup(s, 's')} until <span>Stupid Hour</span> 🕺`;
+    } else {
+      countdown.innerHTML = `🍸 ${createFlipGroup(m, 'm')} ${createFlipGroup(s, 's')} until <span>Stupid Hour</span> 🕺`;
+    }
+  } else {
+    banner.classList.remove('is-live');
+    countdown.innerHTML = `🍸 <span>Stupid Hour</span> returns tomorrow at 4pm 🕺`;
   }
 }
-setInterval(uc,1000);uc();
-var counted=false;function countUp(){if(counted)return;var el=document.querySelector('.stat-item .num[data-count]');if(!el)return;var rect=el.getBoundingClientRect();if(rect.top<window.innerHeight*.9){counted=true;var target=parseInt(el.dataset.count);var n=0;var iv=setInterval(function(){n++;el.textContent=n+'+';if(n>=target)clearInterval(iv)},60)}}
-window.addEventListener('scroll',countUp,{passive:true});
-// Rotating words
-(function(){
-  var words=document.querySelectorAll('.rw');
-  if(!words.length)return;
-  var current=0;
-  setInterval(function(){
-    var prev=words[current];
-    current=(current+1)%words.length;
-    var next=words[current];
-    prev.classList.add('exit');
-    prev.classList.remove('active');
-    next.classList.add('active');
-    setTimeout(function(){prev.classList.remove('exit')},500);
-  },2200);
+
+updateStupidHour();
+setInterval(updateStupidHour, 1000);
+
+// ── Hero scroll indicator ──
+setTimeout(() => {
+  document.getElementById('heroScroll').classList.add('show');
+}, 2500);
+
+// ── Intersection Observer for reveals ──
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+  revealObserver.observe(el);
+});
+
+// ── Intro text word-by-word reveal ──
+const introText = document.getElementById('introText');
+const introWords = introText.textContent.split(' ');
+introText.innerHTML = introWords.map(word => 
+  `<span class="word">${word}</span>`
+).join(' ');
+
+const introWordObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const words = entry.target.querySelectorAll('.word');
+      words.forEach((word, i) => {
+        setTimeout(() => {
+          word.classList.add('visible');
+        }, i * 40); // 40ms between each word
+      });
+      introWordObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+introWordObserver.observe(introText);
+
+// ── About text word-by-word reveal ──
+const aboutTexts = document.querySelectorAll('.about-word-reveal');
+aboutTexts.forEach(p => {
+  const words = p.textContent.split(' ');
+  p.innerHTML = words.map(word => 
+    `<span class="word">${word}</span>`
+  ).join(' ');
+});
+
+const aboutWordObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const words = entry.target.querySelectorAll('.word');
+      words.forEach((word, i) => {
+        setTimeout(() => {
+          word.classList.add('visible');
+        }, i * 40);
+      });
+      aboutWordObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+aboutTexts.forEach(p => aboutWordObserver.observe(p));
+
+// ── Stupid Hour title letter-spacing animation ──
+const stupidTitle = document.getElementById('stupidTitle');
+const stupidObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      stupidObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+stupidObserver.observe(stupidTitle);
+
+// ── Reviews carousel drag-to-scroll ──
+const reviewsTrack = document.getElementById('reviewsTrack');
+if (reviewsTrack) {
+  let isDown = false, startX, scrollLeft;
+  reviewsTrack.addEventListener('mousedown', e => {
+    isDown = true; startX = e.pageX - reviewsTrack.offsetLeft; scrollLeft = reviewsTrack.scrollLeft;
+  });
+  reviewsTrack.addEventListener('mouseleave', () => { isDown = false; });
+  reviewsTrack.addEventListener('mouseup', () => { isDown = false; });
+  reviewsTrack.addEventListener('mousemove', e => {
+    if (!isDown) return; e.preventDefault();
+    const x = e.pageX - reviewsTrack.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    reviewsTrack.scrollLeft = scrollLeft - walk;
+  });
+}
+
+// ── Divider draw animations ──
+const dividerObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      dividerObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.intro-divider, .footer-divider').forEach(el => {
+  dividerObserver.observe(el);
+});
+
+// ── Parallax on scroll (subtle, for dual cards and gallery images) ──
+const parallaxElements = document.querySelectorAll('.dual-card img, .cocktail-gallery-item img');
+let ticking = false;
+
+function updateParallax() {
+  const scrollY = window.scrollY;
+  const viewportH = window.innerHeight;
+  
+  parallaxElements.forEach(el => {
+    const rect = el.parentElement.getBoundingClientRect();
+    if (rect.top < viewportH && rect.bottom > 0) {
+      const progress = (rect.top + rect.height / 2) / viewportH;
+      const offset = (progress - 0.5) * 20; // subtle -10px to 10px range
+      el.style.transform = `translateY(${offset}px) scale(1)`;
+    }
+  });
+  ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(updateParallax);
+    ticking = true;
+  }
+});
+
+// ── Smooth cursor-follow tilt on gallery items ──
+document.querySelectorAll('.cocktail-gallery-item').forEach(item => {
+  item.addEventListener('mousemove', (e) => {
+    const rect = item.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    const img = item.querySelector('img');
+    img.style.transform = `scale(1.06) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`;
+  });
+  
+  item.addEventListener('mouseleave', () => {
+    const img = item.querySelector('img');
+    img.style.transform = 'scale(1) rotateY(0deg) rotateX(0deg)';
+  });
+});
+
+// ── Safety fallback: force all content visible after 3s ──
+setTimeout(() => {
+  document.querySelectorAll('.reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+    el.classList.add('visible');
+  });
+  document.querySelectorAll('.intro-divider, .footer-divider').forEach(el => {
+    el.classList.add('visible');
+  });
+  const st = document.getElementById('stupidTitle');
+  if (st) st.classList.add('visible');
+  // Note: intro words are NOT forced here
+  // so they animate naturally when scrolled into view
+}, 3000);
+
+// ── Build email link dynamically to avoid Cloudflare obfuscation ──
+(function() {
+  const u = 'soho';
+  const d = 'thirstbar.com';
+  const el = document.getElementById('emailLink');
+  if (el) {
+    const a = document.createElement('a');
+    a.href = 'mail' + 'to:' + u + '@' + d;
+    a.textContent = u + '@' + d;
+    el.appendChild(a);
+  }
 })();
 </script>
 </body>
