@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bookings & Parties — Thirst Oxford</title>
+<title>Thirsty — Thirst Oxford</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -263,67 +263,104 @@ section{padding:100px 40px}
 </style>
 <style>
 
-.page-hero{height:70vh;min-height:500px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+/* Page hero */
+.page-hero{height:60vh;min-height:420px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .page-hero-bg{position:absolute;inset:0}
-.page-hero-bg video,.page-hero-bg img{width:100%;height:100%;object-fit:cover}
-.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,8,21,.4) 0%,rgba(13,8,21,.3) 50%,var(--bg) 100%)}
+.page-hero-bg img{width:100%;height:100%;object-fit:cover}
+.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,8,21,.3) 0%,rgba(13,8,21,.85) 100%)}
 .page-hero-content{position:relative;z-index:2;text-align:center;padding:0 30px}
-.page-hero-content .tag{font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--violet-bright);margin-bottom:20px;display:block;opacity:0;animation:fadeUp .8s ease .3s forwards}
-.page-hero-content h1{font-family:'Belleza',serif;font-size:clamp(2.4rem,5.5vw,4rem);font-weight:400;opacity:0;animation:fadeUp .8s ease .5s forwards}
-.page-hero-content .hero-sub{font-family:'Belleza',serif;font-size:1.1rem;color:var(--white-70);margin-top:20px;opacity:0;animation:fadeUp .8s ease .7s forwards}
+.page-hero-content .tag{font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--violet-bright);margin-bottom:16px;display:block;opacity:0;animation:fadeUp .8s ease .3s forwards}
+.page-hero-content h1{font-family:'Belleza',serif;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:400;opacity:0;animation:fadeUp .8s ease .5s forwards}
+.page-hero-content .hero-sub{font-family:'Belleza',serif;font-size:1.05rem;color:var(--white-70);margin-top:16px;opacity:0;animation:fadeUp .8s ease .7s forwards;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7}
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
-/* Full-bleed split sections */
-.split-full{display:grid;grid-template-columns:1fr 1fr;min-height:80vh}
-.split-full.reverse .split-media{order:2}
-.split-full.reverse .split-text{order:1}
-.split-media{position:relative;overflow:hidden}
-.split-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-.split-media:hover img{transform:scale(1.03)}
-.split-text{display:flex;flex-direction:column;justify-content:center;padding:80px 80px}
-.split-text .tag{font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--violet-bright);margin-bottom:20px;display:block}
-.split-text h2{font-family:'Belleza',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:400;line-height:1.15;margin-bottom:28px}
-.split-text p{font-family:'Belleza',serif;font-size:1.1rem;color:var(--white-70);line-height:1.85;margin-bottom:24px}
-.split-text .btn{margin-top:12px}
+/* Intro */
+.drinks-intro{padding:80px 40px;text-align:center}
+.drinks-intro-inner{max-width:700px;margin:0 auto}
+.drinks-intro p{font-family:'Belleza',serif;font-size:1.1rem;color:var(--white-70);line-height:1.8;margin-bottom:20px}
+.drinks-intro em{color:var(--white);font-style:italic}
+.drinks-intro .footnote{font-family:'Jost',sans-serif;font-size:.7rem;color:var(--white-30);margin-top:8px}
 
-/* Private hire banner */
-.hire-banner{padding:120px 40px;text-align:center;position:relative;overflow:hidden}
-.hire-banner::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,var(--violet-glow) 0%,transparent 70%);pointer-events:none}
-.hire-inner{position:relative;max-width:600px;margin:0 auto}
-.hire-inner .tag{font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--violet-bright);margin-bottom:20px;display:block}
-.hire-inner h2{font-family:'Belleza',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:400;margin-bottom:24px}
-.hire-inner p{font-family:'Belleza',serif;font-size:1.1rem;color:var(--white-70);line-height:1.8;margin-bottom:32px}
+/* Hours bar */
+.hours-bar{padding:0 40px 60px}
+.hours-inner{max-width:700px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.hour-card{background:var(--bg-card);padding:32px 24px;text-align:center}
+.hour-card h3{font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--violet-bright);margin-bottom:14px;font-weight:600}
+.hour-card .time{font-family:'Belleza',serif;font-size:1.05rem;color:var(--white);margin-bottom:4px}
+.hour-card .days{font-family:'Jost',sans-serif;font-size:.7rem;color:var(--white-30);letter-spacing:.1em}
 
-/* Form section */
-.form-section{padding:100px 40px;background:var(--bg-card)}
-.form-inner{max-width:700px;margin:0 auto}
-.form-inner h2{font-family:'Belleza',serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:400;margin-bottom:12px;text-align:center}
-.form-inner .form-sub{font-family:'Belleza',serif;font-size:1rem;color:var(--white-50);text-align:center;margin-bottom:48px}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.form-group{display:flex;flex-direction:column;gap:8px}
-.form-group.full{grid-column:1/-1}
-.form-group label{font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--white-50)}
-.form-group input,.form-group select,.form-group textarea{background:var(--bg);border:1px solid var(--white-15);padding:16px 18px;color:var(--white);font-family:'Jost',sans-serif;font-size:.85rem;outline:none;transition:border-color .3s ease}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--violet-bright)}
-.form-group textarea{min-height:140px;resize:vertical}
-.form-group select{appearance:none;cursor:pointer}
-.form-submit{margin-top:32px;text-align:center;grid-column:1/-1}
+/* Sticky tabs */
+.menu-tabs{position:sticky;top:34px;z-index:100;background:var(--bg);border-bottom:1px solid var(--white-10);padding:0 40px;transition:top .4s ease}
+.menu-tabs.banner-hidden{top:0}
+.menu-tabs-inner{max-width:900px;margin:0 auto;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.menu-tabs-inner::-webkit-scrollbar{display:none}
+.menu-tab{font-family:'Jost',sans-serif;font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--white-50);padding:16px 20px;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s ease,border-color .2s ease;text-decoration:none}
+.menu-tab:hover,.menu-tab.active{color:var(--white);border-bottom-color:var(--violet-bright)}
 
-/* Word reveal animation */
-.word-reveal .word{display:inline-block;opacity:0;transform:translateY(20px);transition:opacity .4s ease,transform .4s ease}
-.word-reveal.revealed .word{opacity:1;transform:translateY(0)}
+/* Menu section */
+.menu-section{padding:60px 40px 80px}
+.menu-inner{max-width:900px;margin:0 auto}
+.menu-category{margin-bottom:80px}
+.menu-category-header{display:flex;align-items:baseline;gap:16px;margin-bottom:32px;padding-bottom:12px;border-bottom:1px solid var(--white-15)}
+.menu-category-header h2{font-family:'Belleza',serif;font-size:clamp(1.4rem,2.5vw,1.8rem);font-weight:400}
+.price-legend{display:flex;gap:16px;margin-left:auto}
+.price-legend span{font-family:'Jost',sans-serif;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--white-30)}
+.price-legend .s{color:var(--violet-bright)}
+.price-legend .h{color:var(--gold)}
 
-@media(max-width:900px){
-  .split-full{grid-template-columns:1fr;min-height:auto}
-  .split-full.reverse .split-media{order:1}
-  .split-full.reverse .split-text{order:2}
-  .split-media{height:50vh;min-height:300px}
-  .split-text{padding:60px 32px}
-}
+/* Drink item */
+.drink-item{padding:20px 0;border-bottom:1px solid var(--white-05)}
+.drink-item:last-child{border-bottom:none}
+.drink-top{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;flex-wrap:wrap}
+.drink-name{font-family:'Belleza',serif;font-size:1.05rem;font-weight:400;flex:1}
+.drink-prices{display:flex;gap:16px;font-family:'Jost',sans-serif;font-size:.8rem;flex-shrink:0}
+.drink-prices .sp{color:var(--violet-bright);min-width:32px;text-align:right}
+.drink-prices .hp{color:var(--gold);min-width:32px;text-align:right}
+.drink-prices .np{color:var(--white-50);min-width:32px;text-align:right}
+.drink-desc{font-family:'Jost',sans-serif;font-size:.75rem;color:var(--white-30);line-height:1.6;letter-spacing:.02em}
+.drink-warn{color:var(--violet-bright);font-weight:500}
+
+/* Beer cards */
+.beer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.beer-card{background:var(--bg-card);padding:24px;display:flex;flex-direction:column}
+.beer-card .beer-name{font-family:'Belleza',serif;font-size:.95rem;margin-bottom:4px}
+.beer-card .beer-detail{font-family:'Jost',sans-serif;font-size:.65rem;color:var(--white-30);letter-spacing:.05em;margin-bottom:auto}
+.beer-card .beer-price{font-family:'Jost',sans-serif;font-size:.9rem;color:var(--white);margin-top:12px}
+
+/* Wine item */
+.wine-item{padding:24px 0;border-bottom:1px solid var(--white-05)}
+.wine-top{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.wine-name{font-family:'Belleza',serif;font-size:1rem;flex:1}
+.wine-type{font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--violet-bright);margin-bottom:6px;display:block}
+.wine-desc{font-family:'Jost',sans-serif;font-size:.75rem;color:var(--white-30);line-height:1.6;margin-top:6px}
+.wine-prices{font-family:'Jost',sans-serif;font-size:.75rem;color:var(--white-50);margin-top:8px}
+
+/* Essentials banner */
+.essentials-banner{padding:80px 40px;background:linear-gradient(135deg,rgba(168,85,247,.08),var(--bg-card),rgba(168,85,247,.05));text-align:center;border-top:1px solid var(--white-10);border-bottom:1px solid var(--white-10)}
+.essentials-inner{max-width:700px;margin:0 auto}
+.essentials-inner h2{font-family:'Belleza',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin-bottom:12px}
+.essentials-inner .price-big{font-family:'Jost',sans-serif;font-size:2.5rem;font-weight:700;color:var(--violet-bright);margin-bottom:8px}
+.essentials-inner p{font-family:'Belleza',serif;font-size:1rem;color:var(--white-70);line-height:1.7;margin-bottom:16px}
+.essentials-inner .availability{font-family:'Jost',sans-serif;font-size:.7rem;color:var(--white-50);letter-spacing:.15em;text-transform:uppercase;margin-top:20px}
+
+/* Allergen notice */
+.allergen{padding:40px;text-align:center}
+.allergen p{font-family:'Jost',sans-serif;font-size:.7rem;color:var(--white-30);letter-spacing:.1em}
+
+/* Drinks images */
+.drinks-images{padding:0 40px 80px}
+.drinks-images-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.drinks-images-grid img{width:100%;aspect-ratio:3/4;object-fit:cover}
+
+@media(max-width:900px){.beer-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){
-  .split-text{padding:48px 20px}
-  .form-grid{grid-template-columns:1fr}
-  .form-section{padding:60px 20px}
+  .hours-inner{grid-template-columns:1fr}
+  .drinks-images-grid{grid-template-columns:repeat(2,1fr)}
+  .beer-grid{grid-template-columns:1fr}
+  .menu-tabs{padding:0 16px}
+  .menu-tab{padding:14px 14px;font-size:.55rem}
+  .menu-section{padding:40px 20px 60px}
+  .price-legend{display:none}
 }
 
 </style>
@@ -374,82 +411,166 @@ section{padding:100px 40px}
 </aside>
 
 
-<!-- HERO -->
 <section class="page-hero">
-  <div class="page-hero-bg"><video autoplay muted loop playsinline><source src="assets/oxford-video2.mp4" type="video/mp4"></video></div>
+  <div class="page-hero-bg"><img src="assets/oxford-drink3.jpg" alt="Cocktails at Thirst Oxford"></div>
   <div class="page-hero-overlay"></div>
   <div class="page-hero-content">
-    <span class="tag">Plan Your Night</span>
-    <h1>Bookings & Parties</h1>
-    <p class="hero-sub">Lock in your spot — we'll handle the rest</p>
+    <span class="tag">Drinks</span>
+    <h1>Thirsty</h1>
+    <p class="hero-sub">We quench every thirst</p>
   </div>
 </section>
 
-<!-- INTRO -->
-<section style="padding:100px 40px 80px">
-  <div style="max-width:650px;margin:0 auto;text-align:center">
-    <p class="reveal-up" style="font-family:'Belleza',serif;font-size:1.2rem;color:var(--white-70);line-height:1.8">Whether it's a table for two or a takeover for twenty-five, we've got the space and the drinks to make it happen.</p>
+<section class="drinks-intro">
+  <div class="drinks-intro-inner reveal-up">
+    <p>We don't like to boast but we have a massive range of drinks available — cocktails, non-alcoholic drinks, wines, beers and spirits — we quench every <em>thirst</em>.</p>
+    <p>We're also famous* for our Stupid and Happy hours, so join us early.</p>
+    <p class="footnote">*in certain circles</p>
   </div>
 </section>
 
-<!-- TABLE RESERVATIONS -->
-<div class="split-full reverse">
-  <div class="split-media reveal-scale">
-    <img src="assets/oxford-people3.jpg" alt="Friends enjoying drinks at Thirst Oxford">
+<section class="hours-bar">
+  <div class="hours-inner reveal-up">
+    <div class="hour-card"><h3>Stupid Hour</h3><div class="time">Times TBC</div><div class="days">Sun – Sat</div></div>
+    <div class="hour-card"><h3>Happy Hour</h3><div class="time">Times TBC</div><div class="days">Sun – Sat</div></div>
   </div>
-  <div class="split-text">
-    <span class="tag reveal-up">Reserve</span>
-    <h2 class="word-reveal">Table Reservations</h2>
-    <p class="reveal-up delay-2">We're here for the planners and the spontaneous — we always recommend booking a space, especially on busy weekends.</p>
-    <p class="reveal-up delay-3">We take table bookings for up to 25 people.</p>
-    <div class="reveal-up delay-4">
-      <a href="https://www.designmynight.com/oxford/bars/oxford-city-centre/thirst-bar-oxford" target="_blank" rel="noopener" class="btn"><span>Book a Table</span></a>
-    </div>
+</section>
+
+<section class="drinks-images">
+  <div class="drinks-images-grid">
+    <img src="assets/oxford-drink1.jpg" alt="Cocktail" class="reveal-scale delay-1">
+    <img src="assets/oxford-drink4.jpg" alt="Cocktail" class="reveal-scale delay-2">
+    <img src="assets/oxford-drink5.jpg" alt="Cocktail" class="reveal-scale delay-3">
+    <img src="assets/oxford-drink6.jpg" alt="Cocktail" class="reveal-scale delay-4">
+  </div>
+</section>
+
+<!-- STICKY TABS -->
+<nav class="menu-tabs" id="menuTabs">
+  <div class="menu-tabs-inner">
+    <a href="#classics" class="menu-tab active">Classics</a>
+    <a href="#favourites" class="menu-tab">House Favourites</a>
+    <a href="#shooters" class="menu-tab">Shooters</a>
+    <a href="#beer" class="menu-tab">Beer & Cider</a>
+    <a href="#wine" class="menu-tab">Wine</a>
+    <a href="#bubbles" class="menu-tab">Prosecco & Champagne</a>
+    <a href="#noalc" class="menu-tab">Non-Alcoholic</a>
+    <a href="#essentials" class="menu-tab">Essentials</a>
+  </div>
+</nav>
+
+<section class="menu-section">
+<div class="menu-inner">
+
+<!-- CLASSICS -->
+<div class="menu-category" id="classics">
+  <div class="menu-category-header"><h2>Classics</h2><div class="price-legend"><span class="s">S Stupid</span><span class="h">H Happy</span><span>N Normal</span></div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Cosmopolitan</span><div class="drink-prices"><span class="sp">5.5</span><span class="hp">6.5</span><span class="np">8.5</span></div></div><div class="drink-desc">Citrus vodka, Cointreau, cranberry juice, lime</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Mojito</span><div class="drink-prices"><span class="sp">5.5</span><span class="hp">6.5</span><span class="np">8.5</span></div></div><div class="drink-desc">White rum, mint, brown sugar, lime and soda (fruit infusions available)</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Bramble</span><div class="drink-prices"><span class="sp">5.5</span><span class="hp">6.5</span><span class="np">8.5</span></div></div><div class="drink-desc">Gin, Crème de mure, lemon, sugar syrup</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Long Island</span><div class="drink-prices"><span class="sp">6.5</span><span class="hp">7.5</span><span class="np">9.5</span></div></div><div class="drink-desc">Vodka, rum, gin, tequila, triple sec, lemon juice, sugar syrup, Coca Cola</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Old Fashioned</span><div class="drink-prices"><span class="sp">—</span><span class="hp">8.5</span><span class="np">10.5</span></div></div><div class="drink-desc">Bourbon, white sugar, angostura bitters</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Daiquiri</span><div class="drink-prices"><span class="sp">5.5</span><span class="hp">6.5</span><span class="np">8.5</span></div></div><div class="drink-desc">Rum, lime and sugar (fruit infusions available)</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Sour</span><div class="drink-prices"><span class="sp">—</span><span class="hp">6.5</span><span class="np">8.5</span></div></div><div class="drink-desc">Your choice of spirit, lemon juice, sugar syrup, egg white (vegan alternative available), angostura bitters</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Tom Collins</span><div class="drink-prices"><span class="sp">5.5</span><span class="hp">6.5</span><span class="np">8.5</span></div></div><div class="drink-desc">Old tom gin, lemon juice, sugar syrup, soda water</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Piña Colada</span><div class="drink-prices"><span class="sp">5.5</span><span class="hp">6.5</span><span class="np">8.5</span></div></div><div class="drink-desc">Rum, coconut rum, pineapple juice, coconut cream, milk and cream</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Dark & Stormy</span><div class="drink-prices"><span class="sp">5.5</span><span class="hp">6.5</span><span class="np">8.5</span></div></div><div class="drink-desc">Goslings, lime, angostura bitters, ginger beer</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Lynchburg Lemonade</span><div class="drink-prices"><span class="sp">5.5</span><span class="hp">6.5</span><span class="np">8.5</span></div></div><div class="drink-desc">Jack Daniels, orange liqueur, lemon juice, sugar syrup, angostura bitters, lemonade</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Mai Tai</span><div class="drink-prices"><span class="sp">6.5</span><span class="hp">7.5</span><span class="np">9.5</span></div></div><div class="drink-desc">Gold rum, Grand Marnier, orgeat, lime juice, orange juice, pineapple juice</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Margarita</span><div class="drink-prices"><span class="sp">5.5</span><span class="hp">6.5</span><span class="np">8.5</span></div></div><div class="drink-desc">Tequila, triple sec, lemon, lime, sugar syrup (fruit infusions available)</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Espresso Martini</span><div class="drink-prices"><span class="sp">—</span><span class="hp">6.5</span><span class="np">8.5</span></div></div><div class="drink-desc">Vodka, Kahlua, fresh coffee, sugar syrup</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Pornstar Martini</span><div class="drink-prices"><span class="sp">—</span><span class="hp">7.5</span><span class="np">9.5</span></div></div><div class="drink-desc">Vanilla vodka, Passoa, lemon juice, sugar syrup, fresh passionfruit, prosecco</div></div>
+</div>
+
+<!-- HOUSE FAVOURITES -->
+<div class="menu-category" id="favourites">
+  <div class="menu-category-header"><h2>House Favourites</h2><div class="price-legend"><span class="s">S Stupid</span><span class="h">H Happy</span><span>N Normal</span></div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Apple Bomb</span><div class="drink-prices"><span class="sp">5.5</span><span class="hp">6.5</span><span class="np">8.5</span></div></div><div class="drink-desc">Vodka, peach schnapps, blue curacao, lemon juice, sugar, apple juice, lemonade</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Snickers</span><div class="drink-prices"><span class="sp">6.5</span><span class="hp">7.5</span><span class="np">9.5</span></div></div><div class="drink-desc">Frangelico, Mozart gold, crème de cacao, peanut butter, chocolate sauce, cream and milk. <span class="drink-warn">Contains peanuts</span></div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Godfather</span><div class="drink-prices"><span class="sp">6.5</span><span class="hp">7.5</span><span class="np">9.5</span></div></div><div class="drink-desc">J&B lovingly stirred with Disaronno Amaretto and finished with a fresh orange twist</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Pink Panther</span><div class="drink-prices"><span class="sp">5.5</span><span class="hp">6.5</span><span class="np">8.5</span></div></div><div class="drink-desc">Rum, framboise, peach schnapps, cranberry juice, passionfruit juice</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Sex on the Beach</span><div class="drink-prices"><span class="sp">5.5</span><span class="hp">6.5</span><span class="np">8.5</span></div></div><div class="drink-desc">Vodka, Midori, crème de cassis, pineapple juice, cranberry juice</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Rhubarb and Custard</span><div class="drink-prices"><span class="sp">5.5</span><span class="hp">6.5</span><span class="np">8.5</span></div></div><div class="drink-desc">Rhubarb liqueur, Advocaat, vanilla schnapps</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">French Martini</span><div class="drink-prices"><span class="sp">5.5</span><span class="hp">6.5</span><span class="np">8.5</span></div></div><div class="drink-desc">Vodka, Chambord, pineapple juice</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Salted Caramel Martini</span><div class="drink-prices"><span class="sp">6.5</span><span class="hp">7.5</span><span class="np">9.5</span></div></div><div class="drink-desc">Gold rum, Kahlua, crème de cacao, toffee sauce, fresh coffee, sea salt flakes</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Kiss My Peach</span><div class="drink-prices"><span class="sp">5.5</span><span class="hp">6.5</span><span class="np">8.5</span></div></div><div class="drink-desc">Raspberry vodka, vanilla schnapps, peach puree, cranberry juice, lemonade</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Aperol Spritz</span><div class="drink-prices"><span class="sp">6.5</span><span class="hp">7.5</span><span class="np">9.5</span></div></div><div class="drink-desc">Aperol, prosecco, soda</div></div>
+</div>
+
+<!-- SHOOTERS -->
+<div class="menu-category" id="shooters">
+  <div class="menu-category-header"><h2>Shooters</h2></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">B52</span><div class="drink-prices"><span class="np">5</span></div></div><div class="drink-desc">Baileys, Kahlua, Grand Marnier</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Cocksucking Cowboy</span><div class="drink-prices"><span class="np">5</span></div></div><div class="drink-desc">Baileys, butterscotch schnapps</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Slippery Nipple</span><div class="drink-prices"><span class="np">5</span></div></div><div class="drink-desc">Baileys, sambuca</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Baby Guinness</span><div class="drink-prices"><span class="np">5</span></div></div><div class="drink-desc">Baileys, Kahlua</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Squashed Frog</span><div class="drink-prices"><span class="np">5</span></div></div><div class="drink-desc">Midori, Baileys, grenadine</div></div>
+</div>
+
+<!-- BEER & CIDER -->
+<div class="menu-category" id="beer">
+  <div class="menu-category-header"><h2>Beer & Cider</h2></div>
+  <div class="beer-grid">
+    <div class="beer-card"><div class="beer-name">Peroni</div><div class="beer-detail">Italy, 5% · Bottle, 330ml</div><div class="beer-price">£6</div></div>
+    <div class="beer-card"><div class="beer-name">Corona</div><div class="beer-detail">Mexico, 4.5% · Bottle, 330ml</div><div class="beer-price">£6</div></div>
+    <div class="beer-card"><div class="beer-name">Guinness</div><div class="beer-detail">Ireland, 4.1% · Can, 538ml</div><div class="beer-price">£7</div></div>
+    <div class="beer-card"><div class="beer-name">Brewdog Punk IPA</div><div class="beer-detail">UK, 5.6% · Can, 330ml</div><div class="beer-price">£6</div></div>
+    <div class="beer-card"><div class="beer-name">Kopparberg Strawberry & Lime</div><div class="beer-detail">Sweden, 4% · Can, 330ml</div><div class="beer-price">£5.50</div></div>
+    <div class="beer-card"><div class="beer-name">Asahi</div><div class="beer-detail">Japan, 5% · Draught pint</div><div class="beer-price">£7</div></div>
   </div>
 </div>
 
-<!-- BIRTHDAYS -->
-<div class="split-full">
-  <div class="split-media reveal-scale">
-    <img src="assets/oxford-people2.jpg" alt="Birthday celebrations at Thirst Oxford">
-  </div>
-  <div class="split-text">
-    <span class="tag reveal-up">Celebrate</span>
-    <h2 class="word-reveal">Birthdays & Celebrations</h2>
-    <p class="reveal-up delay-2">Celebrating a birthday or special occasion with us? Lucky you. We know how to throw a good party.</p>
-    <p class="reveal-up delay-3">Hire a table, a section or — for more exclusivity — our whole lounge area. Fill out the booking form and we take care of the rest. We're happy to help you plan if you have something special in mind.</p>
-  </div>
+<!-- WINE -->
+<div class="menu-category" id="wine">
+  <div class="menu-category-header"><h2>Wine</h2></div>
+  <div class="wine-item"><span class="wine-type">White · Italy</span><div class="wine-top"><span class="wine-name">Sartori Almorano Pinot Grigio</span></div><div class="wine-desc">A delicious, versatile northern Italian dry white full of ripe, juicy pear and melon notes</div><div class="wine-prices">175ml £7 · 250ml £10 · Bottle £28.50</div></div>
+  <div class="wine-item"><span class="wine-type">White · New Zealand</span><div class="wine-top"><span class="wine-name">Paterson's Grove Sauvignon Blanc</span></div><div class="wine-desc">Marlborough Sauvignon Blanc bursting with zesty gooseberry, passion fruit and bright acidity</div><div class="wine-prices">175ml £7 · 250ml £10 · Bottle £28.50</div></div>
+  <div class="wine-item"><span class="wine-type">Red · Argentina</span><div class="wine-top"><span class="wine-name">Carelli Latitud 34° Malbec</span></div><div class="wine-desc">From the foothills of the Andes, a soft, succulent red full of gently spiced blueberry fruit</div><div class="wine-prices">175ml £8.70 · 250ml £12.50 · Bottle £35</div></div>
+  <div class="wine-item"><span class="wine-type">Rosé · Spain</span><div class="wine-top"><span class="wine-name">Senorio de Chical Tempranillo Rosado</span></div><div class="wine-desc">Aromas of fresh fruit with hints of red berries. Rich and balanced with generous, lingering finish</div><div class="wine-prices">175ml £7 · 250ml £10 · Bottle £28.50</div></div>
+  <div class="wine-item"><span class="wine-type">Rosé · Italy</span><div class="wine-top"><span class="wine-name">Sartori Almorano Pinot Grigio Blush</span></div><div class="wine-desc">A delicate pink wine with refreshing pear and delicate wild strawberry hints</div><div class="wine-prices">175ml £7 · 250ml £10 · Bottle £28.50</div></div>
 </div>
 
-<!-- PRIVATE HIRE -->
-<section class="hire-banner">
-  <div class="hire-inner">
-    <span class="tag reveal-up">Go Big</span>
-    <h2 class="word-reveal">Private Hire</h2>
-    <p class="reveal-up delay-2">If you are really fancy — good for you. We can be hired exclusively but only for very special events so get in touch to discuss.</p>
-    <div class="reveal-up delay-3">
-      <a href="contact.html" class="btn btn-violet"><span>Get in Touch</span></a>
-    </div>
+<!-- PROSECCO & CHAMPAGNE -->
+<div class="menu-category" id="bubbles">
+  <div class="menu-category-header"><h2>Prosecco & Champagne</h2></div>
+  <div class="wine-item"><div class="wine-top"><span class="wine-name">Prosecco Spumante DOC Extra Dry</span></div><div class="wine-desc">Delicate lemon fruit notes and refreshing lively style</div><div class="wine-prices">Glass £6.50 · Bottle £30</div></div>
+  <div class="wine-item"><div class="wine-top"><span class="wine-name">Prosecco Spumante Rosé DOC Extra Dry</span></div><div class="wine-desc">Fresh, lively and appealing with notes of lemon flowers and ripe apple</div><div class="wine-prices">Glass £6.50 · Bottle £30</div></div>
+  <div class="wine-item"><div class="wine-top"><span class="wine-name">Moët & Chandon Brut Imperial NV</span></div><div class="wine-desc">Aromas of white fruits, crisp and vibrant palate with brioche undertones</div><div class="wine-prices">Bottle £120</div></div>
+  <div class="wine-item"><div class="wine-top"><span class="wine-name">Moët & Chandon Imperial Rosé NV</span></div><div class="wine-desc">Intensely fruity, red berries, strawberries, Morello cherries</div><div class="wine-prices">Bottle £145</div></div>
+  <div class="wine-item"><div class="wine-top"><span class="wine-name">Dom Perignon Vintage 2013</span></div><div class="wine-desc">Precise, elegant and tactile. Citrus, vegetal facet and spices</div><div class="wine-prices">Bottle £500</div></div>
+</div>
+
+<!-- NON-ALCOHOLIC -->
+<div class="menu-category" id="noalc">
+  <div class="menu-category-header"><h2>Non-Alcoholic</h2><div class="price-legend"><span class="s">S Stupid</span><span class="h">H Happy</span><span>N Normal</span></div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Neotropical</span><div class="drink-prices"><span class="sp">6</span><span class="hp">8</span><span class="np">10</span></div></div><div class="drink-desc">Cranberry, orange, apple and pineapple juices, lemon juice, sugar syrup, passion fruit, dirty pour style</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Soft Porn</span><div class="drink-prices"><span class="sp">6</span><span class="hp">8</span><span class="np">10</span></div></div><div class="drink-desc">Strykk Not Rum 0%, vanilla and passionfruit syrups, pineapple and passionfruit puree</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Nogroni</span><div class="drink-prices"><span class="sp">6</span><span class="hp">8</span><span class="np">10</span></div></div><div class="drink-desc">Strykk Not Gin, Botivo, Pentire Coastal Spritz, orange peel</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Nojito</span><div class="drink-prices"><span class="sp">6</span><span class="hp">8</span><span class="np">10</span></div></div><div class="drink-desc">Strykk Not Rum, lime, sugar, mint</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">The Long Con</span><div class="drink-prices"><span class="sp">6</span><span class="hp">8</span><span class="np">10</span></div></div><div class="drink-desc">Grapefruit and lemon juices, hibiscus essence, butter lemon tonic</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">El Motivo</span><div class="drink-prices"><span class="sp">6</span><span class="hp">8</span><span class="np">10</span></div></div><div class="drink-desc">Botivo, ginger beer, soda water, lemon peel</div></div>
+  <div class="drink-item" style="margin-top:20px"><div class="drink-top"><span class="drink-name">Erdinger Alkoholfrei</span><div class="drink-prices"><span class="np">6</span></div></div><div class="drink-desc">Germany · Bottle, 500ml</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Lucky Saint</span><div class="drink-prices"><span class="np">7</span></div></div><div class="drink-desc">Germany · Bottle, 330ml</div></div>
+  <div class="drink-item"><div class="drink-top"><span class="drink-name">Purus Non-Alc Sparkling Blanc de Blancs</span><div class="drink-prices"><span class="np">9+</span></div></div><div class="drink-desc">100% organic Chardonnay, de-alcoholised · 175ml £9 · 250ml £11.50 · Bottle £31</div></div>
+</div>
+
+</div>
+</section>
+
+<!-- ESSENTIALS BANNER -->
+<section class="essentials-banner" id="essentials">
+  <div class="essentials-inner reveal-up">
+    <span class="tag">Students Only</span>
+    <h2>Essentials</h2>
+    <div class="price-big">£5 Cocktails</div>
+    <p>Apple Bomb · Dark & Stormy · Piña Colada · Orgasm · Tokyo Ice Tea · Pink Panther · Sex on the Beach</p>
+    <div class="price-big" style="font-size:1.8rem;margin-top:20px">3 Shots for £10</div>
+    <p>Baby Guinness · Apple Sourz</p>
+    <p class="availability">Mon–Thurs: 9pm – Midnight · Sunday: 9pm – 11pm<br>Available only with Student ID</p>
   </div>
 </section>
 
-<!-- BOOKING FORM -->
-<section class="form-section">
-  <div class="form-inner">
-    <h2 class="reveal-up">Make an Enquiry</h2>
-    <p class="form-sub reveal-up delay-1">Tell us what you're planning and we'll get back to you</p>
-    <div class="form-grid reveal-up delay-2">
-      <div class="form-group"><label>Name</label><input type="text" placeholder="Your name"></div>
-      <div class="form-group"><label>Email</label><input type="email" placeholder="Your email"></div>
-      <div class="form-group"><label>Phone</label><input type="tel" placeholder="Your number"></div>
-      <div class="form-group"><label>Date</label><input type="date"></div>
-      <div class="form-group"><label>Party Size</label><select><option>1–5</option><option>6–10</option><option>11–15</option><option>16–20</option><option>21–25</option><option>25+</option></select></div>
-      <div class="form-group"><label>Type</label><select><option>Table Booking</option><option>Birthday / Celebration</option><option>Private Hire</option><option>Other</option></select></div>
-      <div class="form-group full"><label>Message</label><textarea placeholder="Tell us about your plans..."></textarea></div>
-      <div class="form-submit"><button class="btn btn-violet" type="button"><span>Send Enquiry</span></button></div>
-    </div>
-  </div>
-</section>
+<div class="allergen"><p>Allergens Warning: If you have a food allergy or special dietary requirement, please inform our bartenders. Thank you.</p></div>
 
 
 <!-- FOOTER -->
@@ -540,15 +661,40 @@ function uc(){
 }
 setInterval(uc,1000);uc();
 
-// Word-by-word reveal
-document.querySelectorAll('.word-reveal').forEach(function(el){
-  var text=el.textContent.trim();
-  el.innerHTML=text.split(/\s+/).map(function(w,i){
-    return '<span class="word" style="transition-delay:'+(i*60)+'ms">'+w+'</span>';
-  }).join(' ');
+// Sticky tabs - sync with banner hide
+var tabs=document.getElementById('menuTabs');
+if(tabs){
+  window.addEventListener('scroll',function(){
+    tabs.classList.toggle('banner-hidden',document.getElementById('stupidBanner').classList.contains('hidden'));
+  },{passive:true});
+}
+// Tab click smooth scroll
+document.querySelectorAll('.menu-tab').forEach(function(tab){
+  tab.addEventListener('click',function(e){
+    e.preventDefault();
+    var target=document.querySelector(this.getAttribute('href'));
+    if(target){
+      var offset=120;
+      window.scrollTo({top:target.offsetTop-offset,behavior:'smooth'});
+    }
+    document.querySelectorAll('.menu-tab').forEach(function(t){t.classList.remove('active')});
+    this.classList.add('active');
+  });
 });
-// Force-play hero video (iOS)
-(function(){var v=document.querySelector('.page-hero-bg video');if(!v)return;v.play().catch(function(){document.addEventListener('touchstart',function h(){v.play();document.removeEventListener('touchstart',h)},{once:true})})})();
+// Scroll spy for active tab
+var categories=document.querySelectorAll('.menu-category,.essentials-banner');
+window.addEventListener('scroll',function(){
+  var scrollPos=window.scrollY+150;
+  categories.forEach(function(cat){
+    if(cat.offsetTop<=scrollPos&&cat.offsetTop+cat.offsetHeight>scrollPos){
+      var id=cat.id;
+      document.querySelectorAll('.menu-tab').forEach(function(t){
+        t.classList.toggle('active',t.getAttribute('href')==='#'+id);
+      });
+    }
+  });
+},{passive:true});
+
 
 </script>
 </body>
