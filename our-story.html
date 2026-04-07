@@ -74,8 +74,7 @@ nav{position:fixed;top:32px;left:0;right:0;z-index:100;display:grid;grid-templat
 /* Split image + text */
 .story-split{display:grid;grid-template-columns:1fr 1fr;min-height:70vh}
 .story-split-text{display:flex;flex-direction:column;justify-content:center;padding:80px 64px}
-.story-split-text h2{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin-bottom:24px}
-.story-split-text p{font-family:var(--font-display);font-size:1rem;line-height:1.9;color:var(--white-70);margin-bottom:16px}
+.story-split-text p{font-family:var(--font-display);font-size:clamp(1.15rem,2vw,1.4rem);line-height:1.95;color:var(--white);margin-bottom:24px}
 .story-split-image{position:relative;overflow:hidden;min-height:500px}
 .story-split-image img{transition:transform .8s ease}
 .story-split-image:hover img{transform:scale(1.03)}
@@ -204,8 +203,8 @@ footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--wh
 <!-- ════ SPLIT 1 ════ -->
 <section class="story-split">
   <div class="story-split-text reveal-left">
-    <p>As the best late-night bar around, you're just as likely to find Soho's hospitality crowd blowing off steam after hours as you are famous faces, first dates, old friends, and people who just wandered in and decided to stay.</p>
-    <p>And that's exactly why we started Thirst.</p>
+    <p class="reveal-up">As the best late-night bar around, you're just as likely to find Soho's hospitality crowd blowing off steam after hours as you are famous faces, first dates, old friends, and people who just wandered in and decided to stay.</p>
+    <p class="reveal-up delay-1">And that's exactly why we started Thirst.</p>
   </div>
   <div class="story-split-image reveal-right">
     <img src="assets/bar-cocktails.jpg" alt="Cocktails at Thirst Soho">
@@ -223,7 +222,7 @@ footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--wh
     <img src="assets/downstairs-booth.jpg" alt="Downstairs at Thirst">
   </div>
   <div class="story-split-text reveal-right">
-    <p>Oh, and we keep going until 3am with live DJs and the friendliest team in the business.</p>
+    <p class="reveal-up">Oh, and we keep going until 3am with live DJs and the friendliest team in the business.</p>
   </div>
 </section>
 
