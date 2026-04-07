@@ -15,6 +15,28 @@
 .reveal-right{opacity:0;transform:translateX(60px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}.reveal-right.visible{opacity:1;transform:translateX(0)}
 .reveal-scale{opacity:0;transform:scale(.92);transition:opacity .7s ease,transform .7s ease}.reveal-scale.visible{opacity:1;transform:scale(1)}
 .delay-1{transition-delay:.1s!important}.delay-2{transition-delay:.2s!important}.delay-3{transition-delay:.3s!important}.delay-5{transition-delay:.5s!important}
+
+/* Enhanced image animations */
+.split-image img{transition:transform 8s ease-out;transform:scale(1.05)}.split-image.visible img{transform:scale(1);}
+.split-image:hover img{transform:scale(1.08)!important;transition:transform .6s ease!important}
+
+/* Info card hover glow */
+.info-card{transition:border-color .4s,transform .4s,box-shadow .4s}.info-card:hover{border-color:var(--gold);transform:translateY(-6px);box-shadow:0 12px 40px rgba(201,168,76,.08)}
+
+/* Section divider grow animation */
+.section-divider{width:0;transition:width 1s cubic-bezier(.16,1,.3,1)}.section-divider.visible{width:60px}
+
+/* Form fields stagger in */
+.form-group{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}.form-group.visible{opacity:1;transform:translateY(0)}
+
+/* Review cards entrance */
+.review-card{opacity:0;transform:translateY(30px) scale(.95);transition:opacity .6s ease,transform .6s ease}.review-card.visible{opacity:1;transform:translateY(0) scale(1)}
+
+/* Hero parallax */
+.page-hero-bg img{transition:transform .1s linear}
+
+/* Button pulse on scroll-in */
+.btn-reveal{opacity:0;transform:translateY(15px);transition:opacity .6s ease,transform .6s ease}.btn-reveal.visible{opacity:1;transform:translateY(0)}
 .stupid-banner{position:fixed;top:0;left:0;right:0;z-index:101;background:var(--bg);border-bottom:1px solid var(--white-15);padding:8px 24px;text-align:center;font-family:var(--font-ui);font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--white-70);cursor:pointer;transition:background .3s,transform .3s}.stupid-banner:hover{color:var(--white)}.stupid-banner .flip-group{display:inline-flex;gap:1px;vertical-align:middle}.stupid-banner .flip-digit{display:inline-block;position:relative;width:1.1em;height:1.6em;line-height:1.6em;font-family:var(--font-ui);font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:0;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;text-align:center;vertical-align:middle}.stupid-banner.is-live .flip-digit{background:rgba(201,168,76,.15)}.flip-digit .flip-current,.flip-digit .flip-next{display:block;position:absolute;left:0;right:0;text-align:center}.flip-digit .flip-current{top:0}.flip-digit .flip-next{top:0;transform:translateY(100%)}.flip-digit.flipping .flip-current{animation:flipOut .3s ease-in forwards}.flip-digit.flipping .flip-next{animation:flipIn .3s ease-out forwards}@keyframes flipOut{0%{transform:translateY(0);opacity:1}100%{transform:translateY(-100%);opacity:0}}@keyframes flipIn{0%{transform:translateY(100%);opacity:0}100%{transform:translateY(0);opacity:1}}.stupid-banner .flip-label{display:inline-block;font-size:.5rem;letter-spacing:.05em;margin:0 3px;opacity:.6;vertical-align:middle}.stupid-banner span{color:var(--white)}@keyframes livePulse{0%,100%{background:rgba(201,168,76,.1)}50%{background:rgba(201,168,76,.2)}}.stupid-banner.is-live{color:#c9a84c;border-bottom-color:rgba(201,168,76,.3);animation:livePulse 2s ease-in-out infinite}.stupid-banner.is-live span{color:#c9a84c}.stupid-banner .live-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#c9a84c;margin-right:8px;vertical-align:middle;animation:liveDotPulse 1.5s ease-in-out infinite}@keyframes liveDotPulse{0%,100%{opacity:1}50%{opacity:.6}}
 .menu-backdrop{position:fixed;inset:0;z-index:199;background:rgba(0,0,0,.5);opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s;backdrop-filter:blur(4px)}.menu-backdrop.open{opacity:1;visibility:visible}.menu-panel{position:fixed;top:0;left:0;bottom:0;width:380px;max-width:85vw;z-index:200;background:var(--bg);border-right:1px solid var(--white-15);transform:translateX(-100%);transition:transform .5s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;padding:80px 40px 40px;overflow-y:auto}.menu-panel.open{transform:translateX(0)}.menu-close{position:absolute;top:24px;left:28px;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:201}.menu-close span{display:block;width:24px;height:1.5px;background:var(--white);position:absolute;transition:transform .3s}.menu-close span:first-child{transform:rotate(45deg)}.menu-close span:last-child{transform:rotate(-45deg)}.menu-close:hover span{background:var(--white-70)}.menu-links{list-style:none;padding:0;flex:1}.menu-links li{overflow:hidden}.menu-links a{display:block;font-family:var(--font-display);font-size:1.4rem;font-weight:400;color:var(--white);padding:12px 0;border-bottom:1px solid var(--white-10);transform:translateX(-30px);opacity:0;transition:transform .4s cubic-bezier(.16,1,.3,1),opacity .4s ease,color .3s,padding .3s}.menu-panel.open .menu-links a{transform:translateX(0);opacity:1}.menu-links li:nth-child(1) a{transition-delay:.05s}.menu-links li:nth-child(2) a{transition-delay:.08s}.menu-links li:nth-child(3) a{transition-delay:.11s}.menu-links li:nth-child(4) a{transition-delay:.14s}.menu-links li:nth-child(5) a{transition-delay:.17s}.menu-links li:nth-child(6) a{transition-delay:.2s}.menu-links li:nth-child(7) a{transition-delay:.23s}.menu-links li:nth-child(8) a{transition-delay:.26s}.menu-links li:nth-child(9) a{transition-delay:.29s}.menu-links li:nth-child(10) a{transition-delay:.32s}.menu-links li:nth-child(11) a{transition-delay:.35s}.menu-links a:hover{color:var(--white-50);padding-left:8px}.menu-links a.active{color:var(--white-50)}.menu-footer{padding-top:32px;border-top:1px solid var(--white-15);margin-top:24px;opacity:0;transform:translateY(10px);transition:opacity .4s .3s ease,transform .4s .3s ease}.menu-panel.open .menu-footer{opacity:1;transform:translateY(0)}.menu-footer p{font-family:var(--font-display);font-size:.85rem;color:var(--white-50);line-height:1.8}.menu-footer a{color:var(--white-70);transition:color .3s}.menu-footer a:hover{color:var(--white)}.nav-hamburger.is-open span:nth-child(1){transform:translateY(8.5px) rotate(45deg)}.nav-hamburger.is-open span:nth-child(2){opacity:0}.nav-hamburger.is-open span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}.nav-hamburger span{transition:transform .3s,opacity .3s}
 nav{position:fixed;top:32px;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:20px 32px;transition:background .4s,padding .4s,top .4s}nav.scrolled{background:rgba(11,17,43,.95);backdrop-filter:blur(16px);padding:14px 32px;top:0}.nav-hamburger{display:flex;flex-direction:column;gap:7px;cursor:pointer;padding:6px}.nav-hamburger span{display:block;width:30px;height:1.5px;background:var(--white)}.nav-logo{justify-self:center;display:flex;align-items:center}.nav-logo img{height:48px;width:auto;object-fit:contain}.nav-book{justify-self:end;font-family:var(--font-ui);font-size:.65rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;padding:10px 22px;border:1px solid var(--white);transition:background .3s,color .3s}.nav-book:hover{background:var(--white);color:var(--bg)}
@@ -25,16 +47,13 @@ nav{position:fixed;top:32px;left:0;right:0;z-index:100;display:grid;grid-templat
 .split{display:grid;grid-template-columns:1fr 1fr;min-height:70vh}.split-text{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:80px 64px}.split-text h2{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin-bottom:24px}.split-text p{font-family:var(--font-display);font-size:1rem;line-height:1.9;color:var(--white-70);margin-bottom:16px}.split-text .tagline{font-family:var(--font-display);font-size:1.2rem;font-style:italic;color:var(--white);margin:24px 0}.split-image{position:relative;overflow:hidden;min-height:500px}
 .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}.info-card{background:rgba(255,255,255,.03);border:1px solid var(--white-15);padding:32px;border-radius:4px}.info-card h3{font-family:var(--font-ui);font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}.info-card p{font-family:var(--font-display);font-size:.95rem;line-height:1.8;color:var(--white-70);margin:0}
 .form-section{padding:80px 24px;background:var(--bg)}.form-wrap{max-width:600px;margin:0 auto}.form-wrap h2{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin-bottom:40px;text-align:center}.form-group{margin-bottom:24px}.form-group label{display:block;font-family:var(--font-ui);font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px;color:var(--white-70)}.form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 16px;background:rgba(255,255,255,.05);border:1px solid var(--white-15);color:var(--white);font-family:var(--font-display);font-size:.95rem;border-radius:2px;outline:none;transition:border-color .3s}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--white-50)}.form-group textarea{min-height:120px;resize:vertical}.form-group select{appearance:none;cursor:pointer}.form-submit{text-align:center;margin-top:32px}
-.count-up{font-family:var(--font-ui);font-weight:600;font-size:1.8rem;color:var(--white);font-variant-numeric:tabular-nums}
-.reviews{background:var(--bg);padding:80px 0;overflow:hidden}.reviews-heading{text-align:center;margin-bottom:48px;padding:0 24px}.reviews-heading h2{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:400;margin-bottom:8px}.reviews-heading p{font-family:var(--font-ui);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--white-50)}.reviews-track{display:flex;gap:20px;padding:0 40px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab}.reviews-track:active{cursor:grabbing}.reviews-track::-webkit-scrollbar{display:none}.review-card{flex:0 0 420px;max-width:85vw;min-height:320px;position:relative;border-radius:6px;overflow:hidden;scroll-snap-align:center;display:flex;align-items:flex-end}.review-card-bg{position:absolute;inset:0}.review-card-bg img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}.review-card:hover .review-card-bg img{transform:scale(1.05)}.review-card-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.7) 100%)}.review-card-content{position:relative;z-index:2;padding:32px}.review-card blockquote{font-family:var(--font-display);font-size:1.15rem;font-style:italic;line-height:1.6;color:var(--white);margin-bottom:16px}.review-card cite{font-family:var(--font-ui);font-style:normal;font-size:.6rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--white-50)}.review-stars{color:#c9a84c;font-size:.85rem;letter-spacing:2px;margin-bottom:12px}
+.count-up{font-family:var(--font-ui);font-weight:600;font-size:1.8rem;color:var(--white);font-variant-numeric:tabular-nums}.reviews{background:var(--bg);padding:80px 0;overflow:hidden}.reviews-heading{text-align:center;margin-bottom:48px;padding:0 24px}.reviews-heading h2{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:400;margin-bottom:8px}.reviews-heading p{font-family:var(--font-ui);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--white-50)}.reviews-track{display:flex;gap:20px;padding:0 40px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab}.reviews-track:active{cursor:grabbing}.reviews-track::-webkit-scrollbar{display:none}.review-card{flex:0 0 420px;max-width:85vw;min-height:320px;position:relative;border-radius:6px;overflow:hidden;scroll-snap-align:center;display:flex;align-items:flex-end}.review-card-bg{position:absolute;inset:0}.review-card-bg img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}.review-card:hover .review-card-bg img{transform:scale(1.05)}.review-card-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.7) 100%)}.review-card-content{position:relative;z-index:2;padding:32px}.review-card blockquote{font-family:var(--font-display);font-size:1.15rem;font-style:italic;line-height:1.6;color:var(--white);margin-bottom:16px}.review-card cite{font-family:var(--font-ui);font-style:normal;font-size:.6rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--white-50)}.review-stars{color:#c9a84c;font-size:.85rem;letter-spacing:2px;margin-bottom:12px}
 @media(max-width:600px){.review-card{flex:0 0 85vw;min-height:280px}.reviews-track{padding:0 20px;gap:14px}}
 footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--white-15)}.footer-divider{width:72px;height:1px;background:var(--white-30);margin:0 auto 64px}.footer-grid{display:grid;grid-template-columns:repeat(3,1fr);max-width:1000px;margin:0 auto 72px;text-align:center}.footer-col h4{font-family:var(--font-ui);font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}.footer-col p,.footer-col a{font-family:var(--font-display);font-size:.95rem;line-height:1.8;color:var(--white-70);transition:color .3s}.footer-col a:hover{color:var(--white)}.footer-logo-wrap{text-align:center}.footer-logo-wrap img{height:56px;width:auto;object-fit:contain;margin:0 auto}
 @media(max-width:900px){.split{grid-template-columns:1fr}.split-text{padding:60px 28px;text-align:center;align-items:center}.split-image{min-height:350px}.split-reverse{display:flex;flex-direction:column-reverse}.footer-grid{grid-template-columns:1fr;gap:36px}nav{padding:16px 16px}.nav-logo img{height:42px}.nav-book{font-size:.5rem;padding:8px 14px}.reveal-left,.reveal-right{transform:translateY(40px)!important}.reveal-left.visible,.reveal-right.visible{transform:translateY(0)!important}}
 @media(max-width:600px){.page-hero h1{font-size:1.6rem}nav{padding:12px 12px}.nav-hamburger span{width:22px}.nav-logo img{height:36px}.nav-book{font-size:.45rem;padding:7px 12px}.stupid-banner{font-size:.5rem;padding:6px 12px;letter-spacing:.1em}.btn{padding:14px 36px;font-size:.55rem}.section{padding:60px 20px}}
 
 /* Testimonial Strip */
-/* Count-up numbers */
-.count-up{font-family:var(--font-ui);font-size:1.8rem;font-weight:600;color:var(--white);display:inline-block;min-width:1.5em}
 </style>
 </head>
 <body>
@@ -70,7 +89,7 @@ footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--wh
 </section>
 
 <div class="section section-centered reveal-up">
-  <div class="section-divider"></div>
+  <div class="section-divider reveal-scale"></div>
   <h2>Table Bookings</h2>
   <p>We welcome walk-ins, but we always recommend booking a space in advance, especially on weekends.</p>
   <p>For groups of 25+, drop us a line at <span id="emailInline"></span> and we'll help you plan it.</p>
@@ -96,9 +115,9 @@ footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--wh
     <p>Want the whole place? Exclusive hire of Thirst is perfect for big parties, launches, screenings, art events and everything in between.</p>
     <p>Get in touch to chat through your idea, or pop in for a look around to see if we're the right fit.</p>
     <div class="info-grid" style="margin-top:32px">
-      <div class="info-card"><h3>Upstairs</h3><p><span class="count-up" data-target="70">0</span> standing</p></div>
-      <div class="info-card"><h3>Downstairs</h3><p><span class="count-up" data-target="80">0</span> standing</p></div>
-      <div class="info-card"><h3>Hire Fee</h3><p>No hire fees, just a deposit</p></div>
+      <div class="info-card reveal-up delay-1"><h3>Upstairs</h3><p>70 standing</p></div>
+      <div class="info-card reveal-up delay-2"><h3>Downstairs</h3><p>80 standing</p></div>
+      <div class="info-card reveal-up delay-3"><h3>Hire Fee</h3><p>No hire fees, just a deposit</p></div>
     </div>
     <p style="margin-top:24px;font-size:.85rem;color:var(--white-50)">Our building is old and full of character, which means our toilets are downstairs and not wheelchair accessible.</p>
     <a href="https://www.designmynight.com/london/bars/soho/thirst-bar-soho" target="_blank" class="btn" style="margin-top:24px">Enquire</a>
@@ -113,7 +132,7 @@ footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--wh
     <p>Swipe to see more</p>
   </div>
   <div class="reviews-track" id="reviewsTrack">
-    <div class="review-card">
+    <div class="review-card reveal-up">
       <div class="review-card-bg"><img src="assets/red-room.jpg" alt="Thirst Soho"><div class="review-card-overlay"></div></div>
       <div class="review-card-content">
         <div class="review-stars">★★★★★</div>
@@ -121,7 +140,7 @@ footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--wh
         <cite>— Google Review</cite>
       </div>
     </div>
-    <div class="review-card">
+    <div class="review-card reveal-up delay-1">
       <div class="review-card-bg"><img src="assets/celebrations.jpg" alt="Party at Thirst"><div class="review-card-overlay"></div></div>
       <div class="review-card-content">
         <div class="review-stars">★★★★★</div>
@@ -129,7 +148,7 @@ footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--wh
         <cite>— Google Review</cite>
       </div>
     </div>
-    <div class="review-card">
+    <div class="review-card reveal-up delay-2">
       <div class="review-card-bg"><img src="assets/private-hire.jpg" alt="Private hire"><div class="review-card-overlay"></div></div>
       <div class="review-card-content">
         <div class="review-stars">★★★★★</div>
@@ -137,7 +156,7 @@ footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--wh
         <cite>— TripAdvisor</cite>
       </div>
     </div>
-    <div class="review-card">
+    <div class="review-card reveal-up delay-3">
       <div class="review-card-bg"><img src="assets/passionfruit.jpg" alt="Cocktails"><div class="review-card-overlay"></div></div>
       <div class="review-card-content">
         <div class="review-stars">★★★★★</div>
@@ -145,7 +164,7 @@ footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--wh
         <cite>— Google Review</cite>
       </div>
     </div>
-    <div class="review-card">
+    <div class="review-card reveal-up delay-5">
       <div class="review-card-bg"><img src="assets/dj.jpg" alt="DJ at Thirst"><div class="review-card-overlay"></div></div>
       <div class="review-card-content">
         <div class="review-stars">★★★★★</div>
@@ -194,52 +213,19 @@ function cfg(v,l){const s=String(v).padStart(2,'0');return`<span class="flip-gro
 function ush(){const b=document.getElementById('stupidBanner'),c=document.getElementById('stupidCountdown'),n=new Date(),lo=new Date(n.toLocaleString('en-US',{timeZone:'Europe/London'})),d=lo.getDay(),h=lo.getHours(),m=lo.getMinutes(),s=lo.getSeconds(),cu=h*3600+m*60+s,iS=d===6,st=16*3600,en=iS?17*3600:18*3600;if(cu>=st&&cu<en){const l=en-cu,mm=Math.floor(l/60),ss=l%60;b.classList.add('is-live');c.innerHTML=`<span class="live-dot"></span>Stupid Hour is live · ${cfg(mm,'m')} ${cfg(ss,'s')} remaining`;}else if(cu<st){b.classList.remove('is-live');const l=st-cu,hh=Math.floor(l/3600),mm=Math.floor((l%3600)/60),ss=l%60;c.innerHTML=hh>0?`🍸 ${cfg(hh,'h')} ${cfg(mm,'m')} ${cfg(ss,'s')} until <span>Stupid Hour</span>`:`🍸 ${cfg(mm,'m')} ${cfg(ss,'s')} until <span>Stupid Hour</span>`;}else{b.classList.remove('is-live');c.innerHTML=`🍸 <span>Stupid Hour</span> returns tomorrow at 4pm`;}}
 ush();setInterval(ush,1000);
 const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');obs.unobserve(en.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal-up,.reveal-left,.reveal-right,.reveal-scale').forEach(el=>obs.observe(el));
-(function(){const u='soho',d='thirstbar.com';['emailInline','emailFooter'].forEach(id=>{const el=document.getElementById(id);if(el){const a=document.createElement('a');a.href='mail'+'to:'+u+'@'+d;a.textContent=u+'@'+d;el.appendChild(a);}});})();
-setTimeout(()=>{document.querySelectorAll('.reveal-up,.reveal-left,.reveal-right,.reveal-scale').forEach(el=>el.classList.add('visible'));},3000);
+document.querySelectorAll('.reveal-up,.reveal-left,.reveal-right,.reveal-scale,.section-divider,.review-card,.info-card').forEach(el=>obs.observe(el));
 
-// Count-up animation
-const countObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      const target = parseInt(el.getAttribute('data-target'));
-      const duration = 1500;
-      const start = performance.now();
-      function tick(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.round(eased * target);
-        if (progress < 1) requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-      countObserver.unobserve(el);
-    }
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
-// Count-up animation for capacity numbers
-const countObs = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      const target = parseInt(el.dataset.target);
-      const duration = 1500;
-      const start = performance.now();
-      function tick(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.round(target * eased);
-        if (progress < 1) requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-      countObs.unobserve(el);
-    }
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('.count-up').forEach(el => countObs.observe(el));
+// Stagger form fields on scroll
+const formObs=new IntersectionObserver(e=>{e.forEach((en,i)=>{if(en.isIntersecting){setTimeout(()=>{en.target.classList.add('visible');},i*80);formObs.unobserve(en.target);}});},{threshold:.1});
+document.querySelectorAll('.form-group').forEach(el=>formObs.observe(el));
+
+// Subtle hero parallax
+window.addEventListener('scroll',()=>{
+  const hero=document.querySelector('.page-hero-bg img');
+  if(hero){const y=window.scrollY;if(y<800)hero.style.transform='translateY('+y*0.15+'px) scale(1.05)';}
+},{passive:true});
+(function(){const u='soho',d='thirstbar.com';['emailInline','emailFooter'].forEach(id=>{const el=document.getElementById(id);if(el){const a=document.createElement('a');a.href='mail'+'to:'+u+'@'+d;a.textContent=u+'@'+d;el.appendChild(a);}});})();
+setTimeout(()=>{document.querySelectorAll('.reveal-up,.reveal-left,.reveal-right,.reveal-scale,.section-divider,.form-group,.review-card,.info-card').forEach(el=>el.classList.add('visible'));},3000);
 
 // Reviews carousel drag-to-scroll
 const reviewsTrack = document.getElementById('reviewsTrack');
