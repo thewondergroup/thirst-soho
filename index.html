@@ -362,6 +362,11 @@ a { color: inherit; text-decoration: none; }
 .menu-links a.active {
   color: var(--white-50);
 }
+.menu-links a.book-link,
+.menu-links a.book-link:hover,
+.menu-panel.open .menu-links a.book-link {
+  color: #c9a84c !important;
+}
 
 .menu-footer {
   padding-top: 32px;
@@ -386,6 +391,16 @@ a { color: inherit; text-decoration: none; }
   transition: color 0.3s;
 }
 .menu-footer a:hover { color: var(--white); }
+.menu-insta {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--white-50);
+  transition: color 0.3s, transform 0.3s;
+}
+.menu-insta:hover {
+  color: var(--gold);
+  transform: scale(1.1);
+}
 
 /* Hamburger animation to X */
 .nav-hamburger.is-open span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
@@ -771,7 +786,7 @@ nav.scrolled {
 
 .stupid-hour h2 {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 400;
   text-transform: uppercase;
   margin-bottom: 40px;
@@ -1261,11 +1276,14 @@ footer {
     <li><a href="careers.html">Careers</a></li>
     <li><a href="faqs.html">FAQs</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="https://www.designmynight.com/london/bars/soho/thirst-bar-soho" target="_blank" style="color:var(--gold)">Book</a></li>
+    <li><a href="https://www.designmynight.com/london/bars/soho/thirst-bar-soho" target="_blank" class="book-link">Book</a></li>
   </ul>
   <div class="menu-footer">
     <p>53 Greek St, London, W1D 3DR<br>
     <a href="tel:02074371977">020 7437 1977</a></p>
+    <a href="https://www.instagram.com/thirstbar/" target="_blank" class="menu-insta" aria-label="Instagram">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+    </a>
   </div>
 </div>
 
@@ -1348,43 +1366,51 @@ footer {
     <!-- Row 1: scrolls left -->
     <div class="stupid-marquee-row scroll-left">
       <img src="assets/orange-cocktail.jpg" alt="Cocktail">
-      <img src="assets/raspberry-martini.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-1.jpg" alt="Good times">
       <img src="assets/champagne-flute.jpg" alt="Cocktail">
-      <img src="assets/mint-cocktail.jpg" alt="Cocktail">
-      <img src="assets/passionfruit.jpg" alt="Cocktail">
-      <img src="assets/dj.jpg" alt="DJ">
-      <img src="assets/orange-cocktail.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-3.jpg" alt="Dancing">
+      <img src="assets/gallery-cocktail-1.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-5.jpg" alt="Party">
       <img src="assets/raspberry-martini.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-2.jpg" alt="Friends">
+      <img src="assets/mint-cocktail.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-6.jpg" alt="Cheers">
       <!-- Duplicate set for seamless loop -->
       <img src="assets/orange-cocktail.jpg" alt="Cocktail">
-      <img src="assets/raspberry-martini.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-1.jpg" alt="Good times">
       <img src="assets/champagne-flute.jpg" alt="Cocktail">
-      <img src="assets/mint-cocktail.jpg" alt="Cocktail">
-      <img src="assets/passionfruit.jpg" alt="Cocktail">
-      <img src="assets/dj.jpg" alt="DJ">
-      <img src="assets/orange-cocktail.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-3.jpg" alt="Dancing">
+      <img src="assets/gallery-cocktail-1.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-5.jpg" alt="Party">
       <img src="assets/raspberry-martini.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-2.jpg" alt="Friends">
+      <img src="assets/mint-cocktail.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-6.jpg" alt="Cheers">
     </div>
     
     <!-- Row 2: scrolls right (different order) -->
     <div class="stupid-marquee-row scroll-right">
+      <img src="assets/gallery-crowd-4.jpg" alt="Smiles">
       <img src="assets/passionfruit.jpg" alt="Cocktail">
-      <img src="assets/champagne-flute.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-7.jpg" alt="Vibes">
+      <img src="assets/gallery-cocktail-2.jpg" alt="Cocktail">
       <img src="assets/dj.jpg" alt="DJ">
-      <img src="assets/orange-cocktail.jpg" alt="Cocktail">
-      <img src="assets/mint-cocktail.jpg" alt="Cocktail">
-      <img src="assets/raspberry-martini.jpg" alt="Cocktail">
-      <img src="assets/champagne-flute.jpg" alt="Cocktail">
-      <img src="assets/passionfruit.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-8.jpg" alt="Dancing">
+      <img src="assets/gallery-cocktail-3.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-9.jpg" alt="Friends">
+      <img src="assets/bar-cocktails.jpg" alt="Cocktails">
+      <img src="assets/gallery-crowd-10.jpg" alt="Party">
       <!-- Duplicate set for seamless loop -->
+      <img src="assets/gallery-crowd-4.jpg" alt="Smiles">
       <img src="assets/passionfruit.jpg" alt="Cocktail">
-      <img src="assets/champagne-flute.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-7.jpg" alt="Vibes">
+      <img src="assets/gallery-cocktail-2.jpg" alt="Cocktail">
       <img src="assets/dj.jpg" alt="DJ">
-      <img src="assets/orange-cocktail.jpg" alt="Cocktail">
-      <img src="assets/mint-cocktail.jpg" alt="Cocktail">
-      <img src="assets/raspberry-martini.jpg" alt="Cocktail">
-      <img src="assets/champagne-flute.jpg" alt="Cocktail">
-      <img src="assets/passionfruit.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-8.jpg" alt="Dancing">
+      <img src="assets/gallery-cocktail-3.jpg" alt="Cocktail">
+      <img src="assets/gallery-crowd-9.jpg" alt="Friends">
+      <img src="assets/bar-cocktails.jpg" alt="Cocktails">
+      <img src="assets/gallery-crowd-10.jpg" alt="Party">
     </div>
     
     <!-- Text content floating on top -->
@@ -1469,7 +1495,8 @@ footer {
     <div class="footer-col reveal-up delay-3">
       <h4>Contact Us</h4>
       <p><a href="tel:02074371977">020 7437 1977</a><br>
-      <span id="emailLink"></span></p>
+      <span id="emailLink"></span><br>
+      <a href="https://www.instagram.com/thirstbar/" target="_blank">@thirstbar</a></p>
     </div>
     <div class="footer-col reveal-up delay-5">
       <h4>Opening Times</h4>
@@ -1590,7 +1617,7 @@ function updateStupidHour() {
     const m = Math.floor(secsLeft / 60);
     const s = secsLeft % 60;
     banner.classList.add('is-live');
-    countdown.innerHTML = `<span class="live-dot"></span>Stupid Hour is live · ${createFlipGroup(m, 'm')} ${createFlipGroup(s, 's')} remaining`;
+    countdown.innerHTML = `<span class="live-dot"></span>Stupid Hour is live · ${createFlipGroup(m, 'm')} ${createFlipGroup(s, 's')} remaining 🕺`;
   } else if (currentSeconds < startTime) {
     banner.classList.remove('is-live');
     const secsUntil = startTime - currentSeconds;
@@ -1598,13 +1625,13 @@ function updateStupidHour() {
     const m = Math.floor((secsUntil % 3600) / 60);
     const s = secsUntil % 60;
     if (h > 0) {
-      countdown.innerHTML = `🍸 ${createFlipGroup(h, 'h')} ${createFlipGroup(m, 'm')} ${createFlipGroup(s, 's')} until <span>Stupid Hour</span>`;
+      countdown.innerHTML = `🍸 ${createFlipGroup(h, 'h')} ${createFlipGroup(m, 'm')} ${createFlipGroup(s, 's')} until <span>Stupid Hour</span> 🕺`;
     } else {
-      countdown.innerHTML = `🍸 ${createFlipGroup(m, 'm')} ${createFlipGroup(s, 's')} until <span>Stupid Hour</span>`;
+      countdown.innerHTML = `🍸 ${createFlipGroup(m, 'm')} ${createFlipGroup(s, 's')} until <span>Stupid Hour</span> 🕺`;
     }
   } else {
     banner.classList.remove('is-live');
-    countdown.innerHTML = `🍸 <span>Stupid Hour</span> returns tomorrow at 4pm`;
+    countdown.innerHTML = `🍸 <span>Stupid Hour</span> returns tomorrow at 4pm 🕺`;
   }
 }
 
