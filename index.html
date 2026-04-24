@@ -3,17 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thirst Soho</title>
+<title>Thirst Soho — Warm Palette Test</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0B112B;
-  --white: #ffffff;
-  --white-70: rgba(255,255,255,0.7);
-  --white-50: rgba(255,255,255,0.5);
-  --white-30: rgba(255,255,255,0.3);
-  --white-15: rgba(255,255,255,0.15);
+  --bg: #1a1410;
+  --white: #f5efe8;
+  --white-70: rgba(245,239,232,0.7);
+  --white-50: rgba(245,239,232,0.5);
+  --white-30: rgba(245,239,232,0.3);
+  --white-15: rgba(245,239,232,0.15);
+  --gold: #c4907a;
   --font-display: 'Belleza', sans-serif;
   --font-ui: 'Jost', 'Futura', 'Helvetica Neue', sans-serif;
 }
@@ -231,12 +232,12 @@ a { color: inherit; text-decoration: none; }
 }
 
 .stupid-banner.is-live {
-  color: #c9a84c;
+  color: #c4907a;
   border-bottom-color: rgba(201, 168, 76, 0.3);
   animation: livePulse 2s ease-in-out infinite;
 }
 .stupid-banner.is-live span {
-  color: #c9a84c;
+  color: #c4907a;
 }
 
 /* Live dot indicator */
@@ -245,7 +246,7 @@ a { color: inherit; text-decoration: none; }
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #c9a84c;
+  background: #c4907a;
   margin-right: 8px;
   vertical-align: middle;
   animation: liveDotPulse 1.5s ease-in-out infinite;
@@ -365,7 +366,7 @@ a { color: inherit; text-decoration: none; }
 .menu-links a.book-link,
 .menu-links a.book-link:hover,
 .menu-panel.open .menu-links a.book-link {
-  color: #c9a84c !important;
+  color: #c4907a !important;
 }
 
 .menu-footer {
@@ -507,9 +508,9 @@ nav.scrolled {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(11,17,43,0.4) 0%,
+    rgba(26,20,16,0.4) 0%,
     rgba(0,0,0,0.2) 50%,
-    rgba(11,17,43,0.6) 100%
+    rgba(26,20,16,0.6) 100%
   );
 }
 
@@ -816,9 +817,9 @@ nav.scrolled {
   z-index: 2;
   background: radial-gradient(
     ellipse at center,
-    rgba(11,17,43,0.88) 0%,
-    rgba(11,17,43,0.65) 50%,
-    rgba(11,17,43,0.4) 100%
+    rgba(26,20,16,0.88) 0%,
+    rgba(26,20,16,0.65) 50%,
+    rgba(26,20,16,0.4) 100%
   );
   pointer-events: none;
 }
@@ -1015,7 +1016,7 @@ nav.scrolled {
   color: var(--white-50);
 }
 .review-stars {
-  color: #c9a84c;
+  color: #c4907a;
   font-size: 0.85rem;
   letter-spacing: 2px;
   margin-bottom: 12px;
@@ -1039,14 +1040,14 @@ nav.scrolled {
   width: 100%;
   height: 100%;
   border: 0;
-  filter: invert(90%) hue-rotate(180deg) saturate(0.3) brightness(0.6) contrast(1.2);
+  filter: invert(90%) hue-rotate(160deg) sepia(0.15) saturate(0.3) brightness(0.5) contrast(1.2);
 }
 .map-overlay-strip {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(180deg, transparent 0%, rgba(11,17,43,.8) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(26,20,16,.8) 100%);
   padding: 32px 32px 28px;
   display: flex;
   align-items: flex-end;
