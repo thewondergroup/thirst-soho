@@ -185,13 +185,17 @@ footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--wh
 <div class="form-section" id="booking-form">
   <div class="form-wrap">
     <h2 class="reveal-up">Get in Touch</h2>
-    <div class="form-group"><label>Name *</label><input type="text" placeholder="Your name" required></div>
-    <div class="form-group"><label>Email Address *</label><input type="email" placeholder="your@email.com" required></div>
-    <div class="form-group"><label>Enquiry Type</label><select><option>Table Booking</option><option>Birthday / Celebration</option><option>Private Hire</option><option>Other</option></select></div>
-    <div class="form-group"><label>Date</label><input type="date"></div>
-    <div class="form-group"><label>Number of Guests</label><input type="number" placeholder="e.g. 8"></div>
-    <div class="form-group"><label>Message</label><textarea placeholder="Tell us about your plans..."></textarea></div>
+    <form action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="68f4c602-1788-47fd-8c9b-39fd0e37e307">
+    <input type="hidden" name="subject" value="New Booking Enquiry — Thirst Soho">
+    <div class="form-group"><label>Name *</label><input type="text" name="name" placeholder="Your name" required></div>
+    <div class="form-group"><label>Email Address *</label><input type="email" name="email" placeholder="your@email.com" required></div>
+    <div class="form-group"><label>Enquiry Type</label><select name="enquiry_type"><option>Table Booking</option><option>Birthday / Celebration</option><option>Private Hire</option><option>Other</option></select></div>
+    <div class="form-group"><label>Date</label><input type="date" name="date"></div>
+    <div class="form-group"><label>Number of Guests</label><input type="number" name="guests" placeholder="e.g. 8"></div>
+    <div class="form-group"><label>Message</label><textarea name="message" placeholder="Tell us about your plans..."></textarea></div>
     <div class="form-submit"><button class="btn" type="submit">Submit</button></div>
+    </form>
   </div>
 </div>
 
