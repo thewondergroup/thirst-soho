@@ -541,989 +541,28 @@ footer {
 </div>
 
 <!-- ═══════════════════════════════════════
-     COCKTAILS
+     DYNAMIC MENU (loaded from Google Sheets)
 ═══════════════════════════════════════ -->
-<div id="cocktails">
 
-  <!-- House Favourites -->
-  <div class="drinks-section reveal-up">
-    <div class="cat-header">
-      <div class="cat-divider"></div>
-      <h2>Cocktails</h2>
-      <p class="cat-sub">House favourites, classics and more</p>
-    </div>
+<!-- Loading state -->
+<div id="menuLoading" class="section section-centered" style="padding:80px 24px">
+  <p style="color:var(--white-50)">Loading menu...</p>
+</div>
 
-    <div class="sub-cat">House Favourites</div>
-    <div class="drink-grid">
+<!-- Cocktails -->
+<div id="cocktails" style="display:none"></div>
 
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>The Cheeky Chop</h3>
-          <p class="desc">Citron Vodka carefully built with Chambord, lemon juice and topped with lemonade for a sweet and fruity house signature.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
-        </div>
-      </div>
+<!-- Wine & Bubbles -->
+<div id="wine" style="display:none"></div>
 
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Smokescreen</h3>
-          <p class="desc">Freshly muddled watermelon and mezcal shaken with fresh lime juice, hibiscus syrup, and cherry brandy liqueur served up and garnished with a dehydrated lime wheel.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13.50</div></div>
-        </div>
-      </div>
+<!-- Beer & Cider -->
+<div id="beer" style="display:none"></div>
 
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Blackbird</h3>
-          <p class="desc">Smoky Alipús mezcal, combined with green Chartreuse and Crème de violette, finished with a maraschino syrup drizzle and a cherry wrapped in orange peel. Dark, floral, and elegant.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£11</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£14</div></div>
-        </div>
-      </div>
+<!-- Non-Alcoholic -->
+<div id="na" style="display:none"></div>
 
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3 class="premium">Presidential Tommy's <span class="premium-tag">Super Premium</span></h3>
-          <p class="desc">100% Blue Weber Agave Casamigos Reposado Tequila, expertly shaken to perfection with fresh lime juice and organic agave syrup. Served on the rocks with a half-salt rim.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£22</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Gin G Spot</h3>
-          <p class="desc">Muddled cucumber combined with Hendricks Gin, elderflower, sugar and lemon juice for a truly refreshing house classic that hits the spot every time.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Honey Berry Sour</h3>
-          <p class="desc">Citron Vodka shaken with black raspberry liqueur, fresh lemon juice, and honey served over crushed ice.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Spiced Jungle</h3>
-          <p class="desc">Havana Spiced Rum, fresh lime juice, Triple Sec, hibiscus syrup, orange and pineapple juice shaken with a dash of grenadine over the top and garnished with a dehydrated orange slice and a cherry.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Contemporary Cocktails -->
-  <div class="drinks-section reveal-up">
-    <div class="sub-cat">Contemporary Cocktails</div>
-    <div class="drink-grid">
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>The Business</h3>
-          <p class="desc">Vodka and elderflower gently combined with Sauvignon Blanc and fresh mint for a refreshing and elegant drink.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£14</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>London Mule</h3>
-          <p class="desc">A zesty and refreshing blend of London Dry Gin, spicy ginger beer, lime juice and a dash of bitters. Served over ice. Crisp and invigorating with a lively kick.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Passionate Rum Punch</h3>
-          <p class="desc">Claro Rum shaken with Passoa, lime juice, passionfruit purée and sugar. Served over crushed ice and garnished with a flaming dash of Wray & Nephew.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£11</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£14</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Final Solstice</h3>
-          <p class="desc">Rich El Dorado Rum and dark demerara sweetness cut with bright lemon, crowned with a warming mulled-wine float and a cinnamon stick to garnish. Soft, silky, and dangerous.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13.50</div></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Bubbles -->
-  <div class="drinks-section reveal-up">
-    <div class="sub-cat">Bubbles</div>
-    <div class="drink-grid">
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Aperol Spritz</h3>
-          <p class="desc">The Venetian classic – Aperol lengthened with Prosecco and soda. Served over ice with a fresh orange slice.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13.50</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Hugo Spritz</h3>
-          <p class="desc">St-Germain elderflower, prosecco poured over ice topped with soda, mint and a slice of lime. Crisp, floral, and a little flirty — like sunshine in a glass.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13.50</div></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Classic Cocktails -->
-  <div class="drinks-section reveal-up">
-    <div class="sub-cat">Classic Cocktails</div>
-    <div class="drink-grid">
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Cosmopolitan</h3>
-          <p class="desc">A carefully balanced blend of Citron Vodka, cranberry juice, Triple Sec, and lime juice shaken and garnished with flaming orange zest. Exchange the Vodka for Tequila for a Rude Cosmopolitan. Citrusy, sweet and tangy.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Mojito</h3>
-          <p class="desc">A large measure of Havana 3YO combined with fresh muddled lime, sugar and mint. Served long over crushed ice and topped with soda water. Also available with seasonal fruit infusions.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Bramble</h3>
-          <p class="desc">London Dry Gin shaken with lemon juice and sugar. Served short over crushed ice with a drizzle of blackberry liqueur. Simple and delicious.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Caipirinha</h3>
-          <p class="desc">Gold Cachaça combined with fresh muddled lime and sugar served short over crushed ice. Also available with seasonal fruit infusions. Exchange the Cachaça for Vodka for a Caipiroska.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Tom Collins</h3>
-          <p class="desc">Old Tom Gin mixed with muddled lemons, sugar, and soda water, served long over cubed ice.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Dark and Stormy</h3>
-          <p class="desc">Havana Especial with fresh lime, Angostura Bitters and a dash of sugar, lengthened with ginger beer.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Margarita</h3>
-          <p class="desc">Cabrito 100% Agave Tequila shaken with fresh lime juice and Triple Sec and served straight up or on the rocks with an optional salt rim. Swap the Triple Sec for agave for a Tommy's Margarita, or add chillies for a Picante.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Paloma</h3>
-          <p class="desc">Cabrito 100% Agave Tequila combined with fresh lime and grapefruit soda, served long over cubed ice with a pink Himalayan salt rim.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Mai Tai</h3>
-          <p class="desc">The Tiki classic. Dark and Gold Rums shaken with orange liqueur, fresh lime juice and Orgeat for a nutty tropical drink.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13.50</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Old Fashioned</h3>
-          <p class="desc">Angostura soaked sugar cube muddled and combined with Buffalo Trace Kentucky Straight Bourbon, stirred to perfection and served on the rocks with zest of orange.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£11.50</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£14.50</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3 class="premium">The Blacksmith's Old Fashioned <span class="premium-tag">Super Premium</span></h3>
-          <p class="desc">100% organic rye from Koval Distillery stirred to perfection with an aromatic bitters soaked sugar cube, served on the rocks with zest of orange.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£24</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Piña Colada</h3>
-          <p class="desc">A perfectly balanced mixture of Havana 3YO, a dash of Malibu, coconut cream, pineapple juice and a dash of cream blended to recreate a tropical classic that will transport you right back to that special place.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3 class="premium">Sazerac <span class="premium-tag">Super Premium</span></h3>
-          <p class="desc">Rye whiskey, Peychaud's bitters, absinthe, lemon. A bold New Orleans classic — smooth, aromatic, with just a hint of mischief.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£22</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Daiquiri</h3>
-          <p class="desc">Simple yet delicious. Havana 3YO Rum, sugar and lime shaken and served straight up — or served long with blended seasonal fruits when requested as a Frozen Daiquiri.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£7.50</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Long Island</h3>
-          <p class="desc">A combination of Vodka, Rum, Gin, Tequila, Triple Sec, and lemon juice shaken and layered over a base of Coca-Cola for a cool-looking and potent drink. Swap the Triple Sec for Midori and the Coca-Cola for lemonade for a Japanese Long Island.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13.50</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Ramos Gin Fizz</h3>
-          <p class="desc">A New Orleans classic that's as refreshing as it is indulgent. Bombay Sapphire Gin, lemon juice, egg white, and a touch of orange blossom water are shaken to silky perfection and topped with soda for a light, frothy finish. Effervescent and floral.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13.50</div></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Martini Cocktails -->
-  <div class="drinks-section reveal-up">
-    <div class="sub-cat">Martini Cocktails</div>
-    <div class="drink-grid">
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>The Thirst Date</h3>
-          <p class="desc">Freshly muddled watermelon and basil shaken with Bombay Sapphire Gin, lemon juice, sugar and watermelon syrup. As delicious as it sounds.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13.50</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Wonderland Martini</h3>
-          <p class="desc">Vanilla Vodka shaken with Kahlúa, Baileys, and a whisper of Frangelico, lifted by fresh coffee and finished with nutmeg. Rich, dreamy, and far too easy to love.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13.50</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3 class="premium">Pure Filth <span class="premium-tag">Super Premium</span></h3>
-          <p class="desc">An unapologetically bold Martini, shaken or stirred ice-cold with Riesling-infused Ferdinand's Saar Dry Gin and an overdose of rich olive brine, garnished with briny olives. Gritty, salty, and downright irresistible.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£24</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Pornstar Martini</h3>
-          <p class="desc">Vanilla Vodka and Passoa shaken ice cold with passion fruit purée and a hint of citrus. Served with bubbles and garnished with half a fresh passion fruit.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Smoke on the Water</h3>
-          <p class="desc">A fabulous mix of Mezcal, Tequila, Chambord, and Triple Sec shaken with agave syrup and lime juice, served up and garnished with a dehydrated lime wheel.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10.50</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13.50</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Lychee Martini</h3>
-          <p class="desc">Tovaritch Vodka, lychee liqueur, fresh lychee purée, and sweet &amp; sour touch.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>French Martini</h3>
-          <p class="desc">A chic and velvety blend of Vanilla Vodka, Chambord, and pineapple juice, the French Martini delivers a perfect balance of tart and sweet with a silky finish. Elegant, fruity, and effortlessly sophisticated.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£13</div></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-</div><!-- /cocktails -->
-
-<!-- ═══════════════════════════════════════
-     WINE & BUBBLES
-═══════════════════════════════════════ -->
-<div id="wine">
-  <div class="drinks-section reveal-up">
-    <div class="cat-header">
-      <div class="cat-divider"></div>
-      <h2>Wine &amp; Bubbles</h2>
-      <p class="cat-sub">By the glass or by the bottle</p>
-    </div>
-
-    <!-- White Wine -->
-    <div class="sub-cat">White Wine</div>
-    <div class="drink-grid">
-
-      <div class="wine-card">
-        <div class="wine-info">
-          <h3>Produttori Soleiano Verdicchio di Matelica</h3>
-          <p class="origin">Italy, 2023</p>
-          <p class="desc">Unoaked blend of 70% Sangiovese and 30% Merlot. Medium-weight, fresh, juicy red bursting with wild cherry and blackberry flavours.</p>
-        </div>
-        <div class="wine-prices">
-          <div class="price-col"><div class="price-label">175ml</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">250ml</div><div class="price-val">£13</div></div>
-          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£35</div></div>
-        </div>
-      </div>
-
-      <div class="wine-card">
-        <div class="wine-info">
-          <h3>Les Grès Chardonnay</h3>
-          <p class="origin">France, 2023</p>
-          <p class="desc">Unoaked blend of 70% Sangiovese and 30% Merlot. Medium-weight, fresh, juicy red bursting with wild cherry and blackberry flavours.</p>
-        </div>
-        <div class="wine-prices">
-          <div class="price-col"><div class="price-label">175ml</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">250ml</div><div class="price-val">£13</div></div>
-          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£35</div></div>
-        </div>
-      </div>
-
-      <div class="wine-card">
-        <div class="wine-info">
-          <h3>Blackenbrook Sauvignon Blanc</h3>
-          <p class="origin">New Zealand, 2023</p>
-          <p class="desc">Unoaked blend of 70% Sangiovese and 30% Merlot. Medium-weight, fresh, juicy red bursting with wild cherry and blackberry flavours.</p>
-        </div>
-        <div class="wine-prices">
-          <div class="price-col"><div class="price-label">175ml</div><div class="price-val">£13</div></div>
-          <div class="price-col"><div class="price-label">250ml</div><div class="price-val">£16</div></div>
-          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£44</div></div>
-        </div>
-      </div>
-
-      <div class="wine-card">
-        <div class="wine-info">
-          <h3>Castelnuovo Pinot Grigio</h3>
-          <p class="origin">Italy, 2023</p>
-          <p class="desc">Unoaked blend of 70% Sangiovese and 30% Merlot. Medium-weight, fresh, juicy red bursting with wild cherry and blackberry flavours.</p>
-        </div>
-        <div class="wine-prices">
-          <div class="price-col"><div class="price-label">175ml</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">250ml</div><div class="price-val">£13</div></div>
-          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£35</div></div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Rosé -->
-    <div class="sub-cat">Rosé Wine</div>
-    <div class="drink-grid">
-
-      <div class="wine-card">
-        <div class="wine-info">
-          <h3>Nature de Roubié Rosé</h3>
-          <p class="origin">France, 2023</p>
-          <p class="desc">Salmon-pink with appealing wild red berries and nectarine on the nose. Medium-bodied, juicy and fresh. A fantastic dry rosé with plenty of flavours and character while retaining elegance.</p>
-        </div>
-        <div class="wine-prices">
-          <div class="price-col"><div class="price-label">175ml</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">250ml</div><div class="price-val">£13</div></div>
-          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£35</div></div>
-        </div>
-      </div>
-
-      <div class="wine-card">
-        <div class="wine-info">
-          <h3>Pur Azur Côtes De Provence Rosé</h3>
-          <p class="origin">France, 2023</p>
-          <p class="desc">The nose offers notes of apricot, wild strawberry, sea air, grapefruit, and white flowers. The palate has an appealing creaminess before finishing crisp and fresh.</p>
-        </div>
-        <div class="wine-prices">
-          <div class="price-col"><div class="price-label">175ml</div><div class="price-val">£13</div></div>
-          <div class="price-col"><div class="price-label">250ml</div><div class="price-val">£16</div></div>
-          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£44</div></div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Red Wine -->
-    <div class="sub-cat">Red Wine</div>
-    <div class="drink-grid">
-
-      <div class="wine-card">
-        <div class="wine-info">
-          <h3>Produttori di Matelica Marche Rosso Soleiano</h3>
-          <p class="origin">Italy, 2022</p>
-          <p class="desc">Unoaked blend of 70% Sangiovese and 30% Merlot. Medium-weight, fresh, juicy red bursting with wild cherry and blackberry flavours.</p>
-        </div>
-        <div class="wine-prices">
-          <div class="price-col"><div class="price-label">175ml</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">250ml</div><div class="price-val">£13</div></div>
-          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£35</div></div>
-        </div>
-      </div>
-
-      <div class="wine-card">
-        <div class="wine-info">
-          <h3>Manissy Domaine Terre Davau Côtes du Rhône</h3>
-          <p class="origin">France, 2022</p>
-          <p class="desc">An elegant Tuscan red with refreshing mulberry flavours.</p>
-        </div>
-        <div class="wine-prices">
-          <div class="price-col"><div class="price-label">175ml</div><div class="price-val">£13</div></div>
-          <div class="price-col"><div class="price-label">250ml</div><div class="price-val">£16</div></div>
-          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£42</div></div>
-        </div>
-      </div>
-
-      <div class="wine-card">
-        <div class="wine-info">
-          <h3>De Gras Pinot Noir Reserva</h3>
-          <p class="origin">Chile, 2023</p>
-          <p class="desc">Impressive Pinot with perfumed wild raspberry with delicate hints of spice.</p>
-        </div>
-        <div class="wine-prices">
-          <div class="price-col"><div class="price-label">175ml</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">250ml</div><div class="price-val">£13</div></div>
-          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£35</div></div>
-        </div>
-      </div>
-
-      <div class="wine-card">
-        <div class="wine-info">
-          <h3>Carelli Latitud 34° Malbec</h3>
-          <p class="origin">Argentina, 2023</p>
-          <p class="desc">Great plum and cranberry perfume with some good spice and leafy secondary characters. Soft but plentiful tannins work well with the acidity and depth of fruit flavour on the palate.</p>
-        </div>
-        <div class="wine-prices">
-          <div class="price-col"><div class="price-label">175ml</div><div class="price-val">£10</div></div>
-          <div class="price-col"><div class="price-label">250ml</div><div class="price-val">£13</div></div>
-          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£35</div></div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Champagne & Prosecco -->
-    <div class="sub-cat">Champagne &amp; Prosecco</div>
-    <div class="drink-grid">
-
-      <div class="wine-card">
-        <div class="wine-info">
-          <h3>Corte Delle Calli Prosecco</h3>
-          <p class="origin">Italy</p>
-          <p class="desc">Delicious soft, round, frothy fizz with gentle floral peach and pear.</p>
-        </div>
-        <div class="wine-prices">
-          <div class="price-col"><div class="price-label">Glass</div><div class="price-val">£8</div></div>
-          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£40</div></div>
-          <div class="price-col"><div class="price-label">Magnum</div><div class="price-val">£70</div></div>
-        </div>
-      </div>
-
-      <div class="wine-card">
-        <div class="wine-info">
-          <h3>A.Bergère Brut</h3>
-          <p class="origin">France</p>
-          <p class="desc">Fine bubbles, vibrant red fruits scented with wild raspberry and white peach and a twist of patisserie; crisp and fresh.</p>
-        </div>
-        <div class="wine-prices">
-          <div class="price-col"><div class="price-label">Glass</div><div class="price-val na">—</div></div>
-          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£90</div></div>
-        </div>
-      </div>
-
-      <div class="wine-card">
-        <div class="wine-info">
-          <h3>Moët &amp; Chandon Brut Imperial</h3>
-          <p class="origin">France</p>
-          <p class="desc">The Brut Imperial from Moët embodies their house style: crisp and clean. This classic Champagne shows citrus aromas and hints of biscuity flavours.</p>
-        </div>
-        <div class="wine-prices">
-          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£120</div></div>
-        </div>
-      </div>
-
-      <div class="wine-card">
-        <div class="wine-info">
-          <h3>Moët &amp; Chandon Brut Rosé</h3>
-          <p class="origin">France</p>
-          <p class="desc">The Brut Imperial from Moët embodies their house style: crisp and clean. This classic Champagne shows citrus aromas and hints of biscuity flavours.</p>
-        </div>
-        <div class="wine-prices">
-          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£140</div></div>
-        </div>
-      </div>
-
-      <div class="wine-card">
-        <div class="wine-info">
-          <h3>Laurent Perrier Cuvée Brut Rosé</h3>
-          <p class="origin">France</p>
-          <p class="desc">Intensely fruity flavours, clean, well-defined and slightly sharp. Red berries, strawberries, Morello cherries, blackcurrants and raspberries.</p>
-        </div>
-        <div class="wine-prices">
-          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£150</div></div>
-        </div>
-      </div>
-
-      <div class="wine-card">
-        <div class="wine-info">
-          <h3>Dom Pérignon</h3>
-          <p class="origin">France — 2013</p>
-          <p class="desc">A graceful, minerally version, featuring rich notes of smoke and chalk that lead to subtle accents of toasted almond and espresso. Seamlessly knit with citrusy acidity leaving a mouthwatering finish.</p>
-        </div>
-        <div class="wine-prices">
-          <div class="price-col"><div class="price-label">Bottle</div><div class="price-val">£310</div></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div><!-- /wine -->
-
-<!-- ═══════════════════════════════════════
-     BEER & CIDER
-═══════════════════════════════════════ -->
-<div id="beer">
-  <div class="drinks-section reveal-up">
-    <div class="cat-header">
-      <div class="cat-divider"></div>
-      <h2>Beer &amp; Cider</h2>
-      <p class="cat-sub">Bottles and cans</p>
-    </div>
-
-    <div class="beer-grid">
-
-      <div class="beer-card">
-        <div class="beer-info">
-          <h3>Peroni</h3>
-          <p class="beer-meta">Italy · 330ml Bottle</p>
-        </div>
-        <div class="beer-price">£5.50</div>
-      </div>
-
-      <div class="beer-card">
-        <div class="beer-info">
-          <h3>Asahi</h3>
-          <p class="beer-meta">Japan · 330ml Bottle</p>
-        </div>
-        <div class="beer-price">£5.50</div>
-      </div>
-
-      <div class="beer-card">
-        <div class="beer-info">
-          <h3>Estrella Dam</h3>
-          <p class="beer-meta">Spain · 330ml Bottle</p>
-        </div>
-        <div class="beer-price">£5.50</div>
-      </div>
-
-      <div class="beer-card">
-        <div class="beer-info">
-          <h3>Corona</h3>
-          <p class="beer-meta">Mexico · 330ml Bottle</p>
-        </div>
-        <div class="beer-price">£5.50</div>
-      </div>
-
-      <div class="beer-card">
-        <div class="beer-info">
-          <h3>Meantime Pale Ale</h3>
-          <p class="beer-meta">UK · 330ml Bottle</p>
-        </div>
-        <div class="beer-price">£7</div>
-      </div>
-
-      <div class="beer-card">
-        <div class="beer-info">
-          <h3>Neck Oil Session IPA</h3>
-          <p class="beer-meta">UK · 330ml Can</p>
-        </div>
-        <div class="beer-price">£7.50</div>
-      </div>
-
-      <div class="beer-card">
-        <div class="beer-info">
-          <h3>Cornish Orchards Gold Cider</h3>
-          <p class="beer-meta">UK · 500ml Bottle</p>
-        </div>
-        <div class="beer-price">£8</div>
-      </div>
-
-      <div class="beer-card">
-        <div class="beer-info">
-          <h3>Rekorderlig Strawberry</h3>
-          <p class="beer-meta">Sweden · 500ml Bottle</p>
-        </div>
-        <div class="beer-price">£8</div>
-      </div>
-
-      <div class="beer-card">
-        <div class="beer-info">
-          <h3>Rekorderlig Passion</h3>
-          <p class="beer-meta">Sweden · 500ml Bottle</p>
-        </div>
-        <div class="beer-price">£8</div>
-      </div>
-
-      <div class="beer-card">
-        <div class="beer-info">
-          <h3>Rekorderlig Wild Berry</h3>
-          <p class="beer-meta">Sweden · 500ml Bottle</p>
-        </div>
-        <div class="beer-price">£8</div>
-      </div>
-
-    </div>
-  </div>
-</div><!-- /beer -->
-
-<!-- ═══════════════════════════════════════
-     NON-ALCOHOLIC
-═══════════════════════════════════════ -->
-<div id="na">
-  <div class="drinks-section reveal-up">
-    <div class="cat-header">
-      <div class="cat-divider"></div>
-      <h2>Non-Alcoholic</h2>
-      <p class="cat-sub">Mocktails and alcohol-free beer</p>
-    </div>
-
-    <div class="sub-cat">Mocktails</div>
-    <div class="drink-grid">
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Neotropical</h3>
-          <p class="desc">A vibrant concoction of cranberry, orange, apple, and pineapple juices, shaken with lemon juice, sugar syrup, and passion fruit elements, served in a dirty pour style, crowned with a luscious passion fruit half garnish.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£6.50</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£8.50</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£10.50</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Soft Porn</h3>
-          <p class="desc">A delightful mocktail featuring STRYKK Not Rum 0%, harmonized with vanilla and passionfruit syrups, along with the tropical fusion of pineapple and passionfruit puree.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£6.50</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£8.50</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£10.50</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Juicy Affair</h3>
-          <p class="desc">A cool, refreshing embrace of muddled cucumber and zesty lemon, softened by a sweet touch of elderflower and a crisp hint of apple. This tantalising sip promises to linger on your lips.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£6.50</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£8.50</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£10.50</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>Nojito</h3>
-          <p class="desc">STRYKK Not Rum, muddled with lime, sugar, and mint, creates a spirited, non-alcoholic Mojito garnished with a lime wedge and fresh mint sprig for a burst of tropical flavour.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£6.50</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£8.50</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£10.50</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>The Long Con</h3>
-          <p class="desc">Grapefruit and lemon juices meet hibiscus syrup, topped with bitter lemon tonic, shaken with or without egg white, presenting a non-alcoholic elixir adorned with a hibiscus flower for a harmonious citrus and floral symphony.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£6.50</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£8.50</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£10.50</div></div>
-        </div>
-      </div>
-
-      <div class="drink-card">
-        <div class="drink-info">
-          <h3>El Motivo</h3>
-          <p class="desc">Botivo takes the spotlight in this invigorating non-alcoholic concoction, blended with ginger beer, topped with soda water, and crowned with a twist of lemon peel for a zesty finish.</p>
-        </div>
-        <div class="drink-prices">
-          <div class="price-col stupid"><div class="price-label">Stupid</div><div class="price-val">£6.50</div></div>
-          <div class="price-col"><div class="price-label">Happy</div><div class="price-val">£8.50</div></div>
-          <div class="price-col"><div class="price-label">Normal</div><div class="price-val">£10.50</div></div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="sub-cat">Non-Alcoholic Beer</div>
-    <div class="beer-grid">
-
-      <div class="beer-card">
-        <div class="beer-info">
-          <h3>Lucky Saint</h3>
-          <p class="beer-meta">Germany · 330ml Bottle</p>
-        </div>
-        <div class="beer-price">£7</div>
-      </div>
-
-      <div class="beer-card">
-        <div class="beer-info">
-          <h3>Brewdog Punk AF</h3>
-          <p class="beer-meta">Scotland · 330ml Bottle · Alcohol Free IPA</p>
-        </div>
-        <div class="beer-price">£5.50</div>
-      </div>
-
-    </div>
-
-  </div>
-</div><!-- /na -->
-
-<!-- ═══════════════════════════════════════
-     PACKAGES
-═══════════════════════════════════════ -->
-<div id="packages">
-  <div class="drinks-section reveal-up">
-    <div class="cat-header">
-      <div class="cat-divider"></div>
-      <h2>Packages</h2>
-      <p class="cat-sub">Pre-order &amp; save</p>
-    </div>
-
-    <div class="pkg-note">Packages can only be pre-ordered and pre-paid in advance — not available on-site</div>
-
-    <div class="pkg-grid">
-
-      <div class="pkg-card">
-        <h3>Beer Bucket</h3>
-        <p class="pkg-desc">12 Bottles of Beer of your choice</p>
-        <div class="pkg-price">£55</div>
-      </div>
-
-      <div class="pkg-card">
-        <h3>Mix &amp; Match Wine Package</h3>
-        <p class="pkg-desc">10 Cocktails and 2 Bottles of Wine (red, white or rosé)</p>
-        <div class="pkg-price">£120</div>
-      </div>
-
-      <div class="pkg-card">
-        <h3>Wine Package</h3>
-        <p class="pkg-desc">5 Bottles of mixed House wine (red, white or rosé)</p>
-        <div class="pkg-price">£140</div>
-      </div>
-
-      <div class="pkg-card">
-        <h3>Magnum Package</h3>
-        <p class="pkg-desc">1 Magnum (1.5lt) Prosecco and 1 bottle of House Spirit (including mixers)</p>
-        <div class="pkg-price">£170</div>
-      </div>
-
-      <div class="pkg-card">
-        <h3>Double Magnum Package</h3>
-        <p class="pkg-desc">2 Magnum (1.5lt) Prosecco and 1 bottle of House Spirit (including mixers)</p>
-        <div class="pkg-price">£250</div>
-      </div>
-
-      <div class="pkg-card">
-        <h3>Mad Magnum Package</h3>
-        <p class="pkg-desc">2 Magnum (1.5lt) Prosecco and 2 bottles of House Spirit (including mixers)</p>
-        <div class="pkg-price">£290</div>
-      </div>
-
-    </div>
-  </div>
-</div><!-- /packages -->
+<!-- Packages -->
+<div id="packages" style="display:none"></div>
 
 <!-- CTA -->
 <div class="section section-centered reveal-up" style="padding-bottom:120px;">
@@ -1534,7 +573,6 @@ footer {
     <a href="/soho/bookings" class="btn">Book a Table</a>
   </div>
 </div>
-
 <!-- Footer -->
 <footer>
   <div class="footer-divider"></div>
@@ -1671,6 +709,197 @@ setTimeout(()=>{document.querySelectorAll('.reveal-up').forEach(el=>el.classList
   const el=document.getElementById('emailFooter');
   if(el){const a=document.createElement('a');a.href='mail'+'to:'+u+'@'+d;a.textContent=u+'@'+d;el.appendChild(a);}
 })();
+/* ══════════════════════════════════════
+   GOOGLE SHEETS MENU LOADER
+══════════════════════════════════════ */
+(function(){
+  // REPLACE THIS with your published Google Sheet ID
+  const SHEET_ID = '1a9yy6QWlTiz-yQacS-Mj9xsiyaT_bxFJ';
+  
+  // Tab/sheet names (must match your Google Sheet tab names exactly)
+  const TABS = {
+    cocktails: 'Cocktails',
+    wine: 'Wine',
+    beer: 'Beer',
+    na: 'NonAlcoholic',
+    packages: 'Packages'
+  };
+
+  function csvToArray(csv){
+    const rows=[];
+    const lines=csv.split('\n');
+    for(let i=0;i<lines.length;i++){
+      const row=[];
+      let cell='',inQuotes=false;
+      for(let j=0;j<lines[i].length;j++){
+        const c=lines[i][j];
+        if(c==='"'){inQuotes=!inQuotes;}
+        else if(c===','&&!inQuotes){row.push(cell.trim());cell='';}
+        else{cell+=c;}
+      }
+      row.push(cell.trim());
+      rows.push(row);
+    }
+    return rows;
+  }
+
+  function parseSheet(csv){
+    const rows=csvToArray(csv);
+    if(rows.length<2)return[];
+    const headers=rows[0].map(h=>h.toLowerCase().trim());
+    return rows.slice(1).filter(r=>r.some(c=>c)).map(r=>{
+      const obj={};
+      headers.forEach((h,i)=>{obj[h]=r[i]||'';});
+      return obj;
+    });
+  }
+
+  function priceHTML(val,label,isStupid){
+    if(!val||val==='N/A'||val==='n/a'||val==='-'||val==='')
+      return `<div class="price-col${isStupid?' stupid':''}"><div class="price-label">${label}</div><div class="price-val na">—</div></div>`;
+    const price=val.startsWith('£')?val:'£'+val;
+    return `<div class="price-col${isStupid?' stupid':''}"><div class="price-label">${label}</div><div class="price-val">${price}</div></div>`;
+  }
+
+  function renderCocktails(items){
+    const container=document.getElementById('cocktails');
+    const groups={};
+    items.forEach(item=>{
+      const sub=item.subcategory||'Cocktails';
+      if(!groups[sub])groups[sub]=[];
+      groups[sub].push(item);
+    });
+
+    let html='<div class="drinks-section reveal-up"><div class="cat-header"><div class="cat-divider"></div><h2>Cocktails</h2><p class="cat-sub">House favourites, classics and more</p></div>';
+    
+    for(const [sub,drinks] of Object.entries(groups)){
+      html+=`<div class="sub-cat">${sub}</div><div class="drink-grid">`;
+      drinks.forEach(d=>{
+        const isPremium=d.premium&&d.premium.toLowerCase()==='yes';
+        const nameClass=isPremium?' class="premium"':'';
+        const tag=isPremium?'<span class="premium-tag">Super Premium</span>':'';
+        html+=`<div class="drink-card"><div class="drink-info"><h3${nameClass}>${d.name} ${tag}</h3><p class="desc">${d.description||''}</p></div><div class="drink-prices">${priceHTML(d.stupid,'Stupid',true)}${priceHTML(d.happy,'Happy',false)}${priceHTML(d.normal,'Normal',false)}</div></div>`;
+      });
+      html+='</div>';
+    }
+    html+='</div>';
+    container.innerHTML=html;
+    container.style.display='';
+  }
+
+  function renderWine(items){
+    const container=document.getElementById('wine');
+    const groups={};
+    items.forEach(item=>{
+      const sub=item.subcategory||'Wine';
+      if(!groups[sub])groups[sub]=[];
+      groups[sub].push(item);
+    });
+
+    let html='<div class="drinks-section reveal-up"><div class="cat-header"><div class="cat-divider"></div><h2>Wine &amp; Bubbles</h2><p class="cat-sub">By the glass or by the bottle</p></div>';
+    
+    for(const [sub,wines] of Object.entries(groups)){
+      html+=`<div class="sub-cat">${sub}</div><div class="drink-grid">`;
+      wines.forEach(w=>{
+        const p1Label=w.price1label||'175ml';
+        const p2Label=w.price2label||'250ml';
+        const p3Label=w.price3label||'Bottle';
+        html+=`<div class="wine-card"><div class="wine-info"><h3>${w.name}</h3><p class="origin">${w.origin||''}</p><p class="desc">${w.description||''}</p></div><div class="wine-prices">${priceHTML(w.price1,p1Label,false)}${priceHTML(w.price2,p2Label,false)}${priceHTML(w.price3,p3Label,false)}</div></div>`;
+      });
+      html+='</div>';
+    }
+    html+='</div>';
+    container.innerHTML=html;
+    container.style.display='';
+  }
+
+  function renderBeer(items){
+    const container=document.getElementById('beer');
+    let html='<div class="drinks-section reveal-up"><div class="cat-header"><div class="cat-divider"></div><h2>Beer &amp; Cider</h2><p class="cat-sub">Bottles and cans</p></div><div class="beer-grid">';
+    items.forEach(b=>{
+      const price=b.price?(b.price.startsWith('£')?b.price:'£'+b.price):'';
+      html+=`<div class="beer-card"><div class="beer-info"><h3>${b.name}</h3><p class="beer-meta">${b.origin||''} · ${b.size||''}</p></div><div class="beer-price">${price}</div></div>`;
+    });
+    html+='</div></div>';
+    container.innerHTML=html;
+    container.style.display='';
+  }
+
+  function renderNA(items){
+    const container=document.getElementById('na');
+    const mocktails=items.filter(i=>(i.type||'').toLowerCase()!=='beer');
+    const naBeer=items.filter(i=>(i.type||'').toLowerCase()==='beer');
+
+    let html='<div class="drinks-section reveal-up"><div class="cat-header"><div class="cat-divider"></div><h2>Non-Alcoholic</h2><p class="cat-sub">Mocktails and alcohol-free beer</p></div>';
+    
+    if(mocktails.length){
+      html+='<div class="sub-cat">Mocktails</div><div class="drink-grid">';
+      mocktails.forEach(d=>{
+        html+=`<div class="drink-card"><div class="drink-info"><h3>${d.name}</h3><p class="desc">${d.description||''}</p></div><div class="drink-prices">${priceHTML(d.stupid,'Stupid',true)}${priceHTML(d.happy,'Happy',false)}${priceHTML(d.normal,'Normal',false)}</div></div>`;
+      });
+      html+='</div>';
+    }
+    if(naBeer.length){
+      html+='<div class="sub-cat">Non-Alcoholic Beer</div><div class="beer-grid">';
+      naBeer.forEach(b=>{
+        const price=b.normal?(b.normal.startsWith('£')?b.normal:'£'+b.normal):'';
+        html+=`<div class="beer-card"><div class="beer-info"><h3>${b.name}</h3><p class="beer-meta">${b.origin||''} · ${b.size||''}</p></div><div class="beer-price">${price}</div></div>`;
+      });
+      html+='</div>';
+    }
+    html+='</div>';
+    container.innerHTML=html;
+    container.style.display='';
+  }
+
+  function renderPackages(items){
+    const container=document.getElementById('packages');
+    let html='<div class="drinks-section reveal-up"><div class="cat-header"><div class="cat-divider"></div><h2>Packages</h2><p class="cat-sub">Pre-order &amp; save</p></div><div class="pkg-note">Packages can only be pre-ordered and pre-paid in advance — not available on-site</div><div class="pkg-grid">';
+    items.forEach(p=>{
+      const price=p.price?(p.price.startsWith('£')?p.price:'£'+p.price):'';
+      html+=`<div class="pkg-card"><h3>${p.name}</h3><p class="pkg-desc">${p.description||''}</p><div class="pkg-price">${price}</div></div>`;
+    });
+    html+='</div></div>';
+    container.innerHTML=html;
+    container.style.display='';
+  }
+
+  async function loadTab(tabName){
+    const url=`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(tabName)}`;
+    const res=await fetch(url);
+    if(!res.ok)throw new Error(`Failed to load ${tabName}`);
+    return parseSheet(await res.text());
+  }
+
+  async function loadMenu(){
+    try{
+      const [cocktails,wine,beer,na,packages]=await Promise.all([
+        loadTab(TABS.cocktails),
+        loadTab(TABS.wine),
+        loadTab(TABS.beer),
+        loadTab(TABS.na),
+        loadTab(TABS.packages)
+      ]);
+      
+      document.getElementById('menuLoading').style.display='none';
+      
+      renderCocktails(cocktails);
+      renderWine(wine);
+      renderBeer(beer);
+      renderNA(na);
+      renderPackages(packages);
+
+      // Re-observe new elements for scroll reveal
+      document.querySelectorAll('.reveal-up').forEach(el=>obs.observe(el));
+    }catch(err){
+      console.error('Menu load error:',err);
+      document.getElementById('menuLoading').innerHTML='<p style="color:var(--white-50)">Menu temporarily unavailable. Please check back shortly.</p>';
+    }
+  }
+
+  loadMenu();
+})();
+
 </script>
 </body>
 </html>
