@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thirst — Soho & Oxford</title>
+<meta name="description" content="Thirst. Soho's late-night institution and now in Oxford. Award-winning cocktails, live DJs, open until 3am.">
+<link rel="canonical" href="https://thirstbar.com/">
+<meta property="og:title" content="Thirst — Soho & Oxford">
+<meta property="og:description" content="Soho's late-night institution and now in Oxford. Award-winning cocktails, live DJs, open until 3am.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thirstbar.com/">
+<meta property="og:image" content="https://thirstbar.com/assets/exterior-night.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Belleza&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
+body{background:#0a0a0a;color:#f5f0ed;font-family:'Belleza',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* Logo */
+.landing-logo{
+  position:fixed;top:0;left:0;right:0;z-index:10;
+  display:flex;justify-content:center;padding:40px 24px;
+  pointer-events:none;
+}
+.landing-logo img{height:56px;width:auto;object-fit:contain;opacity:0;animation:fadeIn .8s .3s ease forwards}
+
+/* Split layout */
+.landing-split{
+  display:grid;grid-template-columns:1fr 1fr;
+  height:100vh;height:100dvh;
+}
+
+/* Each venue panel */
+.venue{
+  position:relative;overflow:hidden;cursor:pointer;
+}
+.venue-bg{
+  position:absolute;inset:0;
+  transition:transform 1.2s cubic-bezier(.16,1,.3,1);
+}
+.venue-bg img{
+  width:100%;height:100%;object-fit:cover;
+  filter:brightness(.45);
+  transition:filter .8s ease,transform 8s ease;
+}
+.venue:hover .venue-bg{transform:scale(1.02)}
+.venue:hover .venue-bg img{filter:brightness(.3);transform:scale(1.05)}
+
+/* Dark edge between panels */
+.venue:first-child::after{
+  content:'';position:absolute;top:0;right:0;bottom:0;width:1px;
+  background:rgba(255,255,255,.08);z-index:3;
+}
+
+/* Venue content */
+.venue-content{
+  position:relative;z-index:2;
+  height:100%;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:24px;text-align:center;
+}
+.venue-location{
+  font-family:'Jost','Futura',sans-serif;
+  font-size:.7rem;font-weight:500;
+  letter-spacing:.3em;text-transform:uppercase;
+  color:rgba(245,240,237,.5);
+  margin-bottom:16px;
+  opacity:0;animation:fadeUp .8s .5s ease forwards;
+}
+.venue-name{
+  font-family:'Belleza',sans-serif;
+  font-size:clamp(2.2rem,4.5vw,4rem);
+  font-weight:400;line-height:1.2;
+  margin-bottom:24px;
+  opacity:0;animation:fadeUp .8s .7s ease forwards;
+}
+.venue:first-child .venue-name{animation-delay:.7s}
+.venue:last-child .venue-name{animation-delay:.9s}
+.venue:first-child .venue-location{animation-delay:.5s}
+.venue:last-child .venue-location{animation-delay:.6s}
+
+.venue-enter{
+  font-family:'Jost','Futura',sans-serif;
+  font-size:.65rem;font-weight:500;
+  letter-spacing:.25em;text-transform:uppercase;
+  padding:16px 48px;
+  border:1px solid rgba(245,240,237,.3);
+  transition:all .4s ease;
+  opacity:0;animation:fadeUp .8s .9s ease forwards;
+}
+.venue:last-child .venue-enter{animation-delay:1.1s}
+.venue:hover .venue-enter{
+  background:rgba(245,240,237,1);color:#0a0a0a;
+  border-color:rgba(245,240,237,1);
+  transform:translateY(-2px);
+}
+
+/* Hover: expand the hovered panel */
+.landing-split:has(.venue:first-child:hover){
+  grid-template-columns:1.15fr .85fr;
+}
+.landing-split:has(.venue:last-child:hover){
+  grid-template-columns:.85fr 1.15fr;
+}
+.landing-split{
+  transition:grid-template-columns .8s cubic-bezier(.16,1,.3,1);
+}
+
+/* Bottom bar */
+.landing-footer{
+  position:fixed;bottom:0;left:0;right:0;z-index:10;
+  display:flex;justify-content:center;gap:32px;
+  padding:20px 24px;
+  font-family:'Jost','Futura',sans-serif;
+  font-size:.55rem;font-weight:400;
+  letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(245,240,237,.3);
+}
+.landing-footer a{transition:color .3s}
+.landing-footer a:hover{color:rgba(245,240,237,.7)}
+
+/* Animations */
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* Mobile: stack vertically */
+@media(max-width:768px){
+  html,body{overflow:auto}
+  .landing-split{
+    grid-template-columns:1fr;
+    grid-template-rows:1fr 1fr;
+    height:100vh;height:100dvh;
+  }
+  .landing-split:has(.venue:first-child:hover),
+  .landing-split:has(.venue:last-child:hover){
+    grid-template-columns:1fr;
+  }
+  .venue:first-child::after{
+    top:auto;right:0;bottom:0;left:0;
+    width:100%;height:1px;
+  }
+  .landing-logo{padding:28px 24px}
+  .landing-logo img{height:44px}
+  .venue-name{font-size:clamp(1.8rem,6vw,2.8rem)}
+  .venue-enter{padding:14px 40px;font-size:.6rem}
+  .landing-footer{gap:20px;padding:16px 20px;font-size:.5rem}
+}
+
+/* Reduced motion */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0s!important;transition-duration:0s!important}
+}
+</style>
+</head>
+<body>
+
+<!-- Logo -->
+<div class="landing-logo">
+  <img src="/assets/logo.png" alt="Thirst">
+</div>
+
+<!-- Split Venue Selector -->
+<div class="landing-split">
+
+  <!-- Soho -->
+  <a href="/soho/" class="venue">
+    <div class="venue-bg">
+      <img src="/assets/exterior-night.jpg" alt="Thirst Soho at night" loading="eager">
+    </div>
+    <div class="venue-content">
+      <div class="venue-location">53 Greek Street, London</div>
+      <h1 class="venue-name">Soho</h1>
+      <span class="venue-enter">Enter</span>
+    </div>
+  </a>
+
+  <!-- Oxford -->
+  <a href="https://thirstoxford.com" class="venue">
+    <div class="venue-bg">
+      <img src="/assets/oxford-drink4.jpg" alt="Thirst Oxford" loading="eager">
+    </div>
+    <div class="venue-content">
+      <div class="venue-location">7-8 Park End St, Oxford</div>
+      <h1 class="venue-name">Oxford</h1>
+      <span class="venue-enter">Enter</span>
+    </div>
+  </a>
+
+</div>
+
+<!-- Footer -->
+<div class="landing-footer">
+  <a href="https://www.instagram.com/thirstbar/" target="_blank">Instagram</a>
+  <a href="https://www.designmynight.com/london/bars/soho/thirst-bar-soho" target="_blank">Book</a>
+</div>
+
+</body>
+</html>
