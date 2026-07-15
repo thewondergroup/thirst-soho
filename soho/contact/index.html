@@ -113,10 +113,16 @@ footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--wh
 <div class="contact-form-section">
   <div class="contact-form-wrap reveal-up">
     <h2>Send Us a Message</h2>
-    <div class="form-group"><label>Name *</label><input type="text" placeholder="Your name" required></div>
-    <div class="form-group"><label>Email *</label><input type="email" placeholder="your@email.com" required></div>
-    <div class="form-group"><label>Message</label><textarea placeholder="How can we help?"></textarea></div>
+    <form action="https://formsubmit.co/soho@thirstbar.com" method="POST">
+    <input type="hidden" name="_subject" value="New Contact Message — Thirst Soho">
+    <input type="hidden" name="_next" value="https://thirstbar.com/soho/contact">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <div class="form-group"><label>Name *</label><input type="text" name="name" placeholder="Your name" required></div>
+    <div class="form-group"><label>Email *</label><input type="email" name="email" placeholder="your@email.com" required></div>
+    <div class="form-group"><label>Message</label><textarea name="message" placeholder="How can we help?"></textarea></div>
     <div class="form-submit"><button class="btn" type="submit">Send</button></div>
+    </form>
   </div>
 </div>
 
