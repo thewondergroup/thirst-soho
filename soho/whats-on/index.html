@@ -120,10 +120,12 @@ footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--wh
 <div class="newsletter reveal-up">
   <h2>Stay in the Know</h2>
   <p>Sign up for our newsletter — events, offers, and the occasional love letter.</p>
-  <div class="newsletter-form">
-    <input type="email" placeholder="your@email.com">
-    <button class="btn" style="padding:14px 32px">Subscribe</button>
-  </div>
+  <form action="https://api.web3forms.com/submit" method="POST" class="newsletter-form">
+    <input type="hidden" name="access_key" value="68f4c602-1788-47fd-8c9b-39fd0e37e307">
+    <input type="hidden" name="subject" value="New Newsletter Signup — Thirst Soho">
+    <input type="email" name="email" placeholder="your@email.com" required>
+    <button class="btn" type="submit" style="padding:14px 32px">Subscribe</button>
+  </form>
 </div>
 
 
