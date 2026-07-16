@@ -70,7 +70,7 @@ footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--wh
 <nav id="nav">
   <div class="nav-hamburger" id="menuToggle"><span></span><span></span><span></span></div>
   <a href="/soho/" class="nav-logo"><img src="/assets/logo.png" alt="Thirst"></a>
-  <a href="https://www.designmynight.com/london/bars/soho/thirst-bar-soho" class="nav-book" target="_blank">Book Now</a>
+  <a href="/soho/bookings" class="nav-book">Book Now</a>
 </nav>
 <div class="menu-backdrop" id="menuBackdrop"></div>
 <div class="menu-panel" id="menuPanel">
@@ -101,7 +101,7 @@ footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--wh
   <p class="reveal-up delay-1">We welcome walk-ins, but we always recommend booking a space in advance, especially on weekends.</p>
   <p class="reveal-up delay-2">For groups of 25+, drop us a line at <span id="emailInline"></span> and we'll help you plan it.</p>
   <div class="reveal-up delay-3" style="margin-top:32px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-    <a href="/soho/menu" class="btn">Drinks Menu</a><a href="https://www.designmynight.com/london/bars/soho/thirst-bar-soho" target="_blank" class="btn">Book a Night</a>
+    <a href="/soho/menu" class="btn">Drinks Menu</a><a href="/soho/bookings" class="btn">Book a Night</a>
   </div>
 </div>
 
@@ -112,7 +112,7 @@ footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--wh
     <p class="reveal-up delay-1">Celebrating a birthday or special occasion with us? Lucky you.</p>
     <p class="reveal-up delay-2">From cosy booths to big tables and full sections, we know how to throw a good party. Just fill out the booking form and we'll take care of the rest — or help you create something a little extra if you've got a vision.</p>
     <p class="reveal-up delay-3">We also offer drinks packages for pre-booked parties. Take a look at our Drinks Menu for the details.</p>
-    <div class="reveal-up delay-5" style="margin-top:24px;display:flex;gap:16px;flex-wrap:wrap"><a href="/soho/menu" class="btn">More Info</a><a href="https://www.designmynight.com/london/bars/soho/thirst-bar-soho" target="_blank" class="btn">Enquire</a></div>
+    <div class="reveal-up delay-5" style="margin-top:24px;display:flex;gap:16px;flex-wrap:wrap"><a href="/soho/menu" class="btn">More Info</a><a href="/soho/bookings" class="btn">Enquire</a></div>
   </div>
 </section>
 
@@ -127,7 +127,7 @@ footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--wh
       <div class="info-card reveal-up delay-3"><h3>Hire Fee</h3><p>No hire fees, just a deposit</p></div>
     </div>
     <p class="reveal-up delay-5" style="margin-top:24px;font-size:.85rem;color:var(--white-50)">Our building is old and full of character, which means our toilets are downstairs and not wheelchair accessible.</p>
-    <a href="https://www.designmynight.com/london/bars/soho/thirst-bar-soho" target="_blank" class="btn reveal-up" style="margin-top:24px;transition-delay:.6s!important">Enquire</a>
+    <a href="/soho/bookings" class="btn reveal-up" style="margin-top:24px;transition-delay:.6s!important">Enquire</a>
   </div>
   <div class="split-image reveal-right"><img src="/assets/private-hire.jpg" alt="Private hire at Thirst" loading="lazy"></div>
 </section>
@@ -184,18 +184,10 @@ footer{background:var(--bg);padding:48px 24px 72px;border-top:1px solid var(--wh
 
 <div class="form-section" id="booking-form">
   <div class="form-wrap">
-    <h2 class="reveal-up">Get in Touch</h2>
-    <form action="https://api.web3forms.com/submit" method="POST">
-    <input type="hidden" name="access_key" value="68f4c602-1788-47fd-8c9b-39fd0e37e307">
-    <input type="hidden" name="subject" value="New Booking Enquiry — Thirst Soho">
-    <div class="form-group"><label>Name *</label><input type="text" name="name" placeholder="Your name" required></div>
-    <div class="form-group"><label>Email Address *</label><input type="email" name="email" placeholder="your@email.com" required></div>
-    <div class="form-group"><label>Enquiry Type</label><select name="enquiry_type"><option>Table Booking</option><option>Birthday / Celebration</option><option>Private Hire</option><option>Other</option></select></div>
-    <div class="form-group"><label>Date</label><input type="date" name="date"></div>
-    <div class="form-group"><label>Number of Guests</label><input type="number" name="guests" placeholder="e.g. 8"></div>
-    <div class="form-group"><label>Message</label><textarea name="message" placeholder="Tell us about your plans..."></textarea></div>
-    <div class="form-submit"><button class="btn" type="submit">Submit</button></div>
-    </form>
+    <h2 class="reveal-up">Book a Table</h2>
+    <div class="reveal-up delay-1" style="margin-top:24px">
+      <script src="//partners.designmynight.com/pf/js?venue_id=512b2025d5d190d2978ca341" id="dmn-js"></script>
+    </div>
   </div>
 </div>
 
