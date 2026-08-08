@@ -1482,9 +1482,17 @@ footer {
     (function(){
       var vids=['/assets/hero-video.mp4','/assets/Thirst-hero-alt.mp4','/assets/Thirst-hero-4.mp4'];
       var src=vids[Math.floor(Math.random()*vids.length)];
+      var vid=document.getElementById('heroVid');
       var el=document.getElementById('heroVidSrc');
       el.src=src;
-      el.parentElement.load();
+      vid.load();
+      vid.play().catch(function(){});
+      vid.addEventListener('canplay',function(){vid.play().catch(function(){});},{once:true});
+      document.addEventListener('touchstart',function f(){vid.play().catch(function(){});document.removeEventListener('touchstart',f);},{once:true,passive:true});
+      document.addEventListener('scroll',function f(){vid.play().catch(function(){});document.removeEventListener('scroll',f);},{once:true,passive:true});
+      document.addEventListener('click',function f(){vid.play().catch(function(){});document.removeEventListener('click',f);},{once:true,passive:true});
+      setTimeout(function(){vid.play().catch(function(){});},500);
+      setTimeout(function(){vid.play().catch(function(){});},1500);
     })();
     </script>
     <div class="hero-overlay"></div>
@@ -1737,14 +1745,6 @@ footer {
 </footer>
 
 <script>
-// Force hero video play on mobile
-const heroVid=document.getElementById('heroVid');
-if(heroVid){
-  heroVid.play().catch(()=>{});
-  document.addEventListener('touchstart',function f(){heroVid.play().catch(()=>{});document.removeEventListener('touchstart',f);},{once:true,passive:true});
-  document.addEventListener('scroll',function f(){heroVid.play().catch(()=>{});document.removeEventListener('scroll',f);},{once:true,passive:true});
-}
-
 // ══════════════════════════════════════
 // ANIMATION ENGINE
 // ══════════════════════════════════════
