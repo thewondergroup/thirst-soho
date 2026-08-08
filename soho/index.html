@@ -1476,8 +1476,17 @@ footer {
 <section class="hero">
   <div class="hero-video">
     <video id="heroVid" autoplay muted loop playsinline preload="auto" webkit-playsinline>
-      <source src="/assets/Thirst-hero-alt.mp4" type="video/mp4">
+      <source id="heroVidSrc" src="/assets/hero-video.mp4" type="video/mp4">
     </video>
+    <script>
+    (function(){
+      var vids=['/assets/hero-video.mp4','/assets/Thirst-hero-alt.mp4','/assets/Thirst-hero-3.mp4','/assets/Thirst-hero-4.mp4'];
+      var src=vids[Math.floor(Math.random()*vids.length)];
+      var el=document.getElementById('heroVidSrc');
+      el.src=src;
+      el.parentElement.load();
+    })();
+    </script>
     <div class="hero-overlay"></div>
   </div>
   <div class="hero-content">
