@@ -1062,12 +1062,33 @@ nav.scrolled {
   height: 100%;
   min-height: 500px;
   border: 0;
-  filter: grayscale(1) invert(1) brightness(0.35) contrast(1.5);
-  opacity: .7;
+  filter: grayscale(1) invert(0.92) brightness(0.55) contrast(1.15) sepia(0.15) hue-rotate(190deg);
+  opacity: .9;
   transition: opacity .6s ease;
 }
 .map-embed:hover iframe {
-  opacity: .85;
+  opacity: 1;
+}
+/* Navy tint to blend with brand */
+.map-embed::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(11,17,43,.35) 0%, rgba(11,17,43,.15) 50%, rgba(11,17,43,.35) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+/* Hide Google branding + controls */
+.map-embed::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background: var(--bg);
+  z-index: 3;
+  pointer-events: none;
 }
 /* Gradient overlays to blend edges into the background */
 .map-edge-top, .map-edge-bottom, .map-edge-left, .map-edge-right {
