@@ -500,6 +500,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <ul class="menu-links">
     <li><a href="/soho/">Welcome</a></li>
     <li><a href="/soho/bookings">Bookings & Events</a></li>
+    <li><a href="/soho/christmas-parties">Christmas Parties</a></li>
+    <li class="nye-link"><a href="https://www.designmynight.com/london/bars/soho/thirst-bar-soho/nye-2027" target="_blank" rel="noopener" style="color:#c9a84c !important" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'nye_tickets_click',location:'menu'})">NYE Tickets ✨</a></li>
     <li><a href="/soho/menu" class="active">Drinks</a></li>
     <li><a href="/soho/food">Food</a></li>
     <li><a href="/soho/whats-on">What's On</a></li>
@@ -607,7 +609,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="footer-col">
       <h4>Hours</h4>
-      <p>Mon–Sat: 16:00–03:00<br>Sun: 16:00–01:00</p>
+      <p data-hours="Mon–Sun: 16:00–03:00">Mon–Sat: 16:00–03:00<br>Sun: 16:00–01:00</p>
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
@@ -924,6 +926,16 @@ setTimeout(()=>{document.querySelectorAll('.reveal-up').forEach(el=>el.classList
   loadMenu();
 })();
 
+</script>
+<script>
+/* Sunday hours switch: 1am until 1 Nov 2026, 3am from then on */
+(function(){var d=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/London'}));if(d<new Date(2026,10,1))return;
+document.querySelectorAll('[data-hours]').forEach(function(el){el.innerHTML=el.getAttribute('data-hours');});
+document.querySelectorAll('script[type="application/ld+json"]').forEach(function(s){if(s.textContent.indexOf('"Sunday"')>-1){s.textContent=s.textContent.replace(/("dayOfWeek":\s*"Sunday",\s*"opens":\s*"16:00",\s*"closes":\s*)"01:00"/,'$1"03:00"');}});})();
+</script>
+<script>
+/* NYE links hide themselves after the party (1 Jan 2027, 06:00 London) */
+(function(){var d=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/London'}));if(d>=new Date(2027,0,1,6))document.querySelectorAll('.nye-link').forEach(function(el){el.remove();});})();
 </script>
 </body>
 </html>

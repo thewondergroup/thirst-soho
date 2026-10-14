@@ -10,5 +10,19 @@
   <url><loc>https://thirstbar.com/soho/gallery</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://thirstbar.com/soho/careers</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://thirstbar.com/soho/faqs</loc><priority>0.5</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://thirstbar.com/soho/blog</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://thirstbar.com/soho/blog/work-christmas-party-ideas-soho</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://thirstbar.com/soho/blog/book-christmas-party-venue-central-london</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://thirstbar.com/soho/blog/what-is-stupid-hour</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://thirstbar.com/soho/contact</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://thirstbar.com/oxford/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://thirstbar.com/oxford/bookings</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://thirstbar.com/oxford/thirsty</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://thirstbar.com/oxford/whats-on</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://thirstbar.com/oxford/our-story</loc><priority>0.6</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://thirstbar.com/oxford/gallery</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://thirstbar.com/oxford/careers</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://thirstbar.com/oxford/faqs</loc><priority>0.5</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://thirstbar.com/oxford/contact</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://thirstbar.com/soho/christmas-parties</loc><lastmod>2026-10-12</lastmod><priority>0.9</priority><changefreq>weekly</changefreq></url>
 </urlset>

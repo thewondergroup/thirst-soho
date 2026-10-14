@@ -88,6 +88,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <ul class="menu-links">
     <li><a href="/soho/">Welcome</a></li>
     <li><a href="/soho/bookings">Bookings & Events</a></li>
+    <li><a href="/soho/christmas-parties">Christmas Parties</a></li>
+    <li class="nye-link"><a href="https://www.designmynight.com/london/bars/soho/thirst-bar-soho/nye-2027" target="_blank" rel="noopener" style="color:#c9a84c !important" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'nye_tickets_click',location:'menu'})">NYE Tickets ✨</a></li>
     <li><a href="/soho/menu">Drinks</a></li>
     <li><a href="/soho/food">Food</a></li>
     <li><a href="/soho/whats-on">What's On</a></li>
@@ -177,7 +179,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="footer-grid">
     <div class="footer-col"><h4>Location</h4><p>53 Greek St<br>London<br>W1D 3DR</p></div>
     <div class="footer-col"><h4>Contact Us</h4><p><a href="tel:02074371977">020 7437 1977</a><br><span id="emailFooter"></span><br><a href="https://www.instagram.com/thirstbar/" target="_blank">@thirstbar</a></p></div>
-    <div class="footer-col"><h4>Opening Times</h4><p>Mon–Sat: 16:00–03:00<br>Sun: 16:00–01:00</p></div>
+    <div class="footer-col"><h4>Opening Times</h4><p data-hours="Mon–Sun: 16:00–03:00">Mon–Sat: 16:00–03:00<br>Sun: 16:00–01:00</p></div>
   </div>
   <div class="footer-logo-wrap"><a href="/soho/"><img src="/assets/logo.png" alt="Thirst"></a><a href="/oxford/" style="display:block;margin-top:20px;font-family:var(--font-ui);font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--white-50);transition:color .3s">Oxford →</a></div>
 </footer>
@@ -201,6 +203,16 @@ document.querySelectorAll('.reveal-up,.reveal-left,.reveal-right,.reveal-scale')
 (function(){const u='soho',d='thirstbar.com';const el=document.getElementById('emailFooter');if(el){const a=document.createElement('a');a.href='mail'+'to:'+u+'@'+d;a.textContent=u+'@'+d;el.appendChild(a);}})();
 setTimeout(()=>{document.querySelectorAll('.reveal-up,.reveal-left,.reveal-right,.reveal-scale').forEach(el=>el.classList.add('visible'));},3000);
 
+</script>
+<script>
+/* Sunday hours switch: 1am until 1 Nov 2026, 3am from then on */
+(function(){var d=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/London'}));if(d<new Date(2026,10,1))return;
+document.querySelectorAll('[data-hours]').forEach(function(el){el.innerHTML=el.getAttribute('data-hours');});
+document.querySelectorAll('script[type="application/ld+json"]').forEach(function(s){if(s.textContent.indexOf('"Sunday"')>-1){s.textContent=s.textContent.replace(/("dayOfWeek":\s*"Sunday",\s*"opens":\s*"16:00",\s*"closes":\s*)"01:00"/,'$1"03:00"');}});})();
+</script>
+<script>
+/* NYE links hide themselves after the party (1 Jan 2027, 06:00 London) */
+(function(){var d=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/London'}));if(d>=new Date(2027,0,1,6))document.querySelectorAll('.nye-link').forEach(function(el){el.remove();});})();
 </script>
 </body>
 </html>
