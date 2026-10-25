@@ -846,7 +846,7 @@ setTimeout(()=>{document.querySelectorAll('.reveal-up').forEach(el=>el.classList
       const price=b.price?(b.price.startsWith('£')?b.price:'£'+b.price):'';
       html+=`<div class="beer-card"><div class="beer-info"><h3>${b.name}</h3><p class="beer-meta">${b.origin||''} · ${b.size||''}</p></div><div class="beer-price">${price}</div></div>`;
     });
-    html+='</div></div>';
+    html+='</div><p class="pkg-note" style="margin-top:32px">Spirit bottles come with our regular mixers; Red Bull is not included and is charged separately. All prices include VAT.</p></div>';
     container.innerHTML=html;
     container.style.display='';
   }
